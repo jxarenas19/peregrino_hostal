@@ -1,9 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use App\Traits\GenericController;
 use crocodicstudio\crudbooster\controllers\CBController;
 
 class AdminAboutController extends CBController {
 
+    use GenericController;
 
     public function cbInit()
     {
@@ -16,7 +18,27 @@ class AdminAboutController extends CBController {
 		$this->addSelectTable("Categoría","category_id",["table"=>"hp_category_about","value_option"=>"id","display_option"=>"name-visual","sql_condition"=>""]);
 		$this->addDatetime("Creado","created_at")->required(false)->showIndex(false)->showAdd(false)->showEdit(false);
 		$this->addDatetime("Actualizado","updated_at")->required(false)->showIndex(false)->showAdd(false)->showEdit(false);
-		
 
+        $this->addJavascriptCss();
+        $this->hookAll();
+        $this->addLocaleForm(columnSingleton()->getColumns());
+
+        $this->addSubModule("Idiomas", AdminAboutTraduccionesController::class, "about_id",
+            function ($row) {
+                return [
+                    "About" => $row->{"name-visual"}
+                ];
+            }, null, "fa fa-flag", null);
+
+    }
+
+    public function getEdit($id)
+    {
+        return $this->upgradeEdit($id);
+    }
+
+    public function getDetail($id)
+    {
+        return $this->upgradeDetails($id);
     }
 }
