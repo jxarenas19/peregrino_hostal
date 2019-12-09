@@ -1,7 +1,6 @@
 <script src="{{ cbAsset('js/jquery/dist/jquery.min.js') }}"></script>
 
 <div class="box box-default">
-    <input id="dict_values" type="hidden" name="precios-at" value={} class="form-control" readonly >
     <div class="box-body">
         <table class="table table-striped table-boredered">
             <thead>
@@ -31,7 +30,8 @@
     var save_value = {};
     function saveValue(item) {
         save_value[item.getAttribute("id-item")] = item.textContent;
-        $("#dict_values").val(JSON.stringify(save_value));
+        $('input[name ="precios-at"]')[0].value = (JSON.stringify(save_value));
+
     }
 
 </script>

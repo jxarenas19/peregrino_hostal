@@ -18,4 +18,98 @@ class Hostal extends Model implements TranslatableContract
     {
         return $this->name . ' ' . $this->name;
     }
+
+    /**
+     * Obtiene todas las imagenes asociadas a un hostal
+     */
+    public function images()
+    {
+        return $this->hasMany(Imagen::class, 'hostal_id');
+    }
+
+    /**Devuelve un array con cada una de las fotos y sus atributos
+     * @param $id_hostal
+     * @return listado de images
+     */
+    public function imagesToHostalArray()
+    {
+        return $this->images->toArray();
+
+    }
+
+    /** Collection de habitaciones relacionadas con el hostal
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rooms()
+    {
+        return $this->hasMany(Room::class, 'hostal_id');
+    }
+
+    /**Metodo encargado de retornar un array con los datos en español
+     * de las habitaciones del hostal
+     * @return array|\Illuminate\Support\Collection
+     */
+    public function roomsToHostalArray()
+    {
+        $rooms = $this->rooms;
+        $roomResponse = collect();
+        foreach ($rooms as $room){
+            $typeRoom = $room->typeRoom->toArray();
+            $data = array(
+                "id" => $room->getAttribute('id'),
+                "name" => $room->getAttribute('name'),
+                "tipoRoom" => $typeRoom['name'],
+                "precio" => $room->pricesToRoomArray()->toArray(),
+                "hostal" => $room->hostal->attributesToArray()['name'],
+                "descripcion" => ($room->getAttribute('description')!=null)?
+                    $room->getAttribute('description'): $typeRoom['description'],
+            );
+            $roomResponse[] = $data;
+        }
+        return $roomResponse;
+    }
+
+    /**Datos del hostal en español
+     * @return array
+     */
+    public function hostalToArray()
+    {
+        $data = array(
+            "id" => $this->getAttribute('id'),
+            "name" => $this->getAttribute('name'),
+            "description" => $this->getAttribute('description'),
+            "mini_description" => $this->getAttribute('mini_description'),
+            "address" => $this->getAttribute('address'),
+            "email" => $this->getAttribute('email'),
+            "latitude" => $this->getAttribute('latitude'),
+            "length" => $this->getAttribute('length'),
+            "rooms" => $this->roomsToHostalArray()->toArray(),
+            "services" => $this->servicesToHostalArray(),
+            "images" => $this->imagesToHostalArray()
+        );
+        return $data;
+    }
+
+    /**Devuelve los servicios asociados al hostal
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function services()
+    {
+        return $this->hasMany(Service::class,'hostal_id');
+    }
+
+    public function servicesToHostalArray()
+    {
+        $services = $this->services;
+        $serviceResponse = collect();
+        foreach ($services as $service){
+            $data = array(
+                "titulo" => $service->getAttribute('titulo'),
+                "descripcion" => $service->getAttribute('descripcion'),
+                "precio" => $service->getAttribute('precio'),
+            );
+            $serviceResponse[] = $data;
+        }
+        return $serviceResponse->toArray();
+    }
 }

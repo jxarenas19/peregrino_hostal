@@ -134,18 +134,39 @@ class UtilTranslationSave
     }
     public function savePrices($last_insert_id)
     {
+        if ($GLOBALS['priceData']!=null){
         $hostal_id= cb()->find("hp_rooms",["id"=>$last_insert_id])->hostal_id;
-        DB::table("hp_prices")
-            ->where("room_id","=",$last_insert_id)->delete();
         foreach ($GLOBALS['priceData'] as $key => $item) {
-            DB::table('hp_prices')->insertGetId(array(
-                'price' => $item,
-                'season_id' => $key,
-                'hostal_id' => $hostal_id,
-                'room_id' => $last_insert_id,
-                "created_at"=>date("Y-m-d H:i:s"),
-                "updated_at"=>date("Y-m-d H:i:s")
-            ));
+            if (cb()->getCurrentMethod()=='postAddSave'){
+                DB::table('hp_prices')->insertGetId(array(
+                    'price' => $item,
+                    'season_id' => $key,
+                    'hostal_id' => $hostal_id,
+                    'room_id' => $last_insert_id,
+                    "created_at"=>date("Y-m-d H:i:s"),
+                    "updated_at"=>date("Y-m-d H:i:s")
+                ));
+            }
+            elseif (cb()->getCurrentMethod()=='postEditSave'){
+                $elem = DB::table('hp_prices')
+                    ->where("room_id", "=", $last_insert_id)
+                    ->where("season_id", "=", $key);
+                if ($elem->exists()) {
+                    $elem->update(['price'=> $item]);
+                }
+                else{
+                    DB::table('hp_prices')->insertGetId(array(
+                        'price' => $item,
+                        'season_id' => $key,
+                        'hostal_id' => $hostal_id,
+                        'room_id' => $last_insert_id,
+                        "created_at"=>date("Y-m-d H:i:s"),
+                        "updated_at"=>date("Y-m-d H:i:s")
+                    ));
+                }
+            }
+
+        }
         }
     }
     public function deleteAllConforts($id)

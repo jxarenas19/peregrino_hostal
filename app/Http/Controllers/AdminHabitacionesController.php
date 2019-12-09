@@ -21,7 +21,7 @@ class AdminHabitacionesController extends CBController
         $this->addWysiwyg("Descripción", "description-visual")->showAdd(false)->showEdit(false)->filterable(true)->strLimit(150);
         $this->addSelectTable("Hostal", "hostal_id", ["table" => "hp_hostales", "value_option" => "id", "display_option" => "name-visual", "sql_condition" => ""]);
         $this->addSelectTable("Tipo Habitación", "type_room_id", ["table" => "hp_types_room", "value_option" => "id", "display_option" => "name-visual", "sql_condition" => ""]);
-
+        $this->addHidden("dd", "precios-at")->showIndex(false);
         $this->addSelectFacilidades();
 
         $this->addTablePrecios();
@@ -89,6 +89,7 @@ class AdminHabitacionesController extends CBController
 
         }
     }
+
     public function addTablePrecios()
     {
         if (cb()->getCurrentMethod()== 'getEdit' or cb()->getCurrentMethod()== 'getAdd'){
@@ -98,7 +99,7 @@ class AdminHabitacionesController extends CBController
             $prices = DB::table('hp_prices')
                 ->where('room_id','=',$room_id)
                 ->pluck('price','season_id')->toArray();
-            $this->addCustom("Precio Por Temporada", "precios-at")->required(false)
+            $this->addCustom("Precio Por Temporada", "custom-precio")->required(false)
                 ->showIndex(false)
                 ->setHtml(view("admin.custom_table", ['rows' =>
                     json_decode(json_encode($type_rooms), true),
@@ -109,6 +110,7 @@ class AdminHabitacionesController extends CBController
         }
 
     }
+
     public function getEdit($id)
     {
         return $this->upgradeEdit($id);
