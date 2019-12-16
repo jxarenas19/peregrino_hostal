@@ -48,6 +48,13 @@ class AdminHabitacionesController extends CBController
                     "Habitación" => $row->{"name-visual"}
                 ];
             }, null, "fa fa-usd", ButtonColor::LIGHT_BLUE);
+
+        $this->addSubModule("Imágenes", AdminImagenesController::class, "room_id",
+            function ($row) {
+                return [
+                    "Habitación" => $row->{"name-visual"}
+                ];
+            }, null, "fa fa-file-image-o", ButtonColor::YELLOW);
     }
 
     /**metodo encargado de agregar el combo con los hostales

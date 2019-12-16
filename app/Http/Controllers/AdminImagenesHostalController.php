@@ -3,21 +3,21 @@
 use App\Traits\GenericController;
 use crocodicstudio\crudbooster\controllers\CBController;
 
-class AdminImagenesController extends CBController {
+class AdminImagenesHostalController extends CBController {
 
     use GenericController;
 
     public function cbInit()
     {
-        $this->setTable("hp_images");
-        $this->setPermalink("imagenes");
-        $this->setPageTitle("Imagenes");
+        $this->setTable("hp_images_hostal");
+        $this->setPermalink("imagenes_hostal");
+        $this->setPageTitle("Imagenes Hostal");
 
         $this->addText("Nombre","name-visual")->required(false)->showDetail(false)->showAdd(false)->showEdit(false)->strLimit(150)->maxLength(255);
 		$this->addWysiwyg("Descripción","description-visual")->required(false)->showDetail(false)->showAdd(false)->showEdit(false)->strLimit(150);
-		$this->addImage("Url","url");
+		$this->addImage("Url","url")->encrypt(true);
 		$this->addRadio("Imagen Principal","main")->options([1=>'True',0=>'False']);
-		$this->addSelectTable("Room","room_id",["table"=>"hp_rooms","value_option"=>"id","display_option"=>"name-visual","sql_condition"=>""]);
+		$this->addSelectTable("Hostal","hostal_id",["table"=>"hp_hostales","value_option"=>"id","display_option"=>"name-visual","sql_condition"=>""]);
 		$this->addDatetime("Creado","created_at")->required(false)->showAdd(false)->showEdit(false);
 		$this->addDatetime("Actualizado","updated_at")->required(false)->showAdd(false)->showEdit(false);
 
@@ -25,7 +25,7 @@ class AdminImagenesController extends CBController {
         $this->hookAll();
         $this->addLocaleForm(columnSingleton()->getColumns());
 
-        $this->addSubModule("Idiomas", AdminImagenesTraduccionesController::class, "image_id",
+        $this->addSubModule("Idiomas", AdminImagenesHostalTraduccionesController::class, "image_id",
             function ($row) {
                 return [
                     "Imagen" => $row->{"name-visual"}

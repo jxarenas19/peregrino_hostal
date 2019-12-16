@@ -51,7 +51,7 @@ class AdminHostalesController extends CBController
                 ];
             }, null, "fa fa-shopping-basket", ButtonColor::GREEN);
 
-        $this->addSubModule("Imágenes", AdminImagenesController::class, "hostal_id",
+        $this->addSubModule("Imágenes", AdminImagenesHostalController::class, "hostal_id",
             function ($row) {
                 return [
                     "Hostal" => $row->{"name-visual"}
