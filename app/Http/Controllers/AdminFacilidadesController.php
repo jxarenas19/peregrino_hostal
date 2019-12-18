@@ -16,6 +16,7 @@ class AdminFacilidadesController extends CBController
         $this->setPageTitle("Facilidades");
 
         $this->addText("Nombre", "name-visual")->showDetail(false)->showAdd(false)->showEdit(false)->strLimit(150)->maxLength(255);
+        $this->addImage("", "icon")->showAdd(false);
         $this->addDatetime("Creado", "created_at")->required(false)->showAdd(false)->showEdit(false);
         $this->addDatetime("Actualizado", "updated_at")->required(false)->showAdd(false)->showEdit(false);
 
