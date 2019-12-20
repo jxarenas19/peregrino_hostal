@@ -3,22 +3,18 @@
 use App\Classes\AllIcons;
 use App\Traits\GenericController;
 use crocodicstudio\crudbooster\controllers\CBController;
-use crocodicstudio\crudbooster\controllers\partials\ButtonColor;
-use Illuminate\Support\Facades\Storage;
 
-class AdminServiciosController extends CBController {
+class AdminPoliticasController extends CBController {
 
     use GenericController;
 
     public function cbInit()
     {
-        $this->setTable("hp_services");
-        $this->setPermalink("servicios");
-        $this->setPageTitle("Servicios");
+        $this->setTable("hp_politicas");
+        $this->setPermalink("politicas");
+        $this->setPageTitle("Politicas");
 
-        $this->addText("Nombre","name-visual")->showAdd(false)->showEdit(false)->strLimit(150)->maxLength(255);
-		$this->addWysiwyg("Descripción","description-visual")->showAdd(false)->showEdit(false)->strLimit(150);
-        $this->addText("Precio","price");
+        $this->addText("Nombre", "name-visual")->showDetail(false)->showAdd(false)->showEdit(false)->strLimit(150)->maxLength(255);
         $this->addText("", "icon")
             ->visible(false)->showAdd(false)->required(false)->indexDisplayTransform(function($row) {
                 if ($row) return "<i style='font-size: 20px' class='img-thumbnail ".$row."'/></i>";
@@ -29,25 +25,20 @@ class AdminServiciosController extends CBController {
             ->showIndex(false)->showDetail(false)
             ->setHtml(view("admin.custom_upload_icon", ['icons' => $icons->web()])->render()
             );
-		$this->addDatetime("Creado","created_at")->required(false)->showAdd(false)->showEdit(false);
-		$this->addDatetime("Actualizado","updated_at")->required(false)->showAdd(false)->showEdit(false);
+        $this->addDatetime("Creado", "created_at")->required(false)->showAdd(false)->showEdit(false);
+        $this->addDatetime("Actualizado", "updated_at")->required(false)->showAdd(false)->showEdit(false);
 
         $this->addJavascriptCss();
         $this->hookAll();
         $this->addLocaleForm(columnSingleton()->getColumns());
 
-        $this->addSubModule("Idiomas", AdminServiciosTraduccionesController::class, "service_id",
+        $this->addSubModule("Idiomas", AdminPoliticasTraduccionesController::class, "politica_id",
             function ($row) {
                 return [
-                    "Servicio" => $row->{"name-visual"}
+                    "Política" => $row->{"name-visual"}
                 ];
             }, null, "fa fa-flag", null);
-        $this->addSubModule("Imágenes", AdminImagenesServicioController::class, "service_id",
-            function ($row) {
-                return [
-                    "Servicio" => $row->{"name-visual"}
-                ];
-            }, null, "fa fa-file-image-o", ButtonColor::YELLOW);
+		
 
     }
     public function getEdit($id)

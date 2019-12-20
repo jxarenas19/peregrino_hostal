@@ -45,3 +45,5 @@
 
 </script>
 
+<link rel='stylesheet' href='{{cbAsset("css/icon_set_1.css")}}'/>
+<link rel='stylesheet' href='{{cbAsset("css/icon_set_2.css")}}'/>

@@ -86,7 +86,7 @@ class AdminHabitacionesController extends CBController
 
         }
         $this->addCustom("Facilidades", "confort_id")->required(false)
-            ->setHtml(view("admin.custom_select2", ['values' => $values, 'name' => 'confort_id[]'])->render()
+            ->setHtml(view("admin.custom_select2", ['values' => $values, 'name' => 'facilidades-at[]'])->render()
             );
         }
         else {

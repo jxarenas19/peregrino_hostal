@@ -4,7 +4,7 @@
 namespace App\Traits;
 
 
-use App\Classes\UtilTranslationSave;
+use App\Classes\UtilSave;
 use App\Models\Site\Room;
 
 trait GenericController
@@ -66,11 +66,11 @@ trait GenericController
     public function hookAll()
     {
         self::hookBeforeInsert(function ($data) {
-
-            $utilTranslation = new UtilTranslationSave($data,
+            $utilTranslation = new UtilSave($data,
                 self::table() . "_translations");
             $GLOBALS['lenguageData'] = $utilTranslation->findLanguageData();
             $GLOBALS['confortData'] = $utilTranslation->findConfortData();
+            $GLOBALS['politicaData'] = $utilTranslation->findPoliticasData();
             $GLOBALS['priceData'] = $utilTranslation->findPriceData();
             $data = $utilTranslation->deleteExtraField($data);
             $data = $utilTranslation->addDefaultValueData($data);
@@ -79,19 +79,21 @@ trait GenericController
 
         });
         self::hookAfterInsert(function ($last_insert_id) {
-            $utilTranslation = new UtilTranslationSave($last_insert_id,
+            $utilTranslation = new UtilSave($last_insert_id,
                 self::table() . "_translations");
             $utilTranslation->saveTranslations($last_insert_id);
             $utilTranslation->saveConforts($last_insert_id);
+            $utilTranslation->savePoliticas($last_insert_id);
             $utilTranslation->savePrices($last_insert_id);
 
         });
         self::hookBeforeUpdate(function ($data, $id) {
 
-            $utilTranslation = new UtilTranslationSave($data,
+            $utilTranslation = new UtilSave($data,
                 self::table() . "_translations");
             $GLOBALS['lenguageData'] = $utilTranslation->findLanguageData();
             $GLOBALS['confortData'] = $utilTranslation->findConfortData();
+            $GLOBALS['politicaData'] = $utilTranslation->findPoliticasData();
             $GLOBALS['priceData'] = $utilTranslation->findPriceData();
             $data = $utilTranslation->deleteExtraField($data);
             $data = $utilTranslation->addDefaultValueData($data);
@@ -100,11 +102,12 @@ trait GenericController
 
         });
         self::hookAfterUpdate(function ($id) {
-            $utilTranslation = new UtilTranslationSave($id,
+            $utilTranslation = new UtilSave($id,
                 self::table() . "_translations");
             $utilTranslation->saveTranslations($id);
             $utilTranslation->deleteAllConforts($id);
             $utilTranslation->saveConforts($id);
+            $utilTranslation->savePoliticas($id);
             $utilTranslation->savePrices($id);
 
         });

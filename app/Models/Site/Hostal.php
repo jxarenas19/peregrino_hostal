@@ -112,4 +112,9 @@ class Hostal extends Model implements TranslatableContract
         }
         return $serviceResponse->toArray();
     }
+    public function politicas()
+    {
+        return $this->belongsToMany(Politicas::class,
+            'hp_politicas_hostales','hostal_id','politica_id');
+    }
 }

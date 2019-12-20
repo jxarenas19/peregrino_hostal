@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
  * de cada lenguaje para cada tabla
  * @package App\Classes
  */
-class UtilTranslationSave
+class UtilSave
 {
     public function __construct($data, $dbTranslation)
     {
@@ -61,7 +61,8 @@ class UtilTranslationSave
             } elseif ($item == null) {
                 unset($data[$item]);
             } elseif (explode('-', $data[$item])[0] == 'confort'
-                or explode('-', $data[$item])[0] == 'precios') {
+                or explode('-', $data[$item])[0] == 'precios'
+                or explode('-', $data[$item])[0] == 'politica') {
                 unset($data[$item]);
             }
         }
@@ -113,6 +114,18 @@ class UtilTranslationSave
         }
         return $arrayConforts;
     }
+    public function findPoliticasData()
+    {
+        $data = $this->data;
+        $arrayPoliticas = array();
+        foreach ($data as $item) {
+            $splitAttribute = explode('-', $item);
+            if ($splitAttribute[0] === 'politica') {
+                $arrayPoliticas[] = $splitAttribute[1];
+            }
+        }
+        return $arrayPoliticas;
+    }
     public function findPriceData()
     {
         try{
@@ -129,6 +142,15 @@ class UtilTranslationSave
             DB::table('hp_conforts_rooms')->insertGetId(array(
                 'confort_id' => $item,
                 'room_id' => $last_insert_id,
+            ));
+        }
+    }
+    public function savePoliticas($last_insert_id)
+    {
+        foreach ($GLOBALS['politicaData'] as $item) {
+            DB::table('hp_politicas_hostales')->insertGetId(array(
+                'politica_id' => $item,
+                'hostal_id' => $last_insert_id,
             ));
         }
     }

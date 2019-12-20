@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Site\Hostal;
 use App\Traits\GenericController;
 use crocodicstudio\crudbooster\controllers\CBController;
 use crocodicstudio\crudbooster\controllers\partials\ButtonColor;
@@ -23,6 +24,7 @@ class AdminHostalesController extends CBController
         $this->addText("Teléfono", "phone")->filterable(true);
         $this->addText("Latitud", "latitude")->filterable(true)->strLimit(150)->maxLength(255);
         $this->addText("Longitud", "length")->filterable(true)->strLimit(150)->maxLength(255);
+        $this->addSelectPoliticas();
         $this->addDatetime("Creado", "created_at")->required(false)->showAdd(false)->showEdit(false);
         $this->addDatetime("Actualizado", "updated_at")->required(false)->showAdd(false)->showEdit(false);
 
@@ -59,6 +61,48 @@ class AdminHostalesController extends CBController
             }, null, "fa fa-file-image-o", ButtonColor::YELLOW);
     }
 
+    public function addSelectPoliticas()
+    {
+        if (cb()->getCurrentMethod()== 'getEdit' or cb()->getCurrentMethod()== 'getAdd'){
+            $temp = explode('/', $_SERVER["REDIRECT_URL"]);
+            $hostal_id = end($temp);
+            $politicas= cb()->findAll("hp_politicas")->toArray();
+            $values = array();
+            foreach ($politicas as $item) {
+                if (cb()->find('hp_politicas_hostales',
+                    ['politica_id' => $item->id, 'hostal_id' => $hostal_id])) {
+                    $values[] = array(
+                        'value' => "politica-" . $item->id,
+                        'name' => $item->{"name-visual"},
+                        'selected' => true
+                    );
+                } else {
+                    $values[] = array(
+                        'value' => "politica-" . $item->id,
+                        'name' => $item->{"name-visual"},
+                        'selected' => false
+                    );
+                }
+
+
+            }
+            $this->addCustom("Políticas", "politicas_id")->required(false)
+                ->setHtml(view("admin.custom_select2", ['values' => $values, 'name' => 'politicas-at[]'])->render()
+                );
+        }
+        else {
+            $this->addText("Políticas", "politicas-at")
+                ->showAdd(false)->showEdit(false)
+//                ->indexDisplayTransform(function($row) {
+//                    if ($row) return "<i style='font-size: 20px' class='img-thumbnail ".$row."'/></i>";
+//                    else return '';
+//                })
+                ->filterable(true)->strLimit(150)->maxLength(255);
+
+
+        }
+    }
+
     public function getEdit($id)
     {
         return $this->upgradeEdit($id);
@@ -67,5 +111,27 @@ class AdminHostalesController extends CBController
     public function getDetail($id)
     {
         return $this->upgradeDetails($id);
+    }
+
+    public function getIndex()
+    {
+        $indexData = parent::getIndex();
+        $items = $indexData->getData()['result']->getCollection();
+        $items->transform(function ($value) {
+
+
+            $row = json_decode(json_encode($value), true);
+            $politicas = Hostal::all()
+                ->where('id','=',$value->primary_key)->first()
+                ->politicas()->get(['name-visual'])->toArray();
+            $facili = '';
+            foreach ($politicas as $it){
+                $facili =$facili.",".$it["name-visual"];
+            }
+            $row['politicas-at'] = $facili;
+            return json_decode(json_encode($row));
+        });
+        return view("crudbooster::module.index.index",
+            $indexData->getData());
     }
 }

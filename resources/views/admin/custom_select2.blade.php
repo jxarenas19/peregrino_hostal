@@ -9,13 +9,3 @@
         @endif
     @endforeach
 </select>
-
-<script>
-        $( document ).ready(function() {
-                var option  =<?php echo json_encode($GLOBALS); ?>;
-                if(option== "edit")  {
-                        alert('entro');
-                }
-
-        });
-</script>

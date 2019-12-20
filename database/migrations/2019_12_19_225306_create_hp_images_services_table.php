@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHpImagesHostalTable extends Migration
+class CreateHpImagesServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateHpImagesHostalTable extends Migration
      */
     public function up()
     {
-        Schema::create('hp_images_hostal', function (Blueprint $table) {
+        Schema::create('hp_images_service', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name-visual');
             $table->longText('description-visual');
             $table->string('url');
             $table->boolean('main');
-            $table->integer('hostal_id')->unsigned()->nullable(true);
-            $table->foreign('hostal_id')->references('id')
-                ->on('hp_hostales');
+            $table->integer('service_id')->unsigned()->nullable(true);
+            $table->foreign('service_id')->references('id')
+                ->on('hp_services');
             $table->timestamps();
         });
-        Schema::create('hp_images_hostal_translations', function(Blueprint $table)
+        Schema::create('hp_images_service_translations', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('image_id')->unsigned();
@@ -33,7 +33,7 @@ class CreateHpImagesHostalTable extends Migration
             $table->string('locale')->index();
             $table->unique(['image_id','locale']);
             $table->foreign('image_id')->references('id')
-                ->on('hp_images_hostal')->onDelete('cascade');
+                ->on('hp_images_service')->onDelete('cascade');
             $table->string('icon');
         });
     }
@@ -45,7 +45,7 @@ class CreateHpImagesHostalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hp_images_hostal');
-        Schema::dropIfExists('hp_images_hostal_translations');
+        Schema::dropIfExists('hp_images_service');
+        Schema::dropIfExists('hp_images_service_translations');
     }
 }

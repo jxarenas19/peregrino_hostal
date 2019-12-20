@@ -14,9 +14,9 @@
             <tr>
                 <td >{{$item["name-visual"]}}</td>
                 @if (collect($prices)->has($item["id"]))
-                    <td onblur="saveValue(this)" id-item={{$item["id"]}} contenteditable >{{$prices[$item["id"]]}}</td>
+                    <td onblur="saveValue(this)" class="field-editable" id-item={{$item["id"]}} contenteditable >{{$prices[$item["id"]]}}</td>
                 @else
-                    <td onblur="saveValue(this)" id-item={{$item["id"]}} contenteditable >0</td>
+                    <td onblur="saveValue(this)" class="field-editable" id-item={{$item["id"]}} contenteditable >0</td>
                 @endif
 
             </tr>
@@ -27,8 +27,13 @@
 </div>
 
 <script>
+    $(".field-editable").keypress(function(e) {
+        // Aqui lo que hago es no permitir q se introduzca ningun caracter q no sea numero
+        if (isNaN(String.fromCharCode(e.which))) e.preventDefault();
+    });
     var save_value = {};
     function saveValue(item) {
+
         save_value[item.getAttribute("id-item")] = item.textContent;
         $('input[name ="precios-at"]')[0].value = (JSON.stringify(save_value));
 
