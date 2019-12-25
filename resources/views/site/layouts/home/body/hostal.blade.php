@@ -18,9 +18,9 @@
     <div class="row">
 
         <div class="col-sm-1 tooltip_styled tooltip-effect-4">
-            <span class="tooltip-item"><i class="icon_set_1_icon-41"></i></span>
-            <div class="tooltip-content map-tooltip">
-                <div id={{$item['id']}} style='width: 300px; height: 300px;'></div>
+            <span class="tooltip-item"><i class="icon_set_1_icon-41" ></i></span>
+            <div class="tooltip-content2">
+                <div class="map-tooltip" id={{$item['id']}} style='width: 300px; height: 300px;margin-left:2px;'></div>
             </div>
         </div>
 
@@ -43,6 +43,7 @@
     </ul>
     <a href="#" class="btn_1_outline">{{$data['keyWorld']['read_more']}}</a>
 </div>
+
 <script>
     var hostal = @json($item);
     var mymap = L.map(String(hostal.id)).setView([23.113417, -82.413297], 13);

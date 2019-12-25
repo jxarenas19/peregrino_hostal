@@ -36,6 +36,7 @@
 
 <!-- responsive -->
 <link rel="stylesheet" href="{{asset("site_assets/css/responsive.css")}}">
+<link rel="stylesheet" href="{{asset("site_assets/css/body2.css")}}">
 
 <link rel="stylesheet" href="{{asset("site_assets/css/fontello/css/icon_set_1.css")}}">
 <link rel="stylesheet" href="{{asset("site_assets/css/fontello/css/icon_set_2.css")}}">
