@@ -10,6 +10,7 @@ class ImagenService extends Model implements TranslatableContract
 {
     use Translatable;
     protected $table = 'hp_images_service';
+    protected $translationForeignKey = 'image_id';
     public $translatedAttributes = ['name','description'];
 
     /**

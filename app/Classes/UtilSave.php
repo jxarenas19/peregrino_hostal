@@ -196,4 +196,20 @@ class UtilSave
         DB::table('hp_conforts_rooms')
             ->where('room_id', '=', $id)->delete();
     }
+    public function adjustImageResolution($url,$type){
+        $width = 1970;
+        $heigth = 736;
+        switch ($type){
+            case 'banner':
+                $width = 1970;
+                $heigth = 736;
+                break;
+            case 'info':
+                $width = 800;
+                $heigth = 480;
+                break;
+        }
+        $imageData = (new \App\Classes\AllIcons)->resize_image($url,$width,$heigth);
+        imagepng($imageData,$url,9);
+    }
 }

@@ -24,16 +24,19 @@ class Hostal extends Model implements TranslatableContract
      */
     public function images()
     {
-        return $this->hasMany(Imagen::class, 'hostal_id');
+        return $this->hasMany(ImagenHostal::class, 'hostal_id');
     }
 
     /**Devuelve un array con cada una de las fotos y sus atributos
      * @param $id_hostal
-     * @return listado de images
+     * @return array
      */
     public function imagesToHostalArray()
     {
-        return $this->images->toArray();
+        return array(
+            'banner'=> $this->images->where('estado','banner')->toArray(),
+            'info'=> $this->images->where('estado','info')->toArray(),
+        );
 
     }
 
@@ -45,6 +48,19 @@ class Hostal extends Model implements TranslatableContract
         return $this->hasMany(Room::class, 'hostal_id');
     }
 
+    /**
+     * Devuelve un listado de todas las facilidades de las habitaciones
+     */
+    public function rooms_conforts(){
+        $rooms = $this->hasMany(Room::class, 'hostal_id')->get('id');
+        $conforts = array();
+        foreach ($rooms as $item){
+            $conforts = array_merge($conforts,
+                $item->conforts()->get()->toArray());
+
+        }
+        return $conforts;
+    }
     /**Metodo encargado de retornar un array con los datos en español
      * de las habitaciones del hostal
      * @return array|\Illuminate\Support\Collection
@@ -85,7 +101,8 @@ class Hostal extends Model implements TranslatableContract
             "length" => $this->getAttribute('length'),
             "rooms" => $this->roomsToHostalArray()->toArray(),
             "services" => $this->servicesToHostalArray(),
-            "images" => $this->imagesToHostalArray()
+            "images" => $this->imagesToHostalArray(),
+            "conforts" => $this->rooms_conforts()
         );
         return $data;
     }

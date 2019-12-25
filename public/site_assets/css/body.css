@@ -1,0 +1,178 @@
+/* Tooltips */
+.tooltip_styled {
+    display: inline;
+    position: relative;
+    z-index: 9;
+}
+.tooltip_styled:hover .tooltip-item::after {
+    pointer-events: auto;
+}
+.tooltip_styled:hover .tooltip-content {
+    pointer-events: auto;
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+    transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+}
+.tooltip_styled.tooltip-effect-2:hover .tooltip-content {
+    -webkit-transform: perspective(1000px) rotate3d(1,0,0,0deg);
+    transform: perspective(1000px) rotate3d(1,0,0,0deg);
+}
+.tooltip-effect-3 .tooltip-content {
+    -webkit-transform: translate3d(0,10px,0) rotate3d(1,1,0,25deg);
+    transform: translate3d(0,10px,0) rotate3d(1,1,0,25deg);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.tooltip-item {
+    cursor: pointer;
+    display: inline-block;
+}
+.tooltip-item::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    bottom: 100%;
+    left: 50%;
+    pointer-events: none;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.tooltip_styled:hover .tooltip-item::after {
+    pointer-events: auto;
+}
+.tooltip-content {
+    position: absolute;
+    z-index: 999;
+    width: 150px;
+    left: 50%;
+    margin: 0 0 20px -75px;
+    bottom: 100%;
+    text-align: left;
+    line-height: 20px;
+    display: block;
+    padding: 15px;
+    text-align:center;
+    font-size:14px;
+    color: #fff;
+    box-shadow: -5px -5px 15px rgba(48,54,61,0.2);
+    background: #333;
+    opacity: 0;
+    cursor: default;
+    pointer-events: none;
+}
+.tooltip-effect-1 .tooltip-content {
+    -webkit-transform: translate3d(0,-10px,0);
+    transform: translate3d(0,-10px,0);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.tooltip-effect-2 .tooltip-content {
+    -webkit-transform-origin: 50% calc(100% + 10px);
+    transform-origin: 50% calc(100% + 10px);
+    -webkit-transform: perspective(1000px) rotate3d(1,0,0,45deg);
+    transform: perspective(1000px) rotate3d(1,0,0,45deg);
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
+}
+.tooltip-effect-3 .tooltip-content {
+    -webkit-transform: translate3d(0,10px,0) rotate3d(1,1,0,25deg);
+    transform: translate3d(0,10px,0) rotate3d(1,1,0,25deg);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.tooltip-effect-4 .tooltip-content {
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale3d(0.7,0.3,1);
+    transform: scale3d(0.7,0.3,1);
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
+}
+.tooltip_styled:hover .tooltip-content {
+    pointer-events: auto;
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+    transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+}
+.tooltip_styled.tooltip-effect-2:hover .tooltip-content {
+    -webkit-transform: perspective(1000px) rotate3d(1,0,0,0deg);
+    transform: perspective(1000px) rotate3d(1,0,0,0deg);
+}
+.tooltip-content::after {
+    content: '';
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: transparent;
+    border-top-color: #333;
+    border-width: 10px;
+    margin-left: -10px;
+}
+.tooltip-content .label {
+    margin-left:10px;
+}
+.tooltip-content i{
+    font-size:20px !important;
+    top:3px !important;
+    left:-3px !important;
+    position:relative;
+}
+.tooltip-content h4 {
+    display:block;
+    margin: 0 0 10px 0;
+    line-height:14px;
+    font-size:14px;
+    color:#fff;
+    text-transform:uppercase;
+}
+.tooltip-content a {
+    font-weight: bold;
+}
+.room_list_desc ul, .room_desc_home ul{
+    list-style:none;
+    margin:0 0 25px 0;
+    padding:5px 0;
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+}
+.room_list_desc ul li, .room_desc_home ul li{
+    display:inline-block;
+    margin-right:10px;
+    font-size:24px;
+}
+.room_pic{
+    position:relative;
+}
+.room_pic span{
+    position:absolute;
+    top:50%;
+    right:-50px;
+    background-color:#ed5434;
+    width:100px;
+    height:120px;
+    margin-top:-60px;
+    color:#fff;
+    font-size:30px;
+    font-weight:500;
+    padding:15px;
+    box-sizing:border-box;
+    text-align:center;
+    line-height:1.1;
+    padding-top:35px;
+}
+.room_pic.left span{
+    left:-50px;
+}
+.room_pic span sup{
+    position:relative;
+    top:-5px;
+}
+.room_pic span small{
+    display:block;
+    font-size:12px;
+}

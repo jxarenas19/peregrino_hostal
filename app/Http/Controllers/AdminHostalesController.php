@@ -22,11 +22,11 @@ class AdminHostalesController extends CBController
         $this->addText("Direccción", "address-visual")->showDetail(false)->showAdd(false)->showEdit(false)->filterable(true)->strLimit(150)->maxLength(255);
         $this->addText("Email", "email")->filterable(true);
         $this->addText("Teléfono", "phone")->filterable(true);
-        $this->addText("Latitud", "latitude")->filterable(true)->strLimit(150)->maxLength(255);
-        $this->addText("Longitud", "length")->filterable(true)->strLimit(150)->maxLength(255);
+        $this->addText("Latitud", "latitude")->showIndex(false)->filterable(true)->strLimit(150)->maxLength(255);
+        $this->addText("Longitud", "length")->showIndex(false)->filterable(true)->strLimit(150)->maxLength(255);
         $this->addSelectPoliticas();
-        $this->addDatetime("Creado", "created_at")->required(false)->showAdd(false)->showEdit(false);
-        $this->addDatetime("Actualizado", "updated_at")->required(false)->showAdd(false)->showEdit(false);
+        $this->addDatetime("Creado", "created_at")->showIndex(false)->required(false)->showAdd(false)->showEdit(false);
+        $this->addDatetime("Actualizado", "updated_at")->showIndex(false)->required(false)->showAdd(false)->showEdit(false);
 
         $this->addJavascriptCss();
         $this->hookAll();

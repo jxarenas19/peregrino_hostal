@@ -10,6 +10,7 @@ class ImagenHostal extends Model implements TranslatableContract
 {
     use Translatable;
     protected $table = 'hp_images_hostal';
+    protected $translationForeignKey = 'image_id';
     public $translatedAttributes = ['name','description'];
 
     /**

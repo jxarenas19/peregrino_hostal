@@ -131,4 +131,110 @@ class AllIcons
             "icon_set_2_icon-118"
         ];
     }
+
+    /**
+     * Decrease or increase the quality of an image without resize it.
+     *
+     * @param type $source
+     * @param type $destination
+     * @param type $quality
+     * @return type
+     */
+    function compress($source, $destination, $quality) {
+        //Get file extension
+        $exploding = explode(".",$source);
+        $ext = end($exploding);
+
+        switch($ext){
+            case "png":
+                $src = imagecreatefrompng($source);
+                break;
+            case "jpeg":
+            case "jpg":
+                $src = imagecreatefromjpeg($source);
+                break;
+            case "gif":
+                $src = imagecreatefromgif($source);
+                break;
+            default:
+                $src = imagecreatefromjpeg($source);
+                break;
+        }
+
+        switch($ext){
+            case "png":
+                imagepng($src, $destination, $quality);
+                break;
+            case "jpeg":
+            case "jpg":
+                imagejpeg($src, $destination, $quality);
+                break;
+            case "gif":
+                imagegif($src, $destination, $quality);
+                break;
+            default:
+                imagejpeg($src, $destination, $quality);
+                break;
+        }
+
+        return $destination;
+    }
+
+    /**
+     * Resize image given a height and width and return raw image data.
+     *
+     * Note : You can add more supported image formats adding more parameters to the switch statement.
+     *
+     * @param type $file filepath
+     * @param type $w width in px
+     * @param type $h height in px
+     * @param type $crop Crop or not
+     * @return type
+     */
+    function resize_image($file, $w, $h, $crop=false) {
+        list($width, $height) = getimagesize($file);
+        $r = $width / $height;
+        if ($crop) {
+            if ($width > $height) {
+                $width = ceil($width-($width*abs($r-$w/$h)));
+            } else {
+                $height = ceil($height-($height*abs($r-$w/$h)));
+            }
+            $newwidth = $w;
+            $newheight = $h;
+        } else {
+            if ($w/$h > $r) {
+                $newwidth = $h*$r;
+                $newheight = $h;
+            } else {
+                $newheight = $w/$r;
+                $newwidth = $w;
+            }
+        }
+
+        //Get file extension
+        $exploding = explode(".",$file);
+        $ext = end($exploding);
+
+        switch($ext){
+            case "png":
+                $src = imagecreatefrompng($file);
+                break;
+            case "jpeg":
+            case "jpg":
+                $src = imagecreatefromjpeg($file);
+                break;
+            case "gif":
+                $src = imagecreatefromgif($file);
+                break;
+            default:
+                $src = imagecreatefromjpeg($file);
+                break;
+        }
+
+        $dst = imagecreatetruecolor($newwidth, $newheight);
+        imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+        return $dst;
+    }
 }

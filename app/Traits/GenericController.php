@@ -74,6 +74,8 @@ trait GenericController
             $GLOBALS['priceData'] = $utilTranslation->findPriceData();
             $data = $utilTranslation->deleteExtraField($data);
             $data = $utilTranslation->addDefaultValueData($data);
+            if (array_key_exists('url',$data))
+                $utilTranslation->adjustImageResolution($data['url'],$data['estado']);
             return $data;
 
 
@@ -97,6 +99,8 @@ trait GenericController
             $GLOBALS['priceData'] = $utilTranslation->findPriceData();
             $data = $utilTranslation->deleteExtraField($data);
             $data = $utilTranslation->addDefaultValueData($data);
+            if (array_key_exists('url',$data))
+                $utilTranslation->adjustImageResolution($data['url'],$data['estado']);
             return $data;
 
 
