@@ -234,7 +234,8 @@ body#home_two .hotel_booking_area{
 	font-family: "Karla",sans-serif;
 	min-height: 94px;
 	padding: 26px 10px;
-	position: relative;
+	position: absolute;
+	margin-right: -15%;
 }
 .room_book{
 	border-right: 1px solid #475362;
