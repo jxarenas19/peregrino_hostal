@@ -14,22 +14,29 @@
                 </div>
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
                     <div class="input-group border-bottom-dark-2">
-                        <input class="date-picker" id="datepicker" placeholder={{$dataHeader['keyWorld']['llegada']}} type="text"/>
-                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                        <input class="date-picker" id="datepicker"
+                               placeholder={{$dataHeader['keyWorld']['llegada']}} type="text"/>
+                        <div class="input-group-addon"><i
+                                    class="fa fa-calendar"></i></div>
                     </div>
                 </div>
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
                     <div class="input-group border-bottom-dark-2">
-                        <input class="date-picker" id="datepicker1" placeholder={{$dataHeader['keyWorld']['salida']}} type="text"/>
-                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                        <input class="date-picker" id="datepicker1"
+                               placeholder={{$dataHeader['keyWorld']['salida']}} type="text"/>
+                        <div class="input-group-addon"><i
+                                    class="fa fa-calendar"></i></div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="row">
                         <div class="form-group col-lg-7 col-md-7 col-sm-7 icon_arrow">
                             <div class="input-group border-bottom-dark-2">
-                                <select onchange="selectHostal(this)" class="form-control" name="room" id="room">
-                                    <option selected="selected" disabled="disabled">{{$dataHeader['keyWorld']['select_hostal']}}</option>
+                                <select onchange="selectHostal(this)"
+                                        class="form-control" name="room"
+                                        id="room">
+                                    <option selected="selected"
+                                            disabled="disabled">{{$dataHeader['keyWorld']['select_hostal']}}</option>
                                     @foreach ($dataHeader['hostales'] as $item)
                                         <option data-hostal={{$loop->index}} value={{$item['id']}}>{{$item['name']}}</option>
                                     @endforeach
@@ -40,7 +47,9 @@
                         <div class="form-group col-lg-4 col-md-4 col-sm-4">
                             <div class="input-group border-bottom-dark-2">
                                 <select id="button-form" class="form-control">
-                                    <option selected="selected" disabled="disabled">Huéspedes</option>
+                                    <option selected="selected"
+                                            disabled="disabled">Huéspedes
+                                    </option>
 
                                 </select>
                             </div>
@@ -51,10 +60,10 @@
                 <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                      <a type="button" class="btn btn-primary floatright">Reservar</a>
                  </div>-->
-             </form>
-             <!-- special offer start -->
+            </form>
+            <!-- special offer start -->
             <div class="special_offer_main">
-                <img  src="{{URL::asset('site_assets/img/special-offer-main.png')}}">
+                <img src="{{URL::asset('site_assets/img/special-offer-main.png')}}">
             </div>
             <!-- end offer start -->
         </div>
@@ -64,21 +73,24 @@
 <form id="formGeneral" hidden>
     <div id="addField">
 
-    </div >
+    </div>
 
 </form>
 
 <script>
     var option = '';
     var fieldTemp = '';
-    $( document ).ready(function() {
+    var totalPersonal = 1;
+    var totalRoom = 1;
+    $(document).ready(function () {
         $('#button-form').bind("click", function () {
             $.showModal({
-                modalDialogClass:'modal-sm',
+                modalDialogClass: 'modal-sm',
                 title: 'Huéspedes',
                 body:
                     $('#formGeneral').html(),
-                footer: '<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button><button type="submit" class="btn btn-primary">Send</button>',
+                footer:
+                    '<button id="submitButton" type="submit" class="btn btn-primary btn-sm">1 hab,1 hués</button>',
                 onCreate: function (modal) {
                     // create event handler for form submit and handle values
                     $(modal.element).on("click", "button[type='submit']", function (event) {
@@ -94,23 +106,32 @@
                         modal.hide()
                     })
                 }
-            })
+            });
+            $('.modal-body').append(fieldTemp);
         });
     });
+
     function addRoom() {
         $('.modal-body').append(fieldTemp);
-        if ($('.delete-room')[0]) $('.delete-room')[0].hidden=false;
+        if ($('.delete-room')[0]) $('.delete-room')[0].hidden = false;
+        totalRoom += 1;
+        updateTextButton();
+
     }
-    function deleteRoom(elem){
+
+    function deleteRoom(elem) {
         elem.parentElement.parentElement.remove();
+        totalRoom -= 1;
+        updateTextButton();
     }
-    function selectHostal(elem){
+
+    function selectHostal(elem) {
         var indexHostal = elem.options[elem.selectedIndex].getAttribute('data-hostal');
         var hostales = @json($data['hostales']);
         var rooms = hostales[parseInt(indexHostal)].rooms;
 
-        $.each(rooms,function (index,value) {
-            option += '<option value='+value.id+'>'+value.name+'</option>'
+        $.each(rooms, function (index, value) {
+            option += '<option value=' + value.id + '>' + value.name + '</option>'
         });
 
         fieldTemp = ' <div class="dinamic-field">\n' +
@@ -118,7 +139,7 @@
             '        <div class="col-lg-9 col-md-9 col-sm-9">\n' +
             '            <div class="input-group">\n' +
             '                <select class="form-control-sm " name="room">\n' +
-                                    option+
+            option +
 
             '                </select>\n' +
             '            </div>\n' +
@@ -185,25 +206,43 @@
             '</div>\n' +
             '    </div >\n' +
             '    <div class="delete-room" style="padding-left: 160px;" hidden>\n' +
-            '<button type="button" onClick="deleteRoom(this)" className="btn-outline-light">Eliminar Habitación'+
-            ' </button>'+
+            '<button type="button" onClick="deleteRoom(this)" className="btn-outline-light">Eliminar Habitación' +
+            ' </button>' +
             '    </div >\n' +
-            '<hr>'+
+            '<hr>' +
             '    </div>';
     }
 
     function minusAdultButton(elem) {
         var numberField = elem.parentElement.getElementsByClassName('uitk-step-input-value')[0];
-        if ( parseInt(numberField.value)>=2) numberField.value = parseInt(numberField.value) -1;
+        if (parseInt(numberField.value) >= 2) {
+            numberField.value = parseInt(numberField.value) - 1;
+            totalPersonal -= 1;
+            updateTextButton();
+        }
     }
+
     function minusChildrenButton(elem) {
         var numberField = elem.parentElement.getElementsByClassName('uitk-step-input-value')[0];
-        if ( parseInt(numberField.value)>=1) numberField.value = parseInt(numberField.value) -1;
+        if (parseInt(numberField.value) >= 1) {
+            numberField.value = parseInt(numberField.value) - 1;
+            totalPersonal -= 1;
+            updateTextButton();
+        }
+
     }
+
     function maxButton(elem) {
-        console.log(elem);
         var numberField = elem.parentElement.getElementsByClassName('uitk-step-input-value')[0];
-        numberField.value = parseInt(numberField.value) +1;
+        numberField.value = parseInt(numberField.value) + 1;
+        totalPersonal += 1;
+        updateTextButton();
+    }
+
+    function updateTextButton() {
+        document.querySelector('#submitButton').innerHTML = totalRoom + ' hab, ' + totalPersonal + ' hués';
+        document.querySelector('#submitButton').innerText = totalRoom + ' hab, ' + totalPersonal + ' hués';
+        document.querySelector('#submitButton').textContent = totalRoom + ' hab, ' + totalPersonal + ' hués';
     }
 
 </script>
