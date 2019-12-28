@@ -2095,7 +2095,21 @@ input.qtyminus {
 	float: right !important;
 	margin-right: 30px;
 }
+.address-text{
+	margin-bottom: 10px;
+}
+.address-icon {
+	padding-top: 5px;
+}
 
 /* --------------------------------------------------------
 					End Preloader CSS
 -----------------------------------------------------------*/
+
+.delete-room,.add-room {
+	padding-left:200px ;
+	border:none;
+}
+.modal-header .close {
+	margin-top: -20px;
+}

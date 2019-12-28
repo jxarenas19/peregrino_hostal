@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------
-    
+
     1. Base or Reset or common CSS
 
 -----------------------------------------------------------------------------------*/
@@ -29,10 +29,10 @@ p{
   color: #fff;
   background: #313a45;
 }
-.floatleft { 
+.floatleft {
     float: left;
 }
-.floatright { 
+.floatright {
     float: right;
 }
 .alignleft {
@@ -76,12 +76,12 @@ p{
 }
 .clear {
   clear: both;
-  height: 0; 
-  font-size: 0; 
-  line-height: 0; 
+  height: 0;
+  font-size: 0;
+  line-height: 0;
   overflow: hidden;
 }
-.fix { 
+.fix {
     overflow: hidden;
 }
 
@@ -89,10 +89,10 @@ p{
         start anchor & button styles
 ---------------------------------------*/
 
-a:focus { 
+a:focus {
     outline: 0px solid;
 }
-a { 
+a {
     -moz-transition: 0.5s;
     -o-transition: 0.5s;
     -webkit-transition: 0.5s;
@@ -100,7 +100,7 @@ a {
     text-decoration: none;
     color: #000;
 }
-a:hover { 
+a:hover {
     color: #16b4ef;
     text-decoration: none;
 }
@@ -195,7 +195,7 @@ a.btn.btn-black:hover{
     border: none;
     outline: none;
 }
-.content-page .btn-primary, 
+.content-page .btn-primary,
 .content-page .btn-primary:hover {
     color: #fff;
     margin-left: 0;
@@ -256,7 +256,7 @@ ul.clearul{
     list-style: none;
 }
 ul.clearul > li{
-    
+
 }
 
 
@@ -435,11 +435,11 @@ h6{
         start margin & padding styles
 ---------------------------------------*/
 
-.section-padding { 
-    padding: 60px 0; 
+.section-padding {
+    padding: 60px 0;
 }
-.section-gray { 
-    background-color: #F7F7F7; 
+.section-gray {
+    background-color: #F7F7F7;
 }
 .section-dark {
     background-color: #110C09;
@@ -913,7 +913,7 @@ h6{
 ---------------------------------------*/
 
 .tp-rightarrow.round, .tp-leftarrow.round{
-  
+
 }
 .tp-leftarrow.round{
   background: url(assets/new-left-arrow.jpg) #313a45 no-repeat top left;

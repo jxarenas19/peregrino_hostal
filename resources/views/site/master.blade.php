@@ -10,7 +10,7 @@
 
 </head>
 <body id=@yield('id')>
-
+@include('site.layouts.header')
     @yield('content')
 
 

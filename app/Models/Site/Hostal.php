@@ -39,7 +39,24 @@ class Hostal extends Model implements TranslatableContract
         );
 
     }
-
+    /**
+     * Devuelve las imagenes de de info del hostal
+     */
+    public function imagesInfo()
+    {
+        return array(
+            'info'=> $this->images->where('estado','info')->toArray()
+        );
+    }
+        /**
+     * Devuelve las imagenes del banner del hostal
+     */
+    public function imagesBanner()
+    {
+        return array(
+            'banner'=> $this->images->where('estado','banner')->toArray()
+        );
+    }
     /** Collection de habitaciones relacionadas con el hostal
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -106,7 +123,29 @@ class Hostal extends Model implements TranslatableContract
         );
         return $data;
     }
+    public function hostalMainDataToArray(){
+        $data = array(
+            "id" => $this->getAttribute('id'),
+            "name" => $this->getAttribute('name'),
+            "mini_description" => $this->getAttribute('mini_description'),
+            "address" => $this->getAttribute('address'),
+            "latitude" => $this->getAttribute('latitude'),
+            "length" => $this->getAttribute('length'),
+            "services" => $this->servicesToHostalArray(),
+            "rooms" => $this->roomsToHostalArray()->toArray(),
+            "images" => $this->imagesInfo(),
+            "conforts" => $this->rooms_conforts()
 
+        );
+        return $data;
+    }
+    public function hostalHeaderData()
+    {
+        return array(
+            "id" => $this->getAttribute('id'),
+            "name" => $this->getAttribute('name'),
+        );
+    }
     /**Devuelve los servicios asociados al hostal
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

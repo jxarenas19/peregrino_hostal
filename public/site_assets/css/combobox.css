@@ -1,0 +1,224 @@
+/* ------------------------------------------ */
+/* ----- combobox / dropdown list styling     */
+/* ------------------------------------------ */
+.combobox {
+    /* Border slightly darker than Chrome's <select>, slightly lighter than FireFox's */
+    border: 1px solid #999;
+    padding-right: 1.25em; /* leave room for ▾ */
+}
+.dropdown, .combobox {
+    /* "relative" and "inline-block" (or just "block") are needed
+       here so that "absolute" works correctly in children */
+    position: relative;
+    display: inline-block;
+}
+.combobox > .downarrow, .dropdown > .downarrow {
+    /* ▾ Outside normal flow, relative to container */
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+
+    cursor: default;
+    nav-index: -1; /* nonfunctional in most browsers */
+
+    border-width: 0px;          /* disable by default */
+    border-style: inherit; /* copy parent border */
+    border-color: inherit; /* copy parent border */
+}
+/* Add a divider before the ▾ down arrow in non-dropdown comboboxes */
+.combobox:not(.dropdown) > .downarrow {
+    border-left-width: 1px;
+}
+/* Auto-down-arrow if one is not provided */
+.downarrow:empty::before {
+    content: '▾';
+}
+.downarrow::before, .downarrow > *:only-child {
+    text-align: center;
+
+    /* vertical centering trick */
+    position: relative;
+    top: 50%;
+    display: block; /* transform requires block/inline-block */
+    transform: translateY(-50%);
+}
+.combobox > input {
+    border: 0
+}
+.dropdown > *:last-child,
+.combobox > *:last-child {
+    /* Using `display:block` here has two desirable effects:
+       (1) Accessibility: it lets input widgets in the dropdown to
+           be selected with the tab key when the dropdown is closed.
+       (2) It lets the opacity transition work.
+       But it also makes the contents visible, which is undesirable
+       before the list drops down. To compensate, use `opacity: 0`
+       and disable mouse pointer events. Another side effect is that
+       the user can select and copy the contents of the hidden list,
+       but don't worry, the selected content is invisible. */
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.4s; /* fade out */
+    position: absolute;
+    left: 0;
+    top: 100%;
+    border: 1px solid #888;
+    background-color: #fff;
+    box-shadow: 1px 2px 4px 1px #666;
+    box-shadow: 1px 2px 4px 1px #4448;
+    z-index: 9999;
+    min-width: 100%;
+    box-sizing: border-box;
+}
+/* List of situations in which to show the dropdown list.
+   - Focus dropdown or non-last child of it => show last-child
+   - Focus .downarrow of combobox => show last-child
+   - Stay open for focus in last child, unless .less-sticky
+   - .sticky last child stays open on hover
+   - .less-sticky stays open on hover, ignores focus in last-child */
+.dropdown:focus > *:last-child,
+.dropdown > *:focus ~ *:last-child,
+.combobox > .downarrow:focus ~ *:last-child,
+.combobox > .sticky:last-child:hover,
+.dropdown > .sticky:last-child:hover,
+.combobox > .less-sticky:last-child:hover,
+.dropdown > .less-sticky:last-child:hover,
+.combobox > *:last-child:focus:not(.less-sticky),
+.dropdown > *:last-child:focus:not(.less-sticky) {
+    display: block;
+    opacity: 1;
+    transition: 0.15s;
+    pointer-events: auto;
+}
+/* focus-within not supported by Edge/IE. Unsupported selectors cause
+   the entire block to be ignored, so we must repeat all styles for
+   focus-within separately. */
+.combobox > *:last-child:focus-within:not(.less-sticky),
+.dropdown > *:last-child:focus-within:not(.less-sticky) {
+    display: block;
+    opacity: 1;
+    transition: 0.15s;
+    pointer-events: auto;
+}
+/* detect Edge/IE and behave if though less-sticky is on for all
+   dropdowns (otherwise links won't be clickable) */
+@supports (-ms-ime-align:auto) {
+    .dropdown > *:last-child:hover {
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+/* detect IE and do the same thing. */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .dropdown > *:last-child:hover {
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+.dropdown:not(.sticky) > *:not(:last-child):focus,
+.downarrow:focus, .dropdown:focus {
+    pointer-events: none; /* Causes second click to close */
+}
+.downarrow:focus {
+    outline: 2px solid #8BF; /* Edge/IE can't do outline transparency */
+    outline: 2px solid #48F8;
+}
+
+/* ------------------------------------------ */
+/* ----- Optional extra styling for combobox / dropdown */
+/* ------------------------------------------ */
+*, *:before, *:after {
+    /* See https://css-tricks.com/international-box-sizing-awareness-day/ */
+    box-sizing: border-box;
+}
+.combobox > *:first-child {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box; /* so 100% includes border & padding */
+}
+/* `.combobox:focus-within { outline:...}` doesn't work properly
+   in Firefox because the focus box is expanded to include the
+   (possibly hidden) drop list. As a workaround, put focus box on
+   the focused child. It is barely-visible so that it doesn't look
+   TOO ugly if the child isn't the same size as the parent. It
+   may be uglier if the first child is not styled as width:100% */
+.combobox > *:not(:last-child):focus {
+    outline: 2px solid #48F8;
+}
+.combobox {
+    margin: 5px;
+}
+
+/* ------------------------------------------ */
+/* ----- Styling for examples                 */
+/* ------------------------------------------ */
+body {
+    font-family: "Verdana", sans-serif;
+}
+select {
+    font: inherit;
+}
+input {
+    font: inherit;
+    padding: 3px;
+}
+.formrow {
+    display: flex;
+    align-items: center;
+}
+.formrow > span:first-child,
+.formrow > label > span:first-child {
+    display: inline-block;
+    width: calc(4em + 8%);
+}
+.combobox .color {
+    width: 60px; height: 40px;
+    display: inline-block;
+}
+.color:hover {
+    outline: 2px solid #888; /* Edge/IE can't do outline transparency */
+    outline: 3px solid #4448;
+}
+.colorlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.cb-item {
+    display: block;
+    margin: 0px;
+    padding: 2px;
+    color: #000;
+}
+.cb-item:hover, .cb-item:hover > a:visited {
+    color: #fff;
+    background-color: #88f;
+}
+
+/* ------------------------------------------ */
+/* ----- Collapsable Documentation            */
+/* ------------------------------------------ */
+.collapsable > input[type=checkbox] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+.collapsable > input[type=checkbox] ~ * {
+    max-height: 1000em;
+    transition: 0.6s cubic-bezier(1,0,1,0);
+    overflow: hidden;
+}
+.collapsable > input[type=checkbox]:not(:checked) ~ * {
+    max-height: 0;
+    transition: 0.6s cubic-bezier(0,1,0,1);
+}
+.collapsable label > span {
+    text-decoration: underline dotted gray;
+}

@@ -44,6 +44,11 @@
 
 <!-- my js -->
 <script src="{{asset("site_assets/js/main.js")}}"></script>
+<script src="{{asset("personalmodal/js/bootstrap-show-modal.js")}}"></script>
+<script src="{{asset("personalmodal/js/prism.js")}}"></script>
+
+
+
 
 
 @yield('scripts')

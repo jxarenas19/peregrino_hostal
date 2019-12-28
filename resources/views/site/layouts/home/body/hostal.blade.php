@@ -17,16 +17,19 @@
     </p>
     <div class="row">
 
-        <div class="col-sm-1 tooltip_styled tooltip-effect-4">
-            <span class="tooltip-item"><i class="icon_set_1_icon-41" ></i></span>
-            <div class="tooltip-content2">
-                <div class="map-tooltip" id={{$item['id']}} style='width: 300px; height: 300px;margin-left:2px;'></div>
+        <div class="tooltip_styled tooltip-effect-4">
+            <div class="col-sm-1 address-icon">
+                <span class="tooltip-item"><i class="icon_set_1_icon-41" ></i></span>
+                <div class="tooltip-content2">
+                    <div class="map-tooltip" id={{$item['id']}} style='width: 300px; height: 300px;margin-left:2px;'></div>
             </div>
+            </div>
+                <div style="cursor: pointer;" class="col-sm-11 address-text">
+                    <h6>{{$item['address']}} </h6>
+                </div>
+
         </div>
 
-        <div class="col-sm-11">
-            <h6>{{$item['address']}} </h6>
-        </div>
     </div>
     <ul>
         @foreach ($item['conforts'] as $elem)
