@@ -5,6 +5,7 @@ namespace App\Models\Site;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Hostal extends Model implements TranslatableContract
 {
@@ -36,6 +37,7 @@ class Hostal extends Model implements TranslatableContract
         return array(
             'banner'=> $this->images->where('estado','banner')->toArray(),
             'info'=> $this->images->where('estado','info')->toArray(),
+            'mini_banner'=> $this->images->where('estado','mini_banner')->toArray(),
         );
 
     }
@@ -49,12 +51,22 @@ class Hostal extends Model implements TranslatableContract
         );
     }
         /**
-     * Devuelve las imagenes del banner del hostal
+     * Devuelve las imagenes del mini banner del hostal
      */
     public function imagesBanner()
     {
         return array(
             'banner'=> $this->images->where('estado','banner')->toArray()
+        );
+    }
+
+    /**
+     * Devuelve las imagenes del banner del hostal
+     */
+    public function imagesMiniBanner()
+    {
+        return array(
+            'mini_banner'=> $this->images->where('estado','mini_banner')->toArray()
         );
     }
     /** Collection de habitaciones relacionadas con el hostal
@@ -86,16 +98,23 @@ class Hostal extends Model implements TranslatableContract
     {
         $rooms = $this->rooms;
         $roomResponse = collect();
+        $today =  Carbon::today()->toDate()->format('Y-m-d');
+        $season_id = DateSeason::all()->first()->season_id;
         foreach ($rooms as $room){
+            $priceActual = $room->prices()
+                ->where('season_id',$season_id)->first()->price;
             $typeRoom = $room->typeRoom->toArray();
             $data = array(
                 "id" => $room->getAttribute('id'),
                 "name" => $room->getAttribute('name'),
+                "countPeople" => $room->getAttribute('count_people'),
                 "tipoRoom" => $typeRoom['name'],
                 "precio" => $room->pricesToRoomArray()->toArray(),
                 "hostal" => $room->hostal->attributesToArray()['name'],
+                "images" => $room->imagesToHostalArray(),
                 "descripcion" => ($room->getAttribute('description')!=null)?
                     $room->getAttribute('description'): $typeRoom['description'],
+                "priceActual" =>$priceActual
             );
             $roomResponse[] = $data;
         }
