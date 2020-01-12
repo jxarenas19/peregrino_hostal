@@ -21,6 +21,7 @@ class AdminHabitacionesController extends CBController
         $this->addWysiwyg("Descripción", "description-visual")->showAdd(false)->showEdit(false)->filterable(true)->strLimit(150);
         $this->addSelectTable("Hostal", "hostal_id", ["table" => "hp_hostales", "value_option" => "id", "display_option" => "name-visual", "sql_condition" => ""]);
         $this->addSelectTable("Tipo Habitación", "type_room_id", ["table" => "hp_types_room", "value_option" => "id", "display_option" => "name-visual", "sql_condition" => ""]);
+        $this->addNumber("Cantidad Personas", "count_people")->filterable(true);
         $this->addHidden("dd", "precios-at")->showIndex(false);
         $this->addSelectFacilidades();
 

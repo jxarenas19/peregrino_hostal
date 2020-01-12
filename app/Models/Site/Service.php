@@ -31,16 +31,22 @@ class Service extends Model implements TranslatableContract
         $payResponse = collect();
         foreach ($free as $item){
             $data = array(
+                "id" => $item->id,
                 "name" => $item->name,
                 "description" => $item->description,
+                "icon" => $item->icon,
+                "images" => $item->imagesToHostalArray(),
                 "price" => $item->price,
             );
             $freeResponse[] = $data;
         }
         foreach ($pay as $item){
             $data = array(
+                "id" => $item->id,
                 "name" => $item->name,
+                "icon" => $item->icon,
                 "description" => $item->description,
+                "images" => $item->imagesToHostalArray(),
                 "price" => $item->price,
             );
             $payResponse[] = $data;
@@ -50,6 +56,22 @@ class Service extends Model implements TranslatableContract
             "payServices" => $payResponse->toArray(),
         );
     }
+    /**
+     * Obtiene todas las imagenes asociadas a un servicio
+     */
+    public function images()
+    {
+        return $this->hasMany(ImagenService::class, 'service_id');
+    }
+    /**Devuelve un array con cada una de las fotos y sus atributos
+     * @param $id_hostal
+     * @return array
+     */
+    public function imagesToHostalArray()
+    {
+        return array(
+            'info'=> $this->images->where('estado','info')->toArray()
+        );
 
-
+    }
 }

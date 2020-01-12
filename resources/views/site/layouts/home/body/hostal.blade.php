@@ -9,7 +9,7 @@
         crossorigin=""></script>
 @yield('script')
 
-<div class="room_desc_home">
+<div>
 
     <h3>{{$item['name']}} </h3>
     <p>
@@ -19,12 +19,12 @@
 
         <div class="tooltip_styled tooltip-effect-4">
             <div class="col-sm-1 address-icon">
-                <span class="tooltip-item"><i class="icon_set_1_icon-41" ></i></span>
+                <span class="tooltip-item"><i class="icon_set_1_icon-41" style="font-size: 20px;" ></i></span>
                 <div class="tooltip-content2">
                     <div class="map-tooltip" id={{$item['id']}} style='width: 300px; height: 300px;margin-left:2px;'></div>
             </div>
             </div>
-                <div style="cursor: pointer;" class="col-sm-11 address-text">
+                <div class="col-sm-11 address-text">
                     <h6>{{$item['address']}} </h6>
                 </div>
 
@@ -44,12 +44,14 @@
         @endforeach
 
     </ul>
-    <a href="#" class="btn_1_outline">{{$data['keyWorld']['read_more']}}</a>
+    <a href={{ route('hostal',['id'=>$item['id']]) }} class="btn_1_outline">{{$data['keyWorld']['read_more']}}</a>
 </div>
 
 <script>
     var hostal = @json($item);
-    var mymap = L.map(String(hostal.id)).setView([23.113417, -82.413297], 13);
+    var mymap = L.map(String(hostal.id),{
+        scrollWheelZoom: false
+    }).setView([23.113417, -82.413297], 13);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,

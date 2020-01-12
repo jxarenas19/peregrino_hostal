@@ -4,9 +4,9 @@ namespace App\Models\Site;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ImageTranslation extends Model
+class ImagenServiceTranslation extends Model
 {
     public $timestamps = false;
-    protected $table = 'hp_images_translations';
+    protected $table = 'hp_images_service_translations';
     protected $fillable = ['name','description'];
 }

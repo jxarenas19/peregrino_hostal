@@ -12,7 +12,7 @@
 */
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'Site\HomeController@index');
+Route::get('/', 'Site\HomeController@index')->name('inicio');
 Route::get('hostal', 'Site\HostalController@index')->name('hostal');
 
 Route::get('lang/{locale}', 'Site\HomeController@lang');

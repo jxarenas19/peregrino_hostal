@@ -197,8 +197,8 @@ class UtilSave
             ->where('room_id', '=', $id)->delete();
     }
     public function adjustImageResolution($url,$type){
-        $width = 1970;
-        $heigth = 736;
+        $width = 800;
+        $heigth = 480;
         switch ($type){
             case 'banner':
                 $width = 1970;
@@ -207,6 +207,14 @@ class UtilSave
             case 'info':
                 $width = 800;
                 $heigth = 480;
+                break;
+            case 'mini-banner':
+                $width = 1600;
+                $heigth = 800;
+                break;
+            case 'info-room':
+                $width = 1000;
+                $heigth = 600;
                 break;
         }
         $imageData = (new \App\Classes\AllIcons)->resize_image($url,$width,$heigth);

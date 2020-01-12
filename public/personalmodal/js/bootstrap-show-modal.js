@@ -96,11 +96,11 @@
     }
 
     Modal.prototype.hide = function () {
-        $(this.element).modal('hide')
+        $(this.element).modal('dispose')
     }
 
     Modal.prototype.dispose = function () {
-        $(this.element).modal('hide')
+        $(this.element).modal('dispose')
         document.body.removeChild(this.element)
         if (this.props.onDispose) {
             this.props.onDispose(this)

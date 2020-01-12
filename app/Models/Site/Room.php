@@ -5,6 +5,7 @@ namespace App\Models\Site;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Room extends Model implements TranslatableContract
 {
@@ -41,11 +42,14 @@ class Room extends Model implements TranslatableContract
         $prices = $this->prices;
         $pricesResponse = collect();
         foreach ($prices as $price){
+            $begin =new Carbon($price->season->fechas->getAttribute('begin'));
+            $end =new Carbon($price->season->fechas->getAttribute('end'));
             $array = array(
                 "temporada" =>$price->season->getAttribute('name'),
-                "inicio" =>$price->season->fechas->getAttribute('begin'),
-                "fin" =>$price->season->fechas->getAttribute('end'),
-                "precio" => $price->toArray()['price']
+                "inicio" =>$begin->format('d-m'),
+                "fin" =>$end->format('d-m'),
+                "precio" => $price->toArray()['price'],
+                "images" => $this->imagesToHostalArray(),
             );
             $pricesResponse[] = $array;
         }
@@ -61,12 +65,23 @@ class Room extends Model implements TranslatableContract
 
     /**Devuelve un array con cada una de las fotos y sus atributos
      * @param $id_hostal
-     * @return listado de images
+     * @return array
      */
     public function imagesToHostalArray()
     {
-        return $this->images->toArray();
+        return array(
+            'info'=> $this->images->where('estado','info')->toArray()
+        );
 
+    }
+    /**
+     * Devuelve las imagenes de de info del hostal
+     */
+    public function imagesInfo()
+    {
+        return array(
+            'info'=> $this->images->where('estado','info')->toArray()
+        );
     }
     public function conforts()
     {

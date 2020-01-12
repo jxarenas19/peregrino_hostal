@@ -33,12 +33,12 @@ class HomeController extends Controller
         $mainImages = ImagenHostal::all()->where('main',true)->toArray();
         foreach ($hostals as $hostal) {
             $dataHostales[] = $hostal->hostalMainDataToArray();
-            #$generalServices = (new Service())->generalService();
+            $generalServices = (new Service())->generalService();
             #$debeSaber = (new About()) ->debeSaberToArray();
         }
         $dataResponse = array(
             "hostales" => $dataHostales->toArray(),
-            #"services" => $generalServices,
+            "services" => $generalServices,
             #"debeSaber" => $debeSaber,
             "keyWorld" => $keyWorld,
             "mainImages" => $mainImages

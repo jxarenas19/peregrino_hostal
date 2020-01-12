@@ -18,6 +18,7 @@ class AdminImagenesServicioController extends CBController {
 		$this->addWysiwyg("Descripción","description-visual")->required(false)
             ->showDetail(false)->showAdd(false)->showEdit(false)->strLimit(150);
         $this->addImage("Url","url")->encrypt(true);
+        $this->addText("Estado","estado");
 		$this->addRadio("Imagen Principal","main")->options([1=>'True',0=>'Falso']);
 		$this->addSelectTable("Servicio","service_id",["table"=>"hp_services","value_option"=>"id","display_option"=>"name-visual","sql_condition"=>""]);
 		$this->addDatetime("Creado","created_at")->required(false)->showAdd(false)->showEdit(false);

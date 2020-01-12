@@ -18,11 +18,11 @@ class HostalController extends Controller
         $hostal = Hostal::all()->where('id',$idHostal)->first();
         $keyWorld =GeneralText::all()->first()->keyWorld($locale);
         $dataResponse = array(
-            "hostal" => $hostal->hostalToArray(),
+            "hostales" => [$hostal->hostalToArray()],
             "keyWorld" => $keyWorld,
             "languages" => $languages,
             "language_active" => $locale
         );
-        return view('site.layouts.hostal.page-hostal')->with('dataHostal', $dataResponse);
+        return view('site.layouts.hostal.page-hostal')->with('data', $dataResponse);
     }
 }

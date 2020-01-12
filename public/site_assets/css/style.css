@@ -1,16 +1,16 @@
 /*-----------------------------------------------------------------------------------
 
     Template Name: Hotel Booking html Template
-    Author: 
-    Author URI: 
+    Author:
+    Author URI:
     Version: 1.0
     Description: This theme made for any kind of Hotel Booking site.
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
 	Base orReset or common css are in reset.css file
 
     1. Header CSS
@@ -37,7 +37,7 @@
 	22. Preloader css
 
 
-    
+
 
 
 ___________________________________________________________________________
@@ -221,6 +221,7 @@ body#home_one .hotel_booking_area {
 	top: 0;
 	width: 70%;
 	z-index: 200;
+
 }
 body#home_two .hotel_booking_area{
 	bottom: 2%;
@@ -236,6 +237,14 @@ body#home_two .hotel_booking_area{
 	padding: 26px 10px;
 	position: absolute;
 	margin-right: -15%;
+}
+.hotel_booking3{
+	background: #313a45 none repeat scroll 0 0;
+	font-family: "Karla",sans-serif;
+	min-height: 94px;
+	padding: 26px 10px;
+	margin-right: -15%;
+	height: 280px;
 }
 .room_book{
 	border-right: 1px solid #475362;
@@ -261,13 +270,37 @@ form#form1 .form-group {
 .hotel_booking .input-group {
   width: 100%;
 }
-.hotel_booking  .input-group-addon, .hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1{
+.hotel_booking  .input-group-addon, .hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1, .hotel_booking_area input#inputguest{
 	background: transparent none repeat scroll 0 0;
 	border: medium none;
 	color: #aab8ca;
 	outline: none;
 }
 .hotel_booking  .input-group-addon{
+	padding: 0 0 0 10px;
+}
+.hotel_booking2 .input-group {
+	width: 100%;
+}
+.hotel_booking2  .input-group-addon, .hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1, .hotel_booking_area input#inputguest{
+	background: transparent none repeat scroll 0 0;
+	border: medium none;
+	color: #aab8ca;
+	outline: none;
+}
+.hotel_booking3 .input-group {
+	width: 100%;
+}
+.hotel_booking3  .input-group-addon, .hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1,.hotel_booking_area input#inputguest{
+	background: transparent none repeat scroll 0 0;
+	border: medium none;
+	color: #aab8ca;
+	outline: none;
+}
+.hotel_booking3  .input-group-addon{
+	padding: 0 0 0 10px;
+}
+.hotel_booking2  .input-group-addon{
 	padding: 0 0 0 10px;
 }
 .hotel_booking_area ::-webkit-input-placeholder { /* WebKit browsers */
@@ -277,7 +310,7 @@ form#form1 .form-group {
     color: #aab8ca;
     opacity:  1;
 }
-.hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1, .hotel_booking_area select#room, .hotel_booking_area select#adult, .hotel_booking_area select#child, .hotel_booking_area select#bed {
+.hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1,.hotel_booking_area input#inputguest, .hotel_booking_area select#room, .hotel_booking_area select#adult, .hotel_booking_area select#child, .hotel_booking_area select#bed {
 	font-size: 13px;
 	height: 37px;
 	padding: 0;
@@ -304,6 +337,16 @@ form#form1 .form-group {
 	border: medium none;
 	margin: 0;
 	padding: 5px 5px 5px 15px;
+}
+.hotel_booking_area input{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: transparent none repeat scroll 0 0;
+	border: medium none;
+	color: #aab8ca;
+	outline: medium none;
+	font-family: "Karla",sans-serif;
+	padding-left: 8px;
 }
 .icon_arrow:after{
 	content: '\f107';
@@ -351,7 +394,7 @@ body#home_two .special_offer_main {
 -----------------------------------------------------------*/
 
 body#home_one .welcome .section_description {
-  padding: 0 20% 43px;
+  padding: 0 20% 0;
   text-align: center;
 }
 body#home_one .welcome .section_description p{
@@ -1163,6 +1206,18 @@ body#room_detail_page .hotel_booking a.btn {
 	position: absolute;
 	z-index: 20;
 }
+body#room_detail_page .hotel_booking2 a.btn {
+	bottom: calc(0px - 88px);
+	left: calc(50% - 43px);
+	position: absolute;
+	z-index: 20;
+}
+body#room_detail_page .hotel_booking3 a.btn {
+	bottom: calc(0px - 88px);
+	left: calc(50% - 43px);
+	position: absolute;
+	z-index: 20;
+}
 body#room_detail_page .hotel_booking_area .form-group{
 	margin-bottom: 20px;
 	margin-top: 20px;
@@ -1335,6 +1390,14 @@ body#booking_page .booking ul.nav-tabs > li.active > a{
 	border-bottom: 9px solid #fe5d5d;
 }
 body#booking_page .personal_info_area .hotel_booking, #booking_page .payment_info_area .hotel_booking{
+	background: none;
+	padding: 0;
+}
+body#booking_page .personal_info_area .hotel_booking2, #booking_page .payment_info_area .hotel_booking2{
+	background: none;
+	padding: 0;
+}
+body#booking_page .personal_info_area .hotel_booking3, #booking_page .payment_info_area .hotel_booking3{
 	background: none;
 	padding: 0;
 }
@@ -2058,6 +2121,13 @@ a.btn_1_outline:hover, .btn_1_outline:hover{
 	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
 }
+/** Img frame in general page **/
+.map.styled{
+	border:5px solid#fff;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+}
 /* Quantity incrementer input */
 .qty-buttons{ position:relative; width:110px; height:38px;  }
 input.qty { width:80px;border-left:0; border-right:0; padding-left:52px  }
@@ -2089,6 +2159,11 @@ input.qtyminus {
 
 .room_desc_home {
 	width: 115%;
+	margin-left: -90px;
+}
+.room_desc_home2 {
+	width: 115%;
+	margin-left: 30px;
 }
 #mapid { height: 180px; }
 .navbar-right {
@@ -2113,3 +2188,108 @@ input.qtyminus {
 .modal-header .close {
 	margin-top: -20px;
 }
+@media (min-width: 992px){
+	.room-info{
+		margin-left: 8.33333333%;
+		margin-right: -8%;
+	}
+	}
+.information-room{
+	margin-left: -80px;
+}
+.hotel_booking2{
+	background: #313a45 none repeat scroll 0 0;
+	font-family: "Karla",sans-serif;
+	min-height: 94px;
+	padding: 26px 10px;
+	position: absolute;
+	margin-right: -15%;
+	right: 224px;
+}
+.room_desc2 {
+	padding: 15px 0;
+	border-top: 1px solid
+	#ddd;
+}
+.floatright{
+	margin-right: 90px;
+	margin-top: 30px;
+}
+
+.room_list_desc{
+	margin-left: -60px;
+}
+header.sticky{
+	border-bottom:1px solid #ededed;
+	background:#fff;
+}
+header #logo .logo_sticky{ display:none;}
+header.sticky #logo .logo_normal{ display:none;}
+header.sticky #logo .logo_sticky{ display:block; }
+#logo img{
+	height:35px;
+	width:auto;
+	margin:8px 0;
+}
+
+.parallax-window#short #subheader h1{
+	background-color:rgba(0, 0, 0, 0.8);
+	display:inline-block;
+	margin:0;
+	padding:15px 20px;
+	font-size:32px;
+	color:#fff;
+}
+/* Parallax bg */
+.parallax-window {
+	min-height: 470px;
+	background:transparent;
+	position:relative;
+}
+.parallax-window#home {
+	min-height: 550px;
+}
+.parallax-window#booking {
+	min-height: 550px;
+}
+.parallax-window#short {
+	height: 350px;
+	min-height:inherit;
+}
+.parallax-content{
+	color:#fff;
+	text-align:center;
+	display: table;
+	width:100%;
+	height:470px;
+}
+.parallax-content .sub_content{
+	display: table-cell;
+	padding:0 15%;
+	vertical-align: middle;
+	text-align:center;
+	font-size:16px;
+}
+.parallax-window#short #subheader {
+	position:absolute;
+	width:100%;
+	bottom:20px;
+	left:0;
+	text-align:center;
+}
+/*--- shortcode ---*/
+.gdlr-shortcode-wrapper { margin-left: -15px; margin-right: -15px; }
+.gdlr-item-title-wrapper .gdlr-item-title{ color: #1e1e1e; border-color: #1e1e1e; }
+.gdlr-item-title-wrapper .gdlr-item-caption{ color: #9b9b9b; }
+.gdlr-item-title-wrapper .gdlr-flex-prev, .gdlr-item-title-wrapper .gdlr-flex-next{ background-color: #ebebeb; }
+.gdlr-item-title-wrapper .gdlr-flex-prev, .gdlr-item-title-wrapper .gdlr-flex-next{ color: #b2b2b2; }
+.gdlr-item-title-wrapper .gdlr-flex-prev:hover, .gdlr-item-title-wrapper .gdlr-flex-next:hover{ background-color: #1abc9c; }
+.gdlr-item-title-wrapper .gdlr-flex-prev:hover, .gdlr-item-title-wrapper .gdlr-flex-next:hover{ color: #ffffff; }
+.gdlr-item-title-head .gdlr-flex-prev,
+.gdlr-item-title-head .gdlr-flex-next{ display: none; }
+.gdlr-full-size-wrapper .gdlr-item-title-wrapper .gdlr-item-title-carousel { right: 40px; }
+.gdlr-item-title-wrapper .gdlr-item-title-carousel{ position: absolute; right: 0px; top: 50%; margin-top: -11px; }
+.gdlr-blog-thumbnail .flexslider .flex-prev,
+.gdlr-blog-thumbnail .flexslider .flex-next { opacity: 0.7; }
+.portfolio-thumbnail .flexslider .flex-prev,
+.portfolio-thumbnail .flexslider .flex-next { opacity: 0.7; }

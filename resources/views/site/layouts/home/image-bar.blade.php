@@ -3,7 +3,7 @@
     <li data-transition="random" data-slotamount="7" data-masterspeed="1000">
         <img src={{$item['url']}} alt="slide" >
         <div class="tp-caption large_black sfr" data-x="105" data-y="197" data-speed="1200" data-start="1100" data-easing="easeInOutBack"
-             style="font-family: 'Playfair Display', serif; font-size: 48px;color: #131e2a; margin-bottom: 23px; text-transform: uppercase; line-height: 40px;">
+             style="font-family: 'Playfair Display', serif; font-size: 48px;color: #fffefa; margin-bottom: 23px; text-transform: uppercase; line-height: 40px;">
             A brand New Hotel
         </div>
         <div class="tp-caption large_black sfr" data-x="105" data-y="255" data-speed="1500" data-start="1400" data-easing="easeInOutBack"

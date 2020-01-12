@@ -16,6 +16,7 @@ class AdminImagenesController extends CBController {
         $this->addText("Nombre","name-visual")->required(false)->showDetail(false)->showAdd(false)->showEdit(false)->strLimit(150)->maxLength(255);
 		$this->addWysiwyg("Descripción","description-visual")->required(false)->showDetail(false)->showAdd(false)->showEdit(false)->strLimit(150);
 		$this->addImage("Url","url");
+        $this->addText("Estado","estado");
 		$this->addRadio("Imagen Principal","main")->options([1=>'True',0=>'False']);
 		$this->addSelectTable("Room","room_id",["table"=>"hp_rooms","value_option"=>"id","display_option"=>"name-visual","sql_condition"=>""]);
 		$this->addDatetime("Creado","created_at")->required(false)->showAdd(false)->showEdit(false);

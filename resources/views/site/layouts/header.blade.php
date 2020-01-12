@@ -34,7 +34,7 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a href="#">{{$dataHeader['keyWorld']['inicio']}}</a></li>
+                                <li><a href={{ route('inicio') }}>{{$dataHeader['keyWorld']['inicio']}}</a></li>
                                 <li role="presentation" class="dropdown">
                                     <a id="drop-one" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                                         {{$dataHeader['keyWorld']['hostales']}}

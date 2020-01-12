@@ -114,7 +114,8 @@ class Hostal extends Model implements TranslatableContract
                 "images" => $room->imagesToHostalArray(),
                 "descripcion" => ($room->getAttribute('description')!=null)?
                     $room->getAttribute('description'): $typeRoom['description'],
-                "priceActual" =>$priceActual
+                "priceActual" =>$priceActual,
+                "conforts" => $room->conforts->toArray(),
             );
             $roomResponse[] = $data;
         }
