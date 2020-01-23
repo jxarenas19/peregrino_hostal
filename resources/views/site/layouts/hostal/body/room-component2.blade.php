@@ -4,9 +4,14 @@
 
         <div class="room_desc2 clearfix" onclick="">
             <div class="col-md-7">
-                <figure class="room_pic"><a href="#"><img src={{array_shift($item['images']['info'])['url']}} alt="" class="img-responsive styled"></a><span class="wow zoomIn"><sup>$</sup>{{$item['priceActual']}}<small>Per night</small></span></figure>
+                <figure class="room_pic uk-overlay-hover">
+                    <a href="#">
+                        <img src={{array_shift($item['images']['info'])['url']}} alt="img" class="img-responsive styled">
+                    </a>
+                    <div class="uk-overlay-panel uk-overlay-background uk-overlay-icon"></div>
+                    <span class="wow zoomIn"><sup>$</sup>{{$item['priceActual']}}<small>Per night</small></span></figure>
             </div>
-            <div class="col-md-5 room_list_desc">
+            <div class="col-md-5 room_list_desc2">
                 <h3>{{$item['name']}}</h3>
                 <h9>{{$item['tipoRoom']}}</h9>
                 <ul>
@@ -22,7 +27,7 @@
                     @endforeach
 
                 </ul>
-                <div class="row">
+                <div class="row" style="margin-top: -20px">
                     <!-- start pricing table -->
                 <table class="table table-striped">
                         <tbody>

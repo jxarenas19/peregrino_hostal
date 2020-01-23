@@ -74,4 +74,15 @@ class Service extends Model implements TranslatableContract
         );
 
     }
+    public function serviceMainDataToArray(){
+        $data = array(
+            "id" => $this->id,
+            "name" => $this->name,
+            "description" => $this->description,
+            "icon" => $this->icon,
+            "images" => $this->imagesToHostalArray(),
+            "price" => $this->price,
+        );
+        return $data;
+    }
 }

@@ -238,6 +238,11 @@ body#home_two .hotel_booking_area{
 	position: absolute;
 	margin-right: -15%;
 }
+.hotel_booking4{
+	background: #313a45 none repeat scroll 0 0;
+	font-family: "Karla",sans-serif;
+
+}
 .hotel_booking3{
 	background: #313a45 none repeat scroll 0 0;
 	font-family: "Karla",sans-serif;
@@ -246,6 +251,7 @@ body#home_two .hotel_booking_area{
 	margin-right: -15%;
 	height: 280px;
 }
+
 .room_book{
 	border-right: 1px solid #475362;
 	margin-right: 7%;
@@ -270,13 +276,25 @@ form#form1 .form-group {
 .hotel_booking .input-group {
   width: 100%;
 }
+.hotel_booking4 .input-group {
+	width: 100%;
+}
 .hotel_booking  .input-group-addon, .hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1, .hotel_booking_area input#inputguest{
 	background: transparent none repeat scroll 0 0;
 	border: medium none;
 	color: #aab8ca;
 	outline: none;
 }
+.hotel_booking4  .input-group-addon, .hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1, .hotel_booking_area input#inputguest{
+	background: transparent none repeat scroll 0 0;
+	border: medium none;
+	color: #aab8ca;
+	outline: none;
+}
 .hotel_booking  .input-group-addon{
+	padding: 0 0 0 10px;
+}
+.hotel_booking4  .input-group-addon{
 	padding: 0 0 0 10px;
 }
 .hotel_booking2 .input-group {
@@ -1201,6 +1219,12 @@ body#room_detail_page .hotel_booking_area {
 	position: relative;
 }
 body#room_detail_page .hotel_booking a.btn {
+	 bottom: calc(0px - 88px);
+	 left: calc(50% - 43px);
+	 position: absolute;
+	 z-index: 20;
+ }
+body#room_detail_page .hotel_booking4 a.btn {
 	bottom: calc(0px - 88px);
 	left: calc(50% - 43px);
 	position: absolute;
@@ -1390,6 +1414,10 @@ body#booking_page .booking ul.nav-tabs > li.active > a{
 	border-bottom: 9px solid #fe5d5d;
 }
 body#booking_page .personal_info_area .hotel_booking, #booking_page .payment_info_area .hotel_booking{
+	background: none;
+	padding: 0;
+}
+body#booking_page .personal_info_area .hotel_booking4, #booking_page .payment_info_area .hotel_booking4{
 	background: none;
 	padding: 0;
 }
@@ -2215,8 +2243,13 @@ input.qtyminus {
 	margin-right: 90px;
 	margin-top: 30px;
 }
-
+.floatright2{
+	margin-right: 90px;
+}
 .room_list_desc{
+	margin-left: -60px;
+}
+.room_list_desc2{
 	margin-left: -60px;
 }
 header.sticky{
@@ -2293,3 +2326,8 @@ header.sticky #logo .logo_sticky{ display:block; }
 .gdlr-blog-thumbnail .flexslider .flex-next { opacity: 0.7; }
 .portfolio-thumbnail .flexslider .flex-prev,
 .portfolio-thumbnail .flexslider .flex-next { opacity: 0.7; }
+
+/*------Estilos de la galeria dentro del hostal */
+.carousel_in{
+	padding-bottom: 70px;
+}

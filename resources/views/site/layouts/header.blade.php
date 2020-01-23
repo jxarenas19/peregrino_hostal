@@ -47,7 +47,8 @@
                                     </ul>
 
                                 </li>
-                                <li><a href="#">{{$dataHeader['keyWorld']['servicios_agregados']}}</a></li>
+                                <li><a href={{ route('service') }}>{{$dataHeader['keyWorld']['servicios_agregados']}}</a></li>
+                                <li><a href={{ route('booking') }}>{{$dataHeader['keyWorld']['booking']}}</a></li>
                                 <li><a href="#">{{$dataHeader['keyWorld']['galeria']}}</a></li>
                                 <li><a href="#">{{$dataHeader['keyWorld']['contacto']}}</a></li>
                                 <ul id="lang_top">

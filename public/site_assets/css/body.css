@@ -136,11 +136,26 @@
 .room_list_desc ul, .room_desc_home ul,.room_desc_home2 ul{
     list-style:none;
     margin:0 0 25px 0;
-    padding:5px 0;
+    padding:100px 5px 0;
     border-top: 1px solid #ededed;
     border-bottom: 1px solid #ededed;
 }
+
+
 .room_list_desc ul li, .room_desc_home ul li, .room_desc_home2 ul li{
+    display:inline-block;
+    margin-right:10px;
+    font-size:24px;
+}
+.room_list_desc2 ul, .room_desc_home ul,.room_desc_home2 ul{
+    list-style:none;
+    margin:0 0 25px 0;
+    padding:5px 0;
+    border-top: 1px solid #ededed;
+}
+
+
+.room_list_desc2 ul li, .room_desc_home ul li, .room_desc_home2 ul li{
     display:inline-block;
     margin-right:10px;
     font-size:24px;
@@ -149,6 +164,7 @@
     position:relative;
     width: 80%;
 }
+
 .room_pic span {
     position: absolute;
     top: 50%;

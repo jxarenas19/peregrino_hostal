@@ -82,11 +82,20 @@ class Hostal extends Model implements TranslatableContract
      */
     public function rooms_conforts(){
         $rooms = $this->hasMany(Room::class, 'hostal_id')->get('id');
-        $conforts = array();
+        $confortsTemp = array();
         foreach ($rooms as $item){
-            $conforts = array_merge($conforts,
+            $confortsTemp = array_merge($confortsTemp,
                 $item->conforts()->get()->toArray());
-
+        }
+        $conforts = array();
+        $exist_icon = array();
+        $cont = 0;
+        foreach ($confortsTemp as $elem){
+            if (!in_array($elem['icon'],$exist_icon) and $cont<7){
+                $conforts[] = $elem;
+                $exist_icon[] = $elem['icon'];
+                $cont =+ 1;
+            }
         }
         return $conforts;
     }

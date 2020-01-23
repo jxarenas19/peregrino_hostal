@@ -104,6 +104,7 @@
 .owl-carousel .owl-item {
   position: relative;
   min-height: 1px;
+  margin-left: -100px; /*ESTO LO PUSE YO PARA LA SEPARACION ENTRE LAS FOTOS DE GALERIA DE LOS HOSTALES:JULIO*/
   float: left;
   -webkit-backface-visibility: hidden;
   -webkit-tap-highlight-color: transparent;
