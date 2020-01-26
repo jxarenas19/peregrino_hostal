@@ -21,14 +21,14 @@
 
 <!-- owlcarousel -->
 <script src="{{asset("site_assets/js/owl.carousel.min.js")}}"></script>
-
+<!-- wow Animation -->
+<script src="{{asset("site_assets/js/wow.min.js")}}"></script>
 <!-- lightslider -->
 <script src="{{asset("site_assets/js/lightslider.js")}}"></script>
 <script src="{{asset("site_assets/js/functions.js")}}"></script>
 
 
-<!-- wow Animation -->
-<script src="{{asset("site_assets/js/wow.min.js")}}"></script>
+
 
 <!--Activating WOW Animation only for modern browser-->
 <!--[if !IE]><!-->
