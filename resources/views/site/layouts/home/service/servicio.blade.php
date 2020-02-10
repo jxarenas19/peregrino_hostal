@@ -1,5 +1,5 @@
 <!-- start Hotel Facilities section -->
-<section class="hotel_facilities_area margin-top-115 margin-bottom-100">
+<section class="hotel_facilities_area margin-top-115">
     <div class="container">
         <div class="hotel_facilities">
             <div class="section_title nice_title content-center">

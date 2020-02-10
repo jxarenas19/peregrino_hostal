@@ -10,12 +10,19 @@
 </div>
 <div class="carousel_in">
         @foreach ($data['hostales'][0]['images']['info'] as $item)
-        <figure class="room_pic uk-overlay-hover">
-            <div><img style="width:750px" src={{$item['url']}} alt="img" class="img-responsive styled"><div class="caption"></div></div>
-            <div class="uk-overlay-panel uk-overlay-background uk-overlay-icon"></div>
-        </figure>
 
+        <div class="room_wrapper">
+            <div class="dif_room_media">
+                <a href={{$item['url']}} data-uk-lightbox="{group:'group1'}" title="Gallery">
+                    <figure class="room_pic uk-overlay-hover">
+                        <div><img style="width:750px" src={{$item['url']}} alt="img" class="img-responsive styled"><div class="caption"></div></div>
+                        <div class="uk-overlay-panel uk-overlay-background uk-overlay-icon"></div>
+                    </figure>
+                </a>
+            </div>
+        </div>
         @endforeach
+
 </div>
 
 <!-- SPECIFIC SCRIPTS -->

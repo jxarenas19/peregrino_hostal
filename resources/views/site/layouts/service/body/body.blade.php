@@ -25,8 +25,8 @@
                             <form id="form1" role="form" action="#" class="">
                                 <div class="col-lg-12 col-md-12">
                                     <div class="room_book">
-                                        <h6>Book Your</h6>
-                                        <p>Rooms</p>
+                                        <h6>{{$dataHeader['keyWorld']['select_your_room']}}</h6>
+                                        <p>{{$dataHeader['keyWorld']['servicio']}}</p>
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12">

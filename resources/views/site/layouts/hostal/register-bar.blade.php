@@ -8,8 +8,8 @@
             <form id="form1" role="form" action="#" class="">
                 <div class="col-lg-2 col-md-2 col-sm-2">
                     <div class="room_book border-right-dark-1">
-                        <h6>Book Your</h6>
-                        <p>Rooms</p>
+                        <h6>{{$dataHeader['keyWorld']['select_your_room']}}</h6>
+                        <h6>{{$dataHeader['keyWorld']['rooms']}}</h6>
                     </div>
                 </div>
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
@@ -115,7 +115,6 @@
     }
 
     function selectHostal(elem) {
-        console.log('entrro');
         var indexHostal = elem.options[elem.selectedIndex].getAttribute('data-hostal');
         var hostales = @json($data['hostales']);
         var rooms = hostales[parseInt(indexHostal)].rooms;
@@ -137,7 +136,7 @@
             '    </div>\n' +
             '        <div class="form-group row">\n' +
             '        <div class="col-lg-2 col-md-2 col-sm-2" style="padding-bottom: 10px;padding-top: 10px;"><label for="text">Adultos</label></div>\n' +
-            '        <div class="" style="padding-left: 180px;">' +
+            '        <div class="" style="padding-left: 60%;">' +
             '<div>\n' +
             '    <button type="button" onclick="minusAdultButton(this)" class="uitk-button uitk-button-small uitk-step-input-button">\n' +
             '\t<span class="uitk-button-container">\n' +
@@ -167,7 +166,7 @@
             '    </div>\n' +
             '        <div class="form-group row">\n' +
             '        <div class="col-lg-2 col-md-2 col-sm-2" style="padding-bottom: 10px;padding-top: 10px;"><label for="text">Niños</label></div>\n' +
-            '        <div class="" style="padding-left: 180px;">' +
+            '        <div class="" style="padding-left: 60%;">' +
             '<div>\n' +
             '    <button type="button"  onclick="minusChildrenButton(this)" class="uitk-button uitk-button-small uitk-step-input-button">\n' +
             '\t<span class="uitk-button-container">\n' +
@@ -195,7 +194,7 @@
             '</div>' +
             '</div>\n' +
             '    </div >\n' +
-            '    <div class="delete-room" style="padding-left: 160px;" hidden>\n' +
+            '    <div class="delete-room" style="padding-left: 148px;" hidden>\n' +
             '<button type="button" onClick="deleteRoom(this)" className="btn-outline-light">Eliminar Habitación' +
             ' </button>' +
             '    </div >\n' +

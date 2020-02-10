@@ -5,7 +5,7 @@
             <div class="container margin_60 ">
                 <div class="row">
                     <div class="col-md-5 col-md-offset-1">
-                        <figure class="room_pic" style="width: 100%"><a href="#"><img  class="img-responsive styled" src={{array_shift($item['images']['info'])['url']}} alt="" class="img-responsive"></a>
+                        <figure class="room_pic" style="width: 100%"><a href={{ route('hostal',['id'=>$item['id']]) }}><img  class="img-responsive styled" src={{array_shift($item['images']['info'])['url']}} alt="" class="img-responsive"></a>
                             </figure>
                     </div>
                     <div class="col-md-4 col-md-offset-1">
