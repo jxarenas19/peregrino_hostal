@@ -35,6 +35,9 @@ p{
 .floatright {
     float: right;
 }
+.floatright3 {
+    float: right;
+}
 .alignleft {
     float: left;
     margin-right: 15px;

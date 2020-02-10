@@ -200,7 +200,7 @@ body#home_one .emergency_number, body#home_one .emergency_number::after{
 -----------------------------------------------------------*/
 .main_slider_area{
 	font-family: "Playfair Display",serif;
-	padding-bottom: 90px;
+	/*padding-bottom: 90px;*/
 	position: relative;
 }
 
@@ -215,13 +215,20 @@ body#home_one .emergency_number, body#home_one .emergency_number::after{
 3.					start hotel booking area CSS
 -----------------------------------------------------------*/
 body#home_one .hotel_booking_area {
-	left: calc( 55% - 585px );
 	position: absolute;
 	text-transform: uppercase;
 	top: 0;
-	width: 70%;
 	z-index: 200;
 
+}
+.hotel_booking_area {
+	margin-right: 80px;
+	padding-right: 10px;
+	right: 20%;
+	left: 15%;
+}
+.welcome_area{
+	background: #f5f6fa;
 }
 body#home_two .hotel_booking_area{
 	bottom: 2%;
@@ -251,7 +258,100 @@ body#home_two .hotel_booking_area{
 	margin-right: -15%;
 	height: 280px;
 }
-
+.hotel_booking5 {
+	padding: 26px 0px;
+}
+body#home_one .hotel_booking5 .btn, body#home_two .hotel_booking5 .btn {
+	margin-top: 26px;
+	width: 100%;
+}
+body#accomodation_page .hotel_booking5 .btn {
+	width: 100%;
+}
+.hotel_booking5{
+	background: #313a45 none repeat scroll 0 0;
+	font-family: "Karla",sans-serif;
+	min-height: 94px;
+	padding: 26px 10px;
+	position: relative;
+}
+.hotel_booking5 .input-group {
+	width: 100%;
+}
+.hotel_booking5  .input-group-addon, .hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1{
+	background: transparent none repeat scroll 0 0;
+	border: medium none;
+	color: #aab8ca;
+	outline: none;
+}
+.hotel_booking5  .input-group-addon{
+	padding: 0 0 0 10px;
+}
+body#room_detail_page .hotel_booking5 a.btn {
+	bottom: calc(0px - 88px);
+	left: calc(50% - 43px);
+	position: absolute;
+	z-index: 20;
+}
+body#booking_page .personal_info_area .hotel_booking5, #booking_page .payment_info_area .hotel_booking5{
+	background: none;
+	padding: 0;
+}
+.hotel_booking  .input-group-addon, .hotel_booking_area5 input#datepicker, .hotel_booking_area5 input#datepicker1{
+	background: transparent none repeat scroll 0 0;
+	border: medium none;
+	color: #aab8ca;
+	outline: none;
+}
+.hotel_booking_area5 ::-webkit-input-placeholder { /* WebKit browsers */
+	color: #aab8ca;
+}
+.hotel_booking_area5 ::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #aab8ca;
+	opacity:  1;
+}
+.hotel_booking_area5 input#datepicker, .hotel_booking_area5 input#datepicker1, .hotel_booking_area5 select#room, .hotel_booking_area5 select#adult, .hotel_booking_area5 select#child, .hotel_booking_area5 select#bed {
+	font-size: 13px;
+	height: 37px;
+	padding: 0;
+	text-transform: uppercase;
+	width: 100%;
+}
+.hotel_booking_area5 select{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: transparent none repeat scroll 0 0;
+	border: medium none;
+	color: #aab8ca;
+	outline: medium none;
+	font-family: "Karla",sans-serif;
+	padding-left: 8px;
+}
+.hotel_booking_area5 select > option{
+	border: medium none;
+	margin: 0;
+	padding: 5px 5px 5px 15px;
+}
+body#room_detail_page .hotel_booking_area5 {
+	background: #313a45 none repeat scroll 0 0;
+	padding: 5px 5px 69px;
+	position: relative;
+}
+body#room_detail_page .hotel_booking_area5 .form-group{
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+body#room_detail_page .hotel_booking_area5 .room_book{
+	border-right: none;
+}
+body#booking_page .personal_info_area .hotel_booking_area5 select#adult, body#booking_page .personal_info_area .hotel_booking_area5 select#smoking_room, body#booking_page .personal_info_area .hotel_booking_area5 select#parking, body#booking_page .personal_info_area .hotel_booking_area5 select#with_pet, body#booking_page .personal_info_area .hotel_booking_area5 input, body#booking_page .payment_info_area .hotel_booking_area5 input, body#booking_page .payment_info_area .hotel_booking_area select#enter_month, body#booking_page .payment_info_area .hotel_booking_area5 select#enter_year{
+	border: 1px solid #dbdbdb;
+	min-height: 45px;
+	margin-bottom: 30px;
+	outline: medium none;
+	text-transform: uppercase;
+	padding-left: 22px;
+}
 .room_book{
 	border-right: 1px solid #475362;
 	margin-right: 7%;
@@ -328,8 +428,8 @@ form#form1 .form-group {
     color: #aab8ca;
     opacity:  1;
 }
-.hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1,.hotel_booking_area input#inputguest, .hotel_booking_area select#room, .hotel_booking_area select#adult, .hotel_booking_area select#child, .hotel_booking_area select#bed {
-	font-size: 13px;
+.hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1,.hotel_booking_area input#button-form,.hotel_booking_area input#inputguest, .hotel_booking_area select#room, .hotel_booking_area select#adult, .hotel_booking_area select#child, .hotel_booking_area select#bed {
+	font-size: 12px;
 	height: 37px;
 	padding: 0;
 	text-transform: uppercase;
@@ -430,6 +530,16 @@ body#home_one .single_room_wrapper .uk-overlay, body#accomodation_page .single_r
   transition: 0.7s;
 }
 body#home_one .single_wrapper_details, body#accomodation_page .single_wrapper_details {
+	background: #f7c411 none repeat scroll 0 0;
+	height: 100%;
+	width: 100%;
+	-webkit-transition: 0.7s;
+	-o-transition: 0.7s;
+	transition: 0.7s;
+	-webkit-display: block;
+	padding: 13px;
+}
+.single_wrapper_details {
 	background: #f7c411 none repeat scroll 0 0;
 	height: 100%;
 	width: 100%;
@@ -619,8 +729,10 @@ body#home_two .select_room .room_rent > p > span, body#accomodation_page .select
 	background-size: cover
 }
 .hotel_facilities {
-  padding-bottom: 143px;
-  padding-top: 123px;
+  padding-bottom: 5%;
+  padding-top: 0;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 .hotel_facilities .nav.nav-tabs {
@@ -1016,7 +1128,7 @@ body#about_us_page .about_us_thumb > p{
 	margin-top: 45px;
 }
 body#about_us_page .single_staff .uk-overlay-background, body#staff_page .single_staff .uk-overlay-background, body#gallery_page .room_wrapper .uk-overlay-background{
-	background: rgba(254, 109, 109, 0.8) none repeat scroll 0 0;
+	background: rgba(240, 254, 108, 0.8) none repeat scroll 0 0;
 	padding: 30px;
 	-webkit-transition: 0.6s;
 	-o-transition: 0.6s;
@@ -1068,6 +1180,9 @@ body#accomodation_page .range_slider span, body#accomodation_page .range_slider 
 body#accomodation_page .range_slider .range input{
 	width: 53%;
 	display: inline-block;
+}
+#accomodation_page{
+	background: #f5f6fa;
 }
 .accomodation_single_room ul.pagination{
 	margin: 0;
@@ -2017,9 +2132,11 @@ body#single_blog_page .recent_post_details > p {
 
 /*Containers*/
 .container_styled_1{
-	background: #f6faf6;
+	background: white;
 }
-
+.welcome{
+	width: 100%;
+}
 /*Spacing*/
 .add_bottom_15 {margin-bottom:15px;}
 .add_bottom_30 {margin-bottom:30px;}
@@ -2252,6 +2369,9 @@ input.qtyminus {
 .room_list_desc2{
 	margin-left: -60px;
 }
+.room_list_desc3{
+	margin-left: -5px;
+}
 header.sticky{
 	border-bottom:1px solid #ededed;
 	background:#fff;
@@ -2330,4 +2450,17 @@ header.sticky #logo .logo_sticky{ display:block; }
 /*------Estilos de la galeria dentro del hostal */
 .carousel_in{
 	padding-bottom: 70px;
+}
+select.select-field{
+	border: 1px solid #b9c2c5;
+	padding: 0 3% 0 5%;
+}
+.btn.btn-secondary.btn-sm#buttonAdd,.btn.btn-secondary.btn-sm#buttonDel {
+	padding: 0 3% 0 5%;
+	border: 1px solid #b9c2c5;
+	font-family: "Karla",sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 15px;
+	color: #313a45;
 }
