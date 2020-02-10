@@ -46,8 +46,8 @@
             '</button>' +
             '</div>' +
             '<div class="modal-body"></div>' +
-            '<div className="add-room" style="padding-left: 170px;">'+
-            '<button type="button" onClick="addRoom(this)" className="btn-outline-light">Adicionar Habitación'+
+            '<div className="add-room" style="padding-left: 151px;padding-bottom: 2%;">'+
+            '<button type="button" id="buttonAdd" onClick="addRoom(this)" class="btn btn-secondary btn-sm">Adicionar Habitación'+
             ' </button>'+
 
             ' </div>'+
@@ -70,6 +70,7 @@
             if (this.props.options) {
                 $(this.element).modal(this.props.options)
             } else {
+
                 $(this.element).modal()
             }
         } else {
@@ -96,11 +97,11 @@
     }
 
     Modal.prototype.hide = function () {
-        $(this.element).modal('dispose')
+        $(this.element).modal('hide')
     }
 
     Modal.prototype.dispose = function () {
-        $(this.element).modal('dispose')
+        $(this.element).modal('hide')
         document.body.removeChild(this.element)
         if (this.props.onDispose) {
             this.props.onDispose(this)
@@ -119,7 +120,8 @@
             props.onCreate = function (modal) {
                 $(modal.element).on("click", ".btn", function (event) {
                     event.preventDefault()
-                    modal.hide()
+
+                    // modal.hide()
                     modal.props.onSubmit(event.target.getAttribute("class").indexOf("btn-true") !== -1)
                 })
             }
