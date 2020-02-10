@@ -25,6 +25,11 @@ class AdminHostalesController extends CBController
         $this->addText("Latitud", "latitude")->showIndex(false)->filterable(true)->strLimit(150)->maxLength(255);
         $this->addText("Longitud", "length")->showIndex(false)->filterable(true)->strLimit(150)->maxLength(255);
         $this->addSelectPoliticas();
+        $this->addRadio("Active", "active")->options([1 => 'Activo', 0 => 'No Activo'])
+            ->indexDisplayTransform(function ($row) {
+                if ($row == 1) return 'Activo';
+                else return 'No Activo';
+            });
         $this->addDatetime("Creado", "created_at")->showIndex(false)->required(false)->showAdd(false)->showEdit(false);
         $this->addDatetime("Actualizado", "updated_at")->showIndex(false)->required(false)->showAdd(false)->showEdit(false);
 
