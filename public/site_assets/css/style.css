@@ -724,10 +724,6 @@ body#home_two .select_room .room_rent > p > span, body#accomodation_page .select
 8. 					start Hotel Facilities area CSS
 -----------------------------------------------------------*/
 
-.hotel_facilities_area{
-	background: url(../img/hotel-facilities-bg.jpg) no-repeat fixed 0 0;
-	background-size: cover
-}
 .hotel_facilities {
   padding-bottom: 5%;
   padding-top: 0;
@@ -2463,4 +2459,7 @@ select.select-field{
 	font-weight: 700;
 	line-height: 15px;
 	color: #313a45;
+}
+.room_list_desc2 > h6{
+	padding-bottom: 5%;
 }
