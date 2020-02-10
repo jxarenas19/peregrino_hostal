@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         $keyWorld =GeneralText::all()->first()->keyWorld($locale);
         $languages = json_decode(cb()->findAll("locale"),true);
         $redesSocial = Social::all()->where('active',1)->toArray();
-        $hostals = Hostal::all();
+        $hostals = Hostal::all()->where('active','=',true);
         $dataHostales = collect();
         foreach ($hostals as $hostal) {
             $dataHostales[] = $hostal->hostalHeaderData();
