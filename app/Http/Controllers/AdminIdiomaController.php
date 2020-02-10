@@ -19,8 +19,7 @@ class AdminIdiomaController extends CBController
             ->indexDisplayTransform(function ($row) {
                 if ($row == 1) return 'Activo';
                 else return 'No Activo';
-                return $row->first_name . " " . $row->last_name;
-            });;
+            });
         $this->addDatetime("Creado", "created_at")->required(false)->showAdd(false)->showEdit(false);
         $this->addDatetime("Modificado", "updated_at")->required(false)->showAdd(false)->showEdit(false);
         $this->addImage("", "icon")->showAdd(false)

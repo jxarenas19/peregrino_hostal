@@ -15,6 +15,7 @@ class GeneralText extends Model
      */
     public function keyWorld(String $locale)
     {
+
         return json_decode($this->json,true)[$locale];
     }
 }
