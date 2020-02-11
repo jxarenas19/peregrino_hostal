@@ -2463,3 +2463,9 @@ select.select-field{
 .room_list_desc2 > h6{
 	padding-bottom: 5%;
 }
+.morecontent span {
+	display: none;
+}
+.morelink {
+	display: block;
+}
