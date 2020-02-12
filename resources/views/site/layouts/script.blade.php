@@ -46,6 +46,8 @@
 
 <!-- my js -->
 <script src="{{asset("site_assets/js/main.js")}}"></script>
+<script src="{{asset("site_assets/js/moment.min.js")}}"></script>
+<script src="{{asset("site_assets/js/lightpick.js")}}"></script>
 
 
 <script src="{{asset("personalmodal/js/bootstrap-show-modal.js")}}"></script>
