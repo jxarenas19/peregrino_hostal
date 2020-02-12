@@ -12,7 +12,7 @@
     <script src="{{asset("personalmodal/js/modal_functions.js")}}"></script>
 
 <div class="section_title nice_title content-center">
-    <h3>{{$dataHeader['keyWorld']['rooms']}}</h3>
+    <h3>{{$data['keyWorld']['rooms']}}</h3>
 </div>
 <div class="container margin_60">
     <div class="row">
@@ -29,21 +29,21 @@
                             <form id="form1" role="form" action="#" class="">
                                 <div class="col-lg-12 col-md-12">
                                     <div class="room_book">
-                                        <h6>{{$dataHeader['keyWorld']['select_your_room']}}</h6>
-                                        <h6>{{$dataHeader['keyWorld']['rooms']}}</h6>
+                                        <h6>{{$data['keyWorld']['select_your_room']}}</h6>
+                                        <h6>{{$data['keyWorld']['rooms']}}</h6>
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12">
                                     <div class="input-group border-bottom-dark-2">
                                         <input class="date-picker" id="datepicker"
-                                               placeholder={{$dataHeader['keyWorld']['llegada']}} type="text"/>
+                                               placeholder={{$data['keyWorld']['llegada']}} type="text"/>
                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12">
                                     <div class="input-group border-bottom-dark-2">
                                         <input class="date-picker" id="datepicker1"
-                                               placeholder={{$dataHeader['keyWorld']['salida']}} type="text"/>
+                                               placeholder={{$data['keyWorld']['salida']}} type="text"/>
                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                         <div class="form-group col-lg-12 col-md-12">
                                             <div class="input-group border-bottom-dark-2">
                                                 <input id="button-form"
-                                                       placeholder={{$dataHeader['keyWorld']['cant_personal_field']}} type="text"/>
+                                                       placeholder={{$data['keyWorld']['cant_personal_field']}} type="text"/>
 
                                             </div>
                                         </div>

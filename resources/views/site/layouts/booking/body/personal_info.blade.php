@@ -5,29 +5,29 @@
                 <div class="row">
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 icon_arrow">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder={{$dataHeader['keyWorld']['persona_name']}}>
+                            <input type="text" class="form-control" placeholder={{$data['keyWorld']['persona_name']}}>
                         </div>
                     </div>
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 icon_arrow">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder={{$dataHeader['keyWorld']['nacionality']}}>
+                            <input type="text" class="form-control" placeholder={{$data['keyWorld']['nacionality']}}>
                         </div>
                     </div>
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 icon_arrow">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder={{$dataHeader['keyWorld']['email']}}>
+                            <input type="text" class="form-control" placeholder={{$data['keyWorld']['email']}}>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-6 col-md-6 col-sm-6 icon_arrow">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder={{$dataHeader['keyWorld']['flight_number']}}>
+                            <input type="text" class="form-control" placeholder={{$data['keyWorld']['flight_number']}}>
                         </div>
                     </div>
                     <div class="form-group col-lg-6 col-md-6 col-sm-6 icon_arrow">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder={{$dataHeader['keyWorld']['arrived_hour']}}>
+                            <input type="text" class="form-control" placeholder={{$data['keyWorld']['arrived_hour']}}>
                         </div>
                     </div>
                 </div>

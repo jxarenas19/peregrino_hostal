@@ -8,10 +8,10 @@
                         <a href="#booking_info" aria-controls="booking_info" role="tab" data-toggle="tab"><i>1</i><span>booking info</span></a>
                     </li>
                     <li role="presentation">
-                        <a href="#service_info" aria-controls="service_info" role="tab" data-toggle="tab"><i>2</i><span>{{$dataHeader['keyWorld']['servicios_agregados']}}</span></a>
+                        <a href="#service_info" aria-controls="service_info" role="tab" data-toggle="tab"><i>2</i><span>{{$data['keyWorld']['servicios_agregados']}}</span></a>
                     </li>
                     <li role="presentation">
-                        <a href="#personal_info" aria-controls="personal_info" role="tab" data-toggle="tab"><i>3</i><span>{{$dataHeader['keyWorld']['datos_personales']}}</span></a>
+                        <a href="#personal_info" aria-controls="personal_info" role="tab" data-toggle="tab"><i>3</i><span>{{$data['keyWorld']['datos_personales']}}</span></a>
                     </li>
                     <li role="presentation">
                         <a href="#booking_done" aria-controls="booking_done" role="tab" data-toggle="tab"><i>4</i><span>booking done</span></a>

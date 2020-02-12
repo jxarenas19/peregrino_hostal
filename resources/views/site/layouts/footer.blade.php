@@ -22,14 +22,14 @@
                             <h5 class="padding-left-15">Quick Links</h5>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <ul>
-                                    <li><a href={{ route('service') }}>{{$dataHeader['keyWorld']['servicios_agregados']}}</a></li>
-                                    <li><a href={{ route('booking') }}>{{$dataHeader['keyWorld']['booking']}}</a></li>
-                                    <li><a href="#">{{$dataHeader['keyWorld']['galeria']}}</a></li>
+                                    <li><a href={{ route('service') }}>{{$data['keyWorld']['servicios_agregados']}}</a></li>
+                                    <li><a href={{ route('booking') }}>{{$data['keyWorld']['booking']}}</a></li>
+                                    <li><a href="#">{{$data['keyWorld']['galeria']}}</a></li>
                                 </ul>
                             </div>
                             <div class="col-lg-6 col-md-6 sol-sm-6">
                                 <ul>
-                                    @foreach ($dataHeader['hostales'] as $item)
+                                    @foreach ($data['hostales'] as $item)
 
                                         <li><a href={{ route('hostal',['id'=>$item['id']]) }}>{{$item['name']}}</a></li>
                                     @endforeach
@@ -52,7 +52,7 @@
                 <div class="container">
                     <div id="social_footer">
                         <ul>
-                            @foreach ($dataHeader['sociales'] as $item)
+                            @foreach ($data['sociales'] as $item)
                                 <li><a href="#"><i class={{$item['icon']}}></i></a></li>
                             @endforeach
                         </ul>

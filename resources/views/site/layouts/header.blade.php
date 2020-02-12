@@ -34,25 +34,25 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a href={{ route('inicio') }}>{{$dataHeader['keyWorld']['inicio']}}</a></li>
+                                <li><a href={{ route('inicio') }}>{{$data['keyWorld']['inicio']}}</a></li>
                                 <li role="presentation" class="dropdown">
                                     <a id="drop-one" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                                        {{$dataHeader['keyWorld']['hostales']}}
+                                        {{$data['keyWorld']['hostales']}}
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                    @foreach ($dataHeader['hostales'] as $item)
+                                    @foreach ($data['hostales'] as $item)
 
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href={{ route('hostal',['id'=>$item['id']]) }}>{{$item['name']}}</a></li>
                                     @endforeach
                                     </ul>
 
                                 </li>
-                                <li><a href={{ route('service') }}>{{$dataHeader['keyWorld']['servicios_agregados']}}</a></li>
-                                <li><a href={{ route('booking') }}>{{$dataHeader['keyWorld']['booking']}}</a></li>
-                                <li><a href="#">{{$dataHeader['keyWorld']['galeria']}}</a></li>
+                                <li><a href={{ route('service') }}>{{$data['keyWorld']['servicios_agregados']}}</a></li>
+                                <li><a href={{ route('booking') }}>{{$data['keyWorld']['booking']}}</a></li>
+                                <li><a href="#">{{$data['keyWorld']['galeria']}}</a></li>
                                 <ul id="lang_top">
-                                    @foreach ($dataHeader['languages'] as $item)
-                                        @if ($item['code'] == $dataHeader['language_active'])
+                                    @foreach ($data['languages'] as $item)
+                                        @if ($item['code'] == $data['language_active'])
                                             <li><a href="lang/{{$item['code']}}" class="active">{{$item['code']}}</a></li>
                                         @else
                                             <li><a href="lang/{{$item['code']}}" >{{$item['code']}}</a></li>

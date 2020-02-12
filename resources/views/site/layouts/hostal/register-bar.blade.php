@@ -8,14 +8,14 @@
             <form id="form1" role="form" action="#" class="">
                 <div class="col-lg-2 col-md-2 col-sm-2">
                     <div class="room_book border-right-dark-1">
-                        <h6>{{$dataHeader['keyWorld']['select_your_room']}}</h6>
-                        <h6>{{$dataHeader['keyWorld']['rooms']}}</h6>
+                        <h6>{{$data['keyWorld']['select_your_room']}}</h6>
+                        <h6>{{$data['keyWorld']['rooms']}}</h6>
                     </div>
                 </div>
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
                     <div class="input-group border-bottom-dark-2">
                         <input class="date-picker" id="datepicker"
-                               placeholder={{$dataHeader['keyWorld']['llegada']}} type="text"/>
+                               placeholder={{$data['keyWorld']['llegada']}} type="text"/>
                         <div class="input-group-addon"><i
                                     class="fa fa-calendar"></i></div>
                     </div>
@@ -23,7 +23,7 @@
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
                     <div class="input-group border-bottom-dark-2">
                         <input class="date-picker" id="datepicker1"
-                               placeholder={{$dataHeader['keyWorld']['salida']}} type="text"/>
+                               placeholder={{$data['keyWorld']['salida']}} type="text"/>
                         <div class="input-group-addon"><i
                                     class="fa fa-calendar"></i></div>
                     </div>
@@ -36,8 +36,8 @@
                                         class="form-control" name="room"
                                         id="room">
                                     <option selected="selected"
-                                            disabled="disabled">{{$dataHeader['keyWorld']['select_hostal']}}</option>
-                                    @foreach ($dataHeader['hostales'] as $item)
+                                            disabled="disabled">{{$data['keyWorld']['select_hostal']}}</option>
+                                    @foreach ($data['hostales'] as $item)
                                         <option data-hostal={{$loop->index}} value={{$item['id']}}>{{$item['name']}}</option>
                                     @endforeach
 
