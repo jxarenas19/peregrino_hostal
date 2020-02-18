@@ -1,11 +1,11 @@
 <!-- start Hotel Facilities section -->
-<section class="hotel_facilities_area margin-top-115" style="background: url({{$data['imageServiceUrl']}}) no-repeat fixed 0 0;background-size: cover">
+<section class="hotel_facilities_area " style="background: url({{$data['imageServiceUrl']}}) no-repeat fixed 0 0;background-size: cover">
     <div class="container">
         <div class="hotel_facilities">
-            <div class="section_title nice_title content-center">
-                <h3>Hotel facilties</h3>
-            </div>
-            <div class="hotel_facilities_content">
+            {{--<div class="section_title nice_title content-center">--}}
+                {{--<h3>Hotel facilties</h3>--}}
+            {{--</div>--}}
+            <div class="hotel_facilities_content" style="padding-top: 6%;">
                 <div role="tabpanel">
 
                     <!-- Nav tabs -->

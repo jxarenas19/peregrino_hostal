@@ -13,7 +13,7 @@
 
     <!-- start main header -->
     <div class="main_header_area">
-        <div class="container">
+        <div class="container" style="width: 100%;">
             <!-- start mainmenu & logo -->
             <div class="mainmenu">
                 <div id="nav">
@@ -60,8 +60,10 @@
                                     @endforeach
                                 </ul>
 
-
                             </ul>
+                            <div class="emergency_number">
+                                <a href="tel:1234567890"><img src="img/call-icon.png" alt="">+53 7 8601257 / +53 7 8618027</a>
+                            </div>
                         </div><!-- /.navbar-collapse -->
                     </nav>
                 </div>

@@ -7,9 +7,11 @@
             <div class="row">
                 @include('site.layouts.booking.body.register-booking')
             </div>
-        <div id="addRoomBooking">
+            <div class="container">
+                <div id="addRoomBooking" class="row">
 
-        </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="booking_next_btn padding-top-30 margin-top-20 clearfix border-top-whitesmoke">

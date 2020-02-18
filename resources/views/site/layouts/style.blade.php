@@ -34,6 +34,7 @@
 <!-- custom css -->
 <link rel="stylesheet" href="{{asset("site_assets/css/style.css")}}">
 <link rel="stylesheet" href="{{asset("site_assets/css/menu.css")}}">
+<link rel="stylesheet" href="{{asset("site_assets/css/uikit.min.css")}}">
 
 <!-- responsive -->
 <link rel="stylesheet" href="{{asset("site_assets/css/responsive.css")}}">

@@ -4,23 +4,26 @@
 
 
     <script src="{{asset("site_assets/js/vendor/jquery-1.11.2.min.js")}}"></script>
+    <script src="{{asset("site_assets/js/moment.min.js")}}"></script>
+    <script src="{{asset("site_assets/js/lightpick.js")}}"></script>
     <script src="{{asset("personalmodal/js/prism.js")}}"></script>
     <script src="{{asset("personalmodal/js/bootstrap-show-modal.js")}}"></script>
     <script src="{{asset("site_assets/js/theia-sticky-sidebar.js")}}"></script>
     <script src="{{asset("site_assets/js/wow.min.js")}}"></script>
-    <script type="text/javascript">var hostales = @json($data['hostales']);</script>
+    <script type="text/javascript">var hostales = @json($data['hostales']);var dataBooking = null;</script>
     <script src="{{asset("personalmodal/js/modal_functions.js")}}"></script>
+
 
 <div class="section_title nice_title content-center">
     <h3>{{$data['keyWorld']['rooms']}}</h3>
 </div>
 <div class="container margin_60">
     <div class="row">
-        <div class="col-lg-9 col-md-8">
+        <div class="col-lg-8 col-md-7">
             @include('site.layouts.hostal.body.room-component2')
 
         </div>
-        <div class="col-lg-3 col-md-4 sidebar">
+        <div class="col-lg-4 col-md-5 sidebar">
 
             <div class="theiaStickySidebar">
                 <div class="box_style_3" id="general_facilities">
@@ -35,15 +38,13 @@
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12">
                                     <div class="input-group border-bottom-dark-2">
-                                        <input class="date-picker" id="datepicker"
-                                               placeholder={{$data['keyWorld']['llegada']}} type="text"/>
+                                        <input placeholder={{$data['keyWorld']['llegada']}} type="text" id="datepicker" class="form-control form-control-sm"/>
                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12">
                                     <div class="input-group border-bottom-dark-2">
-                                        <input class="date-picker" id="datepicker1"
-                                               placeholder={{$data['keyWorld']['salida']}} type="text"/>
+                                        <input placeholder={{$data['keyWorld']['salida']}} type="text" id="datepicker1" class="form-control form-control-sm"/>
                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
@@ -71,7 +72,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                    <a id="bookingButton" href="#" class="btn btn-warning btn-md floatright">Book</a>
+                                    <a id="bookingButton" href={{route('booking')}} class="btn btn-warning btn-md floatright">Book</a>
                                 </div>
                             </form>
                         </div>
@@ -94,6 +95,14 @@
 <script>
     jQuery('.sidebar').theiaStickySidebar({
         additionalMarginTop: 120
+    });
+
+</script>
+<script>
+    new Lightpick({
+        field: document.getElementById('datepicker'),
+        secondField: document.getElementById('datepicker1') ,
+        minDate: new Date(),
     });
 
 </script>

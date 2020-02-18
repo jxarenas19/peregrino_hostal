@@ -5,7 +5,7 @@
 <script src="{{asset("site_assets/js/lightpick.js")}}"></script>
 
 
-<script type="text/javascript">var hostales = @json($data['hostales']);</script>
+<script type="text/javascript">var hostales = @json($data['hostales']); var dataBooking=null;</script>
 <script src="{{asset("personalmodal/js/modal_functions.js")}}"></script>
 
 <div class="hotel_booking_area">
@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
                     <div class="input-group border-bottom-dark-2">
-                        <input type="text" id="datepicker" class="form-control form-control-sm"/>
+                        <input placeholder={{$data['keyWorld']['llegada']}} type="text" id="datepicker" class="form-control form-control-sm"/>
                         <div class="input-group-addon"><i
                                     class="fa fa-calendar"></i></div>
                     </div>
@@ -28,7 +28,7 @@
 
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
                     <div class="input-group border-bottom-dark-2">
-                        <input type="text" id="datepicker1" class="form-control form-control-sm"/>
+                        <input placeholder={{$data['keyWorld']['salida']}} type="text" id="datepicker1" class="form-control form-control-sm"/>
                         <div class="input-group-addon"><i
                                     class="fa fa-calendar"></i></div>
                     </div>

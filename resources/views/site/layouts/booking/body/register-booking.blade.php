@@ -1,7 +1,9 @@
-<script src="{{asset("personalmodal/js/jquery.min.js")}}"></script>
+<script src="{{asset("site_assets/js/vendor/jquery-1.11.2.min.js")}}"></script>
+<script src="{{asset("site_assets/js/moment.min.js")}}"></script>
+<script src="{{asset("site_assets/js/lightpick.js")}}"></script>
 <script src="{{asset("personalmodal/js/prism.js")}}"></script>
 <script src="{{asset("personalmodal/js/bootstrap-show-modal.js")}}"></script>
-<script type="text/javascript">var hostales = @json($data['hostales']);</script>
+<script type="text/javascript">var hostales = @json($data['hostales']);var dataBooking = @json($data['data']);</script>
 <script src="{{asset("personalmodal/js/modal_functions.js")}}"></script>
 
 
@@ -17,15 +19,13 @@
                 </div>
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
                     <div class="input-group border-bottom-dark-2">
-                        <input class="date-picker" id="datepicker"
-                               placeholder={{$data['keyWorld']['llegada']}} type="text"/>
+                        <input placeholder={{$data['keyWorld']['llegada']}} type="text" id="datepicker" class="form-control form-control-sm"/>
                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                     </div>
                 </div>
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
                     <div class="input-group border-bottom-dark-2">
-                        <input class="date-picker" id="datepicker1"
-                               placeholder={{$data['keyWorld']['salida']}} type="text"/>
+                        <input placeholder={{$data['keyWorld']['salida']}} type="text" id="datepicker1" class="form-control form-control-sm"/>
                         <div class="input-group-addon"><i
                                     class="fa fa-calendar"></i></div>
                     </div>
@@ -39,7 +39,7 @@
                                         id="room">
                                     <option selected="selected"
                                             disabled="disabled">{{$data['keyWorld']['select_hostal']}}</option>
-                                    @foreach ($data['hostales'] as $item)
+                                    @foreach ($data['hostalesBooking'] as $item)
                                         <option data-hostal={{$loop->index}} value={{$item['id']}}>{{$item['name']}}</option>
                                     @endforeach
 
@@ -68,3 +68,11 @@
     </div>
 
 </form>
+<script>
+    new Lightpick({
+        field: document.getElementById('datepicker'),
+        secondField: document.getElementById('datepicker1') ,
+        minDate: new Date(),
+    });
+
+</script>
