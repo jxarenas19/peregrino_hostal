@@ -3,7 +3,14 @@
 /* --------------------------------------------------------
                     Start Medium Layout: 992px
 -----------------------------------------------------------*/
-
+@media only screen and (min-width: 1200px) and (max-width: 2199px) {
+  .container{
+    width: 1470px;
+  }
+  span.tooltip-item i {
+    font-size: xx-large;
+  }
+}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 .container{
     width: 970px;

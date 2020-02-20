@@ -80,5 +80,9 @@
         secondField: document.getElementById('datepicker1') ,
         minDate: new Date(),
     });
-
+    var bookingJson = {
+        'bookingRoom':[],
+        'bookingService':[],
+        'generalData':{}
+    }
 </script>
