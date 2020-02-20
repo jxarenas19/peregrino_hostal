@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="booking_next_btn padding-top-30 margin-top-20 clearfix border-top-whitesmoke">
-                        <a href="#" id="infoButton" disabled='disabled' onclick="nextTab()" class="btn btn-warning btn-sm floatright">Next</a>
+                        <a href="#" id="infoButton" disabled='disabled' onclick="goToService()" class="btn btn-warning btn-sm floatright">Sigui</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,10 @@
 </div>
 <script>
 
-    function nextTab() {
-        $('#myTab a[href="#service_info"]').tab('show');
+    function goToService() {
+        var tabService = $('#myTab a[href="#service_info"]');
+        tabService.removeClass('isDisabled');
+
+        tabService.tab('show');
     }
 </script>

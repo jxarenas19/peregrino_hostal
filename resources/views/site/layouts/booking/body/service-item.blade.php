@@ -83,10 +83,16 @@
         if (table_service.hasClass("table-bordered")){
             table_service.removeClass("table-bordered").addClass("table-bordered2");
             icon_select.css('color','#72ff88');
+            bookingJson.bookingService[[id_service]] = {
+                'begin':'fecha inicio',
+                'end':'fecha fin',
+                'id_service':id_service
+            }
         }
         else{
             table_service.removeClass("table-bordered2").addClass("table-bordered");
             icon_select.css('color','#000000');
+            delete bookingJson.bookingService[id_service];
         }
 
 

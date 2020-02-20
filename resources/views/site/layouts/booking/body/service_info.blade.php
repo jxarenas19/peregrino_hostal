@@ -17,7 +17,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="booking_next_btn padding-top-30 margin-top-20 clearfix border-top-whitesmoke">
-                        <a href="#" id="infoButton" disabled='disabled' onclick="nextTab()" class="btn btn-warning btn-sm floatright">Next</a>
+                        <a href="#" onclick="goToBack('booking_info')" class="btn btn-warning btn-sm btn-info">back</a>
+                        <a href="#" id="infoButton" onclick="goToPersonal()" class="btn btn-warning btn-sm floatright">Next</a>
                     </div>
                 </div>
             </div>
@@ -26,8 +27,15 @@
 
 </div>
 <script>
+    function goToPersonal() {
+        var tabPersonal = $('#myTab a[href="#personal_info"]');
+        tabPersonal.removeClass('isDisabled');
 
-    function nextTab() {
-        $('#myTab a[href="#service_info"]').tab('show');
+        tabPersonal.tab('show');
     }
+    function goToBack(tab){
+        tabBack = $('#myTab a[href="#'+tab+'"]');
+        tabBack.tab('show');
+    }
+
 </script>

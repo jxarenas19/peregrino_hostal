@@ -70,7 +70,7 @@ a:hover{
 .mainmenu .navbar-default {
   background: none;
   border: none;
-  margin: 0;
+	margin-right: 5%;
 }
 .mainmenu .navbar-brand {
   padding: 0 23px 0 0;
@@ -114,6 +114,7 @@ a:hover{
 }
 body#home_one .emergency_number, body#home_one .emergency_number::after{
 	background: #3ac4fa none repeat scroll 0 0;
+
 }
 .mainmenu .nav.navbar-nav > li > a {
 	text-transform: uppercase;
@@ -1451,6 +1452,10 @@ body#booking_page .booking_info_area .room_cost table td span, body#booking_page
 	font-size: 16px;
 	font-weight: 700;
 }
+body#booking_page .booking_info_area .room_cost table td span.imp_table_text.service-item-table{
+	font-size: 12px;
+
+}
 body#booking_page .booking_info_area .room_cost table tr > td:first-child, body#booking_page .booking_done_area .room_cost table tr > td:first-child{
 	text-align: left;
 }
@@ -2468,4 +2473,46 @@ select.select-field{
 }
 .morelink {
 	display: block;
+}
+span.imp_table_text {
+	color: #fff;
+}
+span.imp_table_text i {
+	font-size: 20px;
+}
+.datos-room{
+	padding-top: 2%;
+}
+
+.datos-general-room{
+	width: 40%;
+	margin-right: -10%;
+	margin-left: 1.5%;
+}
+.uk-overlay-background {
+	background: #f7c411 none repeat scroll 0 0;
+}
+.icon-ok-squared:hover{
+	 color: #72ff88;
+ }
+.icon-ok-squared{
+	color: #000000;
+}
+.only-icon:hover{
+	color: #72ff88;
+}
+
+.table-bordered2 {
+	border: 3px solid #0ded43;
+	background: antiquewhite;
+}
+.isDisabled {
+	color: currentColor;
+	cursor: not-allowed;
+	opacity: 0.5;
+	text-decoration: none;
+	pointer-events: none;
+}
+.details-room-delete{
+	background: #a5989894 none repeat scroll 0 0;
 }
