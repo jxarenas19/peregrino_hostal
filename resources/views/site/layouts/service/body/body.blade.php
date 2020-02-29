@@ -8,6 +8,8 @@
 <script src="{{asset("personalmodal/js/bootstrap-show-modal.js")}}"></script>
 <script src="{{asset("site_assets/js/theia-sticky-sidebar.js")}}"></script>
 <script src="{{asset("site_assets/js/wow.min.js")}}"></script>
+<script src="{{asset("site_assets/js/moment.min.js")}}"></script>
+<script src="{{asset("site_assets/js/lightpick.js")}}"></script>
 
 <div class="container">
     <div class="row">
@@ -42,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                    <a class="btn btn-warning btn-md floatright">Book</a>
+                                    <a id="bookingServiceButton" href={{route('bookingService')}} class="btn btn-warning btn-md floatright">Book</a>
                                 </div>
                             </form>
                         </div>

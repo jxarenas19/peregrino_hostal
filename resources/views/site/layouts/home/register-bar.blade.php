@@ -81,6 +81,7 @@
         minDate: new Date(),
     });
     var bookingJson = {
+        'generalBookingData':{},
         'bookingRoom':[],
         'bookingService':[],
         'generalData':{}

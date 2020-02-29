@@ -76,6 +76,9 @@ $(document).ready(function () {
                 }
 
             });
+            bookingJson.generalBookingData = {
+                'hostal':hostales[0]['id']
+            };
         });
 
         $('#infoButton').removeAttr('disabled');
@@ -95,7 +98,7 @@ function modalCreate() {
         onCreate: function (modal) {
             // create event handler for form submit and handle values
             $(modal.element).on("click", "button[type='submit']", function (event) {
-
+                deleteRoomBookingChildren($('#addRoomBooking'));
                 event.preventDefault()
                 var $form = $(modal.element).find("form");
                 $('#button-form')[0].placeholder = totalRoom + ' hab, ' + totalPersonal + ' hués';
@@ -143,8 +146,7 @@ function modalCreate() {
                 });
                 var bookingButton = $('#bookingButton')[0];
                 if (bookingButton !== undefined) {
-                    bookingButton.href = 'booking';
-                    bookingButton.href = "?data=" + (JSON.stringify({
+                    bookingButton.href = "booking?data=" + (JSON.stringify({
                         'rooms': allRoom,
                         'hostal': hostal_value,
                         'huespedes': huesp,
@@ -165,6 +167,7 @@ function modalCreate() {
                             'index_room':value['index_room'],
                             'id_room':value['id_room']
                         };
+
                         var roomBooking = createRoomBooking(hostal.rooms[value['index_room']],
                             {
                                 'adults': value['adults'],
@@ -174,6 +177,9 @@ function modalCreate() {
                             });
                         $('#addRoomBooking').append(roomBooking);
                     });
+                    bookingJson.generalBookingData = {
+                        'hostal':hostal.id
+                    };
                     $('#infoButton').removeAttr('disabled');
                 }
 
@@ -263,6 +269,12 @@ function deleteRoomBooking(elem){
     updateTextButton();
     $('#button-form')[0].placeholder = totalRoom + ' hab, ' + totalPersonal + ' hués';
 
+}
+
+function deleteRoomBookingChildren(elem) {
+    $.each(elem.children(), function (index, value) {
+        value.remove();
+    });
 }
 
 function deleteRoom(elem) {

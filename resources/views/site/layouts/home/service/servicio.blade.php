@@ -13,11 +13,11 @@
                         @foreach ($data["services"]["payServices"] as $item)
                             @if ($loop->index===0)
                                 <li role="presentation" class="active">
-                                    <a href="#first" aria-controls='first' role="tab" data-toggle="tab"><span class="tooltip-item"><i class={{$item['icon']}} style="font-size: 40px;" ></i></span></a>
+                                    <a href="#first" aria-controls='first' role="tab" data-toggle="tab"><span class="tooltip-item service_icon"><i style="font-size: 40px;" class={{$item['icon']}}  ></i></span></a>
                                 </li>
                             @else
                                 <li role="presentation" >
-                                    <a href="#{{$item['id']}}" aria-controls={{$item['id']}} role="tab" data-toggle="tab"><span class="tooltip-item"><i class={{$item['icon']}} style="font-size: 40px;" ></i></span></a>
+                                    <a href="#{{$item['id']}}" aria-controls={{$item['id']}} role="tab" data-toggle="tab"><span class="tooltip-item  service_icon"><i style="font-size: 40px;" class={{$item['icon']}}  ></i></span></a>
                                 </li>
                             @endif
                         @endforeach
@@ -38,14 +38,11 @@
                                             </div>
                                             <div class="co-lg-7 col-md-7 col-sm-6">
                                                 <div class="single-tab-details">
-                                                    <h6>The world class</h6>
+
                                                     <h3>{{$item['name']}}</h3>
                                                     <p>
-                                                        {{$item['description']}}
+                                                        <span class="more">{{$item['description']}}</span>
                                                     </p>
-                                                    <div class="our_services">
-                                                        <a href="#">service charge : ${{$item['price']}}</a>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,14 +59,11 @@
                                             </div>
                                             <div class="co-lg-7 col-md-7 col-sm-6">
                                                 <div class="single-tab-details">
-                                                    <h6>The world class</h6>
+
                                                     <h3>{{$item['name']}}</h3>
                                                     <p>
-                                                        {{$item['description']}}
+                                                        <span class="more">{{$item['description']}}</span>
                                                     </p>
-                                                    <div class="our_services">
-                                                        <a href="#">service charge : ${{$item['price']}}</a>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,3 +81,39 @@
     </div>
 </section>
 <!-- end Hotel Facilities section -->
+<script>
+    var keyWorld = @json($data['keyWorld']);
+    $(document).ready(function() {
+        var showChar = 480;
+        var moretext = keyWorld.read_more;
+        var ellipsestext = "...";
+        $('.more').each(function(index,value) {
+            var content = $(this).html();
+
+            if(content.length > showChar) {
+
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar, content.length - showChar);
+
+                var html = c + '<span class="moreellipses">' + ellipsestext+ '</span><br><br>' +
+                    '<a style="padding: 2px 4px;" href="service" class="morelink btn_1_outline">' + moretext + '</a>';
+
+                $(this).html(html);
+            }
+
+        });
+
+        $(".morelink").click(function(){
+            if($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle();
+            return false;
+        });
+    });
+</script>

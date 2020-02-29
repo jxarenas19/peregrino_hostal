@@ -32,8 +32,7 @@
                             <form id="form1" role="form" action="#" class="">
                                 <div class="col-lg-12 col-md-12">
                                     <div class="room_book">
-                                        <h6>{{$data['keyWorld']['select_your_room']}}</h6>
-                                        <h6>{{$data['keyWorld']['rooms']}}</h6>
+                                        <h6>{{$data['keyWorld']['select_your_room'].' '.$data['keyWorld']['rooms']}} </h6>
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12">
@@ -72,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                    <a id="bookingButton" href={{route('booking')}} class="btn btn-warning btn-md floatright">Book</a>
+                                    <a class="btn btn-warning btn-md floatright" id="bookingButton" href={{route('booking')}} >Book</a>
                                 </div>
                             </form>
                         </div>

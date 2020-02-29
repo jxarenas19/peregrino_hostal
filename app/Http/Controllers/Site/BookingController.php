@@ -7,6 +7,7 @@ use App\Models\Site\GeneralText;
 use App\Models\Site\Hostal;
 use App\Models\Site\Service;
 use App\Models\Site\Social;
+use crocodicstudio\crudbooster\helpers\MailHelper;
 use Illuminate\Support\Facades\Session;
 
 class BookingController extends Controller
@@ -60,4 +61,59 @@ class BookingController extends Controller
 
         return view('site.layouts.booking.page-booking')->with('data', $dataResponse);
     }
+
+    public function reservar(){
+        $data = json_decode(request('informacion'));
+        // Send mail script
+        $mail = new MailHelper();
+
+        // First param is for send mail address, second param is for sender name
+        $mail->sender("jxarenas21990@gmail.com", "Ferry");
+
+        $mail->to("jxarenas21990@gmail.com");
+        $mail->subject("Welcome to CRUDBooster");
+        $dataMail = $this->findBodyData($data);
+
+        $mail->content($this->createBodyMail($dataMail));
+
+
+
+        // Send email
+//        $mail->send();
+       $mail->send();
+        return 'correcto';
+
+    }
+    public function findBodyData($data){
+        $total_adults = 0;
+        $total_childrens = 0;
+        foreach ($data->bookingRoom as $item) {
+
+            $total_adults+=(int)$item->adults;
+            $total_childrens+=(int)$item->childrens;
+        }
+
+        $hostal = Hostal::all()->where('id','=',
+            $data->generalBookingData->hostal);
+
+       return array(
+            'email'=> $data->generalData->mail,
+            'adults'=> $total_adults,
+            'childrens'=> $total_childrens,
+            'name' => $data->generalData->nombre,
+            'country' => $data->generalData->nacionalidad,
+            'pasaporte' => 'numero pasaporte',
+            'genero' => 'M',
+            'fecha_nacimiento' => '21/06/1990',
+            'hostal'=>$hostal->first()->name,
+            'tipoRoom'=> 'Doble'
+        );
+    }
+
+    public function createBodyMail($data){
+        $body = 'No. adultos:'.$data['adults'].'\n';
+        $body .= 'No. niños:'.$data['childrens'].'\n';
+        return $body;
+    }
+
 }

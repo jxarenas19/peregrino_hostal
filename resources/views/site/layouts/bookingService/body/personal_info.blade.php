@@ -3,11 +3,10 @@
     <div class="personal_info_area">
         <div class="hotel_booking4 margin-top-70 margin-bottom-125">
             <form role="form" action="#" class="">
-                {{ csrf_field() }}
                 <div class="row">
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 icon_arrow">
                         <div class="input-group">
-                            <input type="text" id="fieldName" onchange="nombreChange(this)" class="form-control" placeholder={{$data['keyWorld']['persona_name']}}>
+                            <input type="text" onchange="nombreChange(this)" class="form-control" placeholder={{$data['keyWorld']['persona_name']}}>
                         </div>
                     </div>
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 icon_arrow">
@@ -21,19 +20,19 @@
                     </div>
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 icon_arrow">
                         <div class="input-group">
-                            <input type="text" id="fieldEmail" class="form-control" placeholder={{$data['keyWorld']['email']}}>
+                            <input type="text" class="form-control" placeholder={{$data['keyWorld']['email']}}>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-6 col-md-6 col-sm-6 icon_arrow">
                         <div class="input-group">
-                            <input type="text" id="fieldFlight" class="form-control" placeholder={{$data['keyWorld']['flight_number']}}>
+                            <input type="text" class="form-control" placeholder={{$data['keyWorld']['flight_number']}}>
                         </div>
                     </div>
                     <div class="form-group col-lg-6 col-md-6 col-sm-6 icon_arrow">
                         <div class="input-group">
-                            <input type="text" id="fieldHour" class="form-control" placeholder={{$data['keyWorld']['arrived_hour']}}>
+                            <input type="text" class="form-control" placeholder={{$data['keyWorld']['arrived_hour']}}>
                         </div>
                     </div>
                 </div>
@@ -70,42 +69,13 @@
 
         tabDone.tab('show');
         bookingJson.generalData = {
-            'nombre': $('#fieldName')[0].value,
+            'nombre': 'nombre',
             'nacionalidad':'nacion',
             'mail':'correo',
             'aerolinea':'avion',
             'hora':'09:00',
             'others':'muela'
-        };
-        $('#loader-wrapper').css('display','');
-        $.ajax({
-            type: "POST",
-            data: {"informacion":(JSON.stringify(bookingJson))},
-            'url' : 'reservar',
-            'success' : function(callback) {
-                try {
-                    $('#status').fadeOut(); // will first fade out the loading animation
-                    $('#loader-wrapper').delay(300).fadeOut('slow'); // will fade out the white DIV that covers the website.
-                    $('body').delay(350).css({'overflow-x':'hidden'});
-                    response = JSON.parse(callback);
-                    // alert(JSON.stringify(response));
-                    if (response.error !== undefined)
-                        throw Error(response.error);
-                } catch (e) {
-                    $('#status').fadeOut(); // will first fade out the loading animation
-                    $('#loader-wrapper').delay(300).fadeOut('slow'); // will fade out the white DIV that covers the website.
-                    $('body').delay(350).css({'overflow-x':'hidden'});
-                    console.log('Error en el servicio');
-                    return false;
-                }
-            },
-            'error' : function(xhr, textStatus, errorThrown) {
-                $('#status').fadeOut(); // will first fade out the loading animation
-                $('#loader-wrapper').delay(300).fadeOut('slow'); // will fade out the white DIV that covers the website.
-                $('body').delay(350).css({'overflow-x':'hidden'});
-                console.log('error')
-            }
-        });
+        }
     }
     function nombreChange(elem) {
         console.log(elem)

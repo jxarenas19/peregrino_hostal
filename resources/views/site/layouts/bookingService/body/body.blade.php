@@ -5,10 +5,7 @@
                 <!-- Nav tabs -->
                 <ul id="myTab" class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
-                        <a href="#booking_info" aria-controls="booking_info" role="tab" data-toggle="tab"><i>1</i><span>booking info</span></a>
-                    </li>
-                    <li role="presentation">
-                        <a class="isDisabled" href="#service_info" aria-controls="service_info" role="tab" data-toggle="tab"><i>2</i><span>{{$data['keyWorld']['servicios_agregados']}}</span></a>
+                        <a href="#service_info" aria-controls="service_info" role="tab" data-toggle="tab"><i>2</i><span>{{$data['keyWorld']['servicios_agregados']}}</span></a>
                     </li>
                     <li role="presentation">
                         <a class="isDisabled" href="#personal_info" aria-controls="personal_info" role="tab" data-toggle="tab"><i>3</i><span>{{$data['keyWorld']['datos_personales']}}</span></a>
@@ -20,9 +17,8 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    @include('site.layouts.booking.body.booking_info')
-                    @include('site.layouts.booking.body.service_info')
-                    @include('site.layouts.booking.body.personal_info')
+                    @include('site.layouts.bookingService.body.service_info')
+                    @include('site.layouts.bookingService.body.personal_info')
 
 
                     <div role="tabpanel" class="tab-pane" id="booking_done">
@@ -69,11 +65,3 @@
     </div>
 </section>
 
-<script>
-    var bookingJson = {
-        'generalBookingData':{},
-        'bookingRoom':[],
-        'bookingService':[],
-        'generalData':{}
-    }
-</script>

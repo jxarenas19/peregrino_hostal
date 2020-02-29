@@ -13,7 +13,7 @@
 
     <!-- start main header -->
     <div class="main_header_area">
-        <div class="container">
+        <div class="container header-barra">
             <!-- start mainmenu & logo -->
             <div class="mainmenu">
                 <div id="nav">

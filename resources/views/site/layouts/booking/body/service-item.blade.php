@@ -1,7 +1,7 @@
 
 <div class="col-lg-3 col-md-3 col-sm-3">
     <div class="single_room_wrapper clearfix">
-        <figure class="uk-overlay uk-overlay-hover" style="height: 300px">
+        <figure class="uk-overlay uk-overlay-hover" style="height: 375px">
             <div class="room_media">
                 <a href="#"><img class="img-responsive styled" src={{array_shift($item['images']['info'])['url']}} alt=""></a>
             </div>
@@ -40,7 +40,7 @@
 
 
     $(document).ready(function() {
-        var showChar = 220;
+        var showChar = 200;
         var moretext = keyWorld.read_more;
         var ellipsestext = "...";
         $('.more').each(function(index,value) {
@@ -75,6 +75,7 @@
         });
     });
     var keyWorld = @json($data['keyWorld']);
+
     function selectService(param) {
         var icon_select = $(param.children[0]);
 

@@ -15,7 +15,6 @@
             </div>
             <div class="col-md-5 room_list_desc2">
                 <h3>{{$item['name']}}</h3>
-                <h9>{{$item['tipoRoom']}}</h9>
                 <ul>
                     @foreach ($item['conforts'] as $elem)
                         <li>
