@@ -30,8 +30,8 @@
                     </p>
                     <div class="single_room_cost clearfix">
                         <div class="floatright3">
-                            <span onclick="selectService(this)" style='cursor: pointer;color: #000000;' class="imp_table_text" data-id={{$item['id']}}><i style="font-size: 30px;" class="icon-ok-squared"></i></span>
-                            <span data-uk-modal="{target:'#my-id',center:true}" style='cursor: pointer;color:  #000000;' class="imp_table_text"><i id={{'date'.$index}} data-index-service={{$index}} data-id-popoper='' onclick="openPopover(this)" style="font-size: 30px;" class="icon-calendar-empty only-icon"></i></span>
+                            <span data-index-service={{$index}} onclick="selectService(this)" style='cursor: pointer;color: #000000;' class="imp_table_text" data-id={{$item['id']}}><i style="font-size: 30px;" class="icon-ok-squared"></i></span>
+                            <span data-uk-modal="{target:'#my-id',center:true}" style='cursor: pointer;color:  #000000;' class="imp_table_text"><i data-placement="top" id={{'date'.$index}} data-index-service={{$index}} data-id-popoper='' onclick="openPopover(this)" style="font-size: 30px;" class={{$iconDate}}></i></span>
                         </div>
                     </div>
                 </div>
@@ -44,10 +44,13 @@
     var keyWorld = @json($data['keyWorld']);
     var service = @json($item);
     var dataReserva = @json($dataReserva);
+    var services = @json($services);
     var selected = @json($selected);
+
     if (selected){
         selectService($('[data-id="'+service['id']+'"]')[0]);
         changeDateInfo();
+        dataServices[service.id] = dataReserva;
     };
     $(document).ready(function() {
 
@@ -88,11 +91,20 @@
 
     function openPopover(elem) {
         var index_service = elem.getAttribute('data-index-service');
+        service = services[index_service];
+        try{
+            var start = dataServices[service.id].start;
+            var end = dataServices[service.id].end;
+        }
+        catch (e) {
+            var start = '';
+            var end = '';
+        }
+
         var dateFields = '';
-        var start = '';
-        var end = '';
         if (elem.getAttribute('data-id-popoper') === '') {
             $(elem).removeClass('icon-calendar-empty');
+            $(elem).removeClass('icon-calendar');
             $(elem).addClass(' icon-ok');
             $(elem).addClass(' isDisabled-service');
 
@@ -102,7 +114,7 @@
                 animation: false,
                 trigger: 'manual'
             });
-            $(elem).on('shown.bs.popover', function () {
+            $(elem).on('shown.bs.popover', function (component) {
                 inicialDate(index_service,$(elem));
                 if (!dataServices.hasOwnProperty(service.id)) {
                     dataServices[service.id] = {
@@ -113,6 +125,10 @@
             });
             $(elem).popover('show');
             elem.setAttribute('data-id-popoper', elem.getAttribute('aria-describedby'));
+            $('#'+elem.getAttribute('data-id-popoper')).css('left','1px');
+            $($('#'+elem.getAttribute('data-id-popoper')).children()[0]).css('left','80%');
+            $('#datepicker-service' + index_service)[0].value = (start!==undefined)?start:keyWorld['llegada'];
+            $('#datepicker1-service' + index_service)[0].value = (end!==undefined)?end:keyWorld['salida'];
         }
         else if ($(elem).hasClass('icon-calendar') | $(elem).hasClass('icon-calendar-empty')) {
             $(elem).removeClass('icon-calendar');
@@ -121,16 +137,19 @@
 
             $(elem).popover('show');
             elem.setAttribute('data-id-popoper', elem.getAttribute('aria-describedby'));
-            start = dataServices[service.id].start;
-            end = dataServices[service.id].end;
-            $('#datepicker-service' + index_service)[0].value = start;
-            $('#datepicker1-service' + index_service)[0].value = end;
+            $('#'+elem.getAttribute('data-id-popoper')).css('left','1px');
+            $($('#'+elem.getAttribute('data-id-popoper')).children()[0]).css('left','80%');
+            $('#datepicker-service' + index_service)[0].value = (start!==undefined)?start:keyWorld['llegada'];
+            $('#datepicker1-service' + index_service)[0].value = (end!==undefined)?end:keyWorld['salida'];
+
         }
         else {
             $(elem).popover('hide');
             $(elem).removeClass(' icon-ok');
             $(elem).addClass('icon-calendar');
             var parent = getParentIcon(elem);
+
+            changeDateInfoByValue(service.id,start,end);
 
             changeParentClass(parent);
 
@@ -142,8 +161,12 @@
 
     }
 
+    function getParentIcon(elem) {
+        return $(elem.parentElement.parentElement);
+    }
+
     function bodyPopovers(index) {
-        return '<div class="row">                 ' +
+        return '<div class="row dates-input">                 ' +
             '<div class="form-group col-lg-5 col-md-5 col-sm-5 date-inicio">\n' +
             '                    <div class="input-group border-bottom-dark-2">\n' +
             '                        <input placeholder="' + keyWorld.llegada + '" type="text" id="datepicker-service' + index + '" class="form-control form-control-sm"/>\n' +
@@ -161,7 +184,6 @@
 
     function inicialDate(index_service,elem) {
         return new Lightpick({
-            orientation:'bottom',
             field: document.getElementById('datepicker-service' + index_service),
             secondField: document.getElementById('datepicker1-service' + index_service),
             minDate: new Date(),
@@ -205,7 +227,7 @@
                 delete bookingJson.bookingService[id_service];
             }
             catch (e) {
-                
+
             }
         }
 
@@ -213,9 +235,29 @@
     }
 
     function changeDateInfo() {
-        console.log(dataReserva)
         document.getElementById(service['id']).querySelector('.dates1').innerText=dataReserva['start'];
         document.getElementById(service['id']).querySelector('.dates2').innerText=dataReserva['end'];
+
+    }
+
+    function changeDateInfoByValue(id,start,end) {
+        document.getElementById(id).querySelector('.dates1').innerText=start;
+        document.getElementById(id).querySelector('.dates2').innerText=end;
+
+    }
+    function closeDateField(elem) {
+
+        var popoverId = elem.parentElement.parentElement.parentElement.parentElement.getAttribute('id');
+        var iconPopover = $("[data-id-popoper='" + popoverId + "']");
+        var index_service = iconPopover[0].getAttribute('data-index-service');
+        service = services[index_service];
+        iconPopover.popover('hide');
+        iconPopover.removeClass(' icon-ok');
+        iconPopover.addClass('icon-calendar-empty');
+        iconPopover.removeClass(' isDisabled-service');
+        changeDateInfoByValue(service.id,'','');
+        dataServices[service.id] = {}
+
 
     }
 </script>

@@ -46,8 +46,8 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="booking_next_btn padding-top-30 margin-top-50 clearfix border-top-whitesmoke">
-                            <a href="#" onclick="goToBack('service_info')" class="btn btn-warning btn-sm btn-info">back</a>
-                            <a href="#" onclick="goToFinish()" class="btn btn-warning btn-sm floatright">Next</a>
+                            <a href="#" onclick="goToBack('service_info')" class="btn btn-warning btn-sm btn-info">{{$data['keyWorld']['back']}}</a>
+                            <a href="#" onclick="goToFinish()" class="btn btn-warning btn-sm floatright">{{$data['keyWorld']['next']}}</a>
                         </div>
                     </div>
                 </div>

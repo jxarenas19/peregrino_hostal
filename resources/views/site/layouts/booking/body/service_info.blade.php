@@ -8,7 +8,11 @@
             <div class="row">
 
                 @foreach ($data['services']['payServices'] as $item)
-                    @component('site.layouts.booking.body.service-item',['item'=>$item,'data'=>$data])
+                    @component('site.layouts.bookingService.body.service-item',[
+                        'item'=>$item,'data'=>$data,
+                        'iconDate'=>"icon-calendar-empty only-icon",
+                        'services'=>$data['services']['payServices'],
+                        'selected'=>false,'index'=>$loop->index,'dataReserva'=>collect()])
                     @endcomponent
                 @endforeach
 
@@ -17,8 +21,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="booking_next_btn padding-top-30 margin-top-20 clearfix border-top-whitesmoke">
-                        <a href="#" onclick="goToBack('booking_info')" class="btn btn-warning btn-sm btn-info">back</a>
-                        <a href="#" id="infoButton" onclick="goToPersonal()" class="btn btn-warning btn-sm floatright">Next</a>
+                        <a href="#" onclick="goToBack('booking_info')" class="btn btn-warning btn-sm btn-info">{{$data['keyWorld']['back']}}</a>
+                        <a href="#" id="infoButton" onclick="goToPersonal()" class="btn btn-warning btn-sm floatright">{{$data['keyWorld']['next']}}</a>
                     </div>
                 </div>
             </div>

@@ -76,4 +76,5 @@
         'bookingService':[],
         'generalData':{}
     }
+    var dataServices = {}
 </script>

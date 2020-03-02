@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="booking_next_btn padding-top-30 margin-top-20 clearfix border-top-whitesmoke">
-                        <a href="#" id="infoButton" disabled='disabled' onclick="goToService()" class="btn btn-warning btn-sm floatright">Sigui</a>
+                        <a href="#" id="infoButton" disabled='disabled' onclick="goToService()" class="btn btn-warning btn-sm floatright">{{$data['keyWorld']['next']}}</a>
                     </div>
                 </div>
             </div>

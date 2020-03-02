@@ -18,12 +18,16 @@
                         'item'=>$item,
                         'data'=>$data,
                         'selected'=>true,
+                        'services'=>$data['services']['payServices'],
                         'index'=>$loop->index,
+                        'iconDate'=>"icon-calendar only-icon",
                         'dataReserva'=>collect($data['data'])[$item['id']]])
                         @endcomponent
                     @else
                         @component('site.layouts.bookingService.body.service-item',[
                         'item'=>$item,'data'=>$data,
+                        'iconDate'=>"icon-calendar-empty only-icon",
+                        'services'=>$data['services']['payServices'],
                         'selected'=>false,'index'=>$loop->index,'dataReserva'=>collect()])
                         @endcomponent
                     @endif
@@ -34,7 +38,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="booking_next_btn padding-top-30 margin-top-20 clearfix border-top-whitesmoke">
-                        <a href="#" id="infoButton" onclick="goToPersonal()" class="btn btn-warning btn-sm floatright">Next</a>
+                        <a href="#" id="infoButton" onclick="goToPersonal()" class="btn btn-warning btn-sm floatright">{{$data['keyWorld']['next']}}</a>
                     </div>
                 </div>
             </div>
