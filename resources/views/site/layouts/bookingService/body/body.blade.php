@@ -18,7 +18,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     @include('site.layouts.bookingService.body.service_info')
-                    @include('site.layouts.bookingService.body.personal_info')
+                    @include('site.layouts.booking.body.personal_info')
 
 
                     <div role="tabpanel" class="tab-pane" id="booking_done">

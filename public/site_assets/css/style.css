@@ -2578,3 +2578,6 @@ i.icon-cancel-squared{
 span.imp_table_text.dates {
     margin-right: 20%;
 }
+body#booking_page {
+    background: #f5f6fa;
+}

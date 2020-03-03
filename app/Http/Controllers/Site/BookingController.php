@@ -10,6 +10,12 @@ use App\Models\Site\Social;
 use crocodicstudio\crudbooster\helpers\MailHelper;
 use Illuminate\Support\Facades\Session;
 
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\Exception;
+//require 'PHPMailer-master/src/Exception.php';
+//require 'PHPMailer-master/src/PHPMailer.php';
+//require 'PHPMailer-master/src/SMTP.php';
+
 class BookingController extends Controller
 {
     public function index()
@@ -79,9 +85,9 @@ class BookingController extends Controller
 
 
         // Send email
-//        $mail->send();
-       $mail->send();
-        return 'correcto';
+//       $mail->send();
+        $response = ['success' => True, 'data' => $data];
+        return response()->json($response, 200);
 
     }
     public function findBodyData($data){

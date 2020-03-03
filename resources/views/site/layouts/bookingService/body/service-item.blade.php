@@ -1,23 +1,25 @@
-
 <div class="col-lg-3 col-md-3 col-sm-3">
     <div class="single_room_wrapper clearfix">
         <figure class="uk-overlay uk-overlay-hover" style="height: 375px">
             <div class="room_media">
-                <a href="#"><img class="img-responsive styled" src={{array_shift($item['images']['info'])['url']}} alt=""></a>
+                <a href="#"><img class="img-responsive styled"
+                                 src={{array_shift($item['images']['info'])['url']}} alt=""></a>
             </div>
             <div class="room_cost" style="padding-top: 3%;">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="table-responsive">
-                            <table id={{$item['id']}} class="table table-bordered">
-                                <tr class="service_table">
-                                    <td class=""><span class="imp_table_text service-item-table">{{$item['name']}}</span></td>
-                                    <td class=""><span class="imp_table_text">{{$item['price']}}$</span></td>
-                                </tr>
-                                <tr class="service_table">
-                                    <td class=""><span class="imp_table_text dates1"></span></td>
-                                    <td class=""><span class="imp_table_text dates2"></span></td>
-                                </tr>
+                            <table id={{$item['id']}} class="table table-bordered
+                            ">
+                            <tr class="service_table">
+                                <td class=""><span class="imp_table_text service-item-table">{{$item['name']}}</span>
+                                </td>
+                                <td class=""><span class="imp_table_text">{{$item['price']}}$</span></td>
+                            </tr>
+                            <tr class="service_table">
+                                <td class=""><span class="imp_table_text dates1"></span></td>
+                                <td class=""><span class="imp_table_text dates2"></span></td>
+                            </tr>
                             </table>
                         </div>
                     </div>
@@ -30,8 +32,15 @@
                     </p>
                     <div class="single_room_cost clearfix">
                         <div class="floatright3">
-                            <span data-index-service={{$index}} onclick="selectService(this)" style='cursor: pointer;color: #000000;' class="imp_table_text" data-id={{$item['id']}}><i style="font-size: 30px;" class="icon-ok-squared"></i></span>
-                            <span data-uk-modal="{target:'#my-id',center:true}" style='cursor: pointer;color:  #000000;' class="imp_table_text"><i data-placement="top" id={{'date'.$index}} data-index-service={{$index}} data-id-popoper='' onclick="openPopover(this)" style="font-size: 30px;" class={{$iconDate}}></i></span>
+                            <span data-uk-modal="{target:'#my-id',center:true}" style='cursor: pointer;color:  #000000;'
+                                  class="imp_table_text"><i data-placement="top"
+                                                            id={{'date'.$index}} data-index-service={{$index}} data-id-popoper=''
+                                                            onclick="openPopover(this)" style="font-size: 30px;"
+                                                            class={{$iconDate}}></i></span>
+                            <span
+                                data-index-service={{$index}} onclick="selectService(this)"
+                                style='cursor: pointer;color: #000000;' class="imp_table_text is-disabled" data-id={{$item['id']}}><i
+                                    style="font-size: 30px;" class="icon-ok-squared"></i></span>
                         </div>
                     </div>
                 </div>
@@ -47,25 +56,32 @@
     var services = @json($services);
     var selected = @json($selected);
 
-    if (selected){
-        selectService($('[data-id="'+service['id']+'"]')[0]);
+
+    if (selected) {
+        selectService($('[data-id="' + service['id'] + '"]')[0]);
         changeDateInfo();
         dataServices[service.id] = dataReserva;
-    };
-    $(document).ready(function() {
+    }
+
+    $(document).ready(function () {
+        for (var item in services) {
+            $(function () {
+                $('[data-toggle="'+item+'"]').tooltip()
+            });
+        }
 
         var showChar = 200;
         var moretext = keyWorld.read_more;
         var ellipsestext = "...";
-        $('.more').each(function(index,value) {
+        $('.more').each(function (index, value) {
             var content = $(this).html();
 
-            if(content.length > showChar) {
+            if (content.length > showChar) {
 
                 var c = content.substr(0, showChar);
                 var h = content.substr(showChar, content.length - showChar);
 
-                var html = c + '<span class="moreellipses">' + ellipsestext+ '</span><br><br>' +
+                var html = c + '<span class="moreellipses">' + ellipsestext + '</span><br><br>' +
                     '<a style="padding: 2px 4px;" href="service" class="morelink btn_1_outline">' + moretext + '</a>';
 
 
@@ -75,8 +91,8 @@
 
         });
 
-        $(".morelink").click(function(){
-            if($(this).hasClass("less")) {
+        $(".morelink").click(function () {
+            if ($(this).hasClass("less")) {
                 $(this).removeClass("less");
                 $(this).html(moretext);
             } else {
@@ -89,14 +105,14 @@
         });
     });
 
+
     function openPopover(elem) {
         var index_service = elem.getAttribute('data-index-service');
         service = services[index_service];
-        try{
+        try {
             var start = dataServices[service.id].start;
             var end = dataServices[service.id].end;
-        }
-        catch (e) {
+        } catch (e) {
             var start = '';
             var end = '';
         }
@@ -115,7 +131,7 @@
                 trigger: 'manual'
             });
             $(elem).on('shown.bs.popover', function (component) {
-                inicialDate(index_service,$(elem));
+                inicialDate(index_service, $(elem));
                 if (!dataServices.hasOwnProperty(service.id)) {
                     dataServices[service.id] = {
                         'id_service': service.id
@@ -125,10 +141,10 @@
             });
             $(elem).popover('show');
             elem.setAttribute('data-id-popoper', elem.getAttribute('aria-describedby'));
-            $('#'+elem.getAttribute('data-id-popoper')).css('left','1px');
-            $($('#'+elem.getAttribute('data-id-popoper')).children()[0]).css('left','80%');
-            $('#datepicker-service' + index_service)[0].value = (start!==undefined)?start:keyWorld['llegada'];
-            $('#datepicker1-service' + index_service)[0].value = (end!==undefined)?end:keyWorld['salida'];
+            $('#' + elem.getAttribute('data-id-popoper')).css('left', '1px');
+            $($('#' + elem.getAttribute('data-id-popoper')).children()[0]).css('left', '80%');
+            $('#datepicker-service' + index_service)[0].value = (start !== undefined) ? start : keyWorld['llegada'];
+            $('#datepicker1-service' + index_service)[0].value = (end !== undefined) ? end : keyWorld['salida'];
         }
         else if ($(elem).hasClass('icon-calendar') | $(elem).hasClass('icon-calendar-empty')) {
             $(elem).removeClass('icon-calendar');
@@ -137,25 +153,25 @@
 
             $(elem).popover('show');
             elem.setAttribute('data-id-popoper', elem.getAttribute('aria-describedby'));
-            $('#'+elem.getAttribute('data-id-popoper')).css('left','1px');
-            $($('#'+elem.getAttribute('data-id-popoper')).children()[0]).css('left','80%');
-            $('#datepicker-service' + index_service)[0].value = (start!==undefined)?start:keyWorld['llegada'];
-            $('#datepicker1-service' + index_service)[0].value = (end!==undefined)?end:keyWorld['salida'];
+            $('#' + elem.getAttribute('data-id-popoper')).css('left', '1px');
+            $($('#' + elem.getAttribute('data-id-popoper')).children()[0]).css('left', '80%');
+            $('#datepicker-service' + index_service)[0].value = (start !== undefined) ? start : keyWorld['llegada'];
+            $('#datepicker1-service' + index_service)[0].value = (end !== undefined) ? end : keyWorld['salida'];
 
-        }
-        else {
+        } else {
             $(elem).popover('hide');
             $(elem).removeClass(' icon-ok');
             $(elem).addClass('icon-calendar');
             var parent = getParentIcon(elem);
-
-            changeDateInfoByValue(service.id,start,end);
-
-            changeParentClass(parent);
-
             start = dataServices[service.id].start;
             end = dataServices[service.id].end;
-            changeChildInfo(elem, start + ' hasta ' + end);
+            $(parent.children()[1]).removeClass('is-disabled');//Para habilitar el button de seleccionar el servicio
+            try {
+                changeParentClass(parent);
+                changeChildInfo(elem, start + ' hasta ' + end);
+            } catch (e) {
+                changeDateInfoByValue(service.id, start, end);
+            }
 
         }
 
@@ -163,6 +179,26 @@
 
     function getParentIcon(elem) {
         return $(elem.parentElement.parentElement);
+    }
+
+    function changeParentClass(parent) {
+        /**
+         * Este metodo es para cuando se entra por la parte de los servicios en su pagina,
+         *cuando no se selecciona fecha el padding toma una distancia,pero cuando se selecciona la fecha
+         * para ajustar y queden en el mismo lugar los botones se modifica el padding
+         */
+        if (parent.hasClass('sin-dates')) {
+            parent.addClass('con-dates');
+            parent.removeClass('sin-dates')
+        } else if (parent.hasClass('con-dates')) {
+            parent.removeClass('con-dates');
+            parent.addClass('sin-dates');
+        }
+    }
+
+    function changeChildInfo(elem, data) {
+        var childInfoDate = elem.parentElement.parentElement.querySelector('.dates');
+        childInfoDate.innerText = data;
     }
 
     function bodyPopovers(index) {
@@ -182,7 +218,7 @@
             '                </div><span  style=\'cursor: pointer;color:  #000000;\'  class="imp_table_text"><i onclick="closeDateField(this)" class="icon-cancel-squared" style="font-size: 30px;" ></i></span></div>';
     }
 
-    function inicialDate(index_service,elem) {
+    function inicialDate(index_service, elem) {
         return new Lightpick({
             field: document.getElementById('datepicker-service' + index_service),
             secondField: document.getElementById('datepicker1-service' + index_service),
@@ -194,11 +230,11 @@
                     dataServices[service.id] = {
                         start: start.format('D/M/Y'),
                         end: end.format('D/M/Y'),
-                        'id_service': service.id
+                        'id_service': service.id,
+                        'price': service.price
                     }
                     elem.removeClass('isDisabled-service');
-                }
-                else{
+                } else {
                     elem.addClass('isDisabled-service');
                 }
             }
@@ -210,23 +246,17 @@
         var icon_select = $(param.children[0]);
 
         var id_service = param.getAttribute('data-id');
-        var table_service = $('#'+id_service);
-        if (table_service.hasClass("table-bordered")){
+        var table_service = $('#' + id_service);
+        if (table_service.hasClass("table-bordered")) {
             table_service.removeClass("table-bordered").addClass("table-bordered2");
-            icon_select.css('color','#72ff88');
-            bookingJson.bookingService[[id_service]] = {
-                'begin':'fecha inicio',
-                'end':'fecha fin',
-                'id_service':id_service
-            }
-        }
-        else{
+            icon_select.css('color', '#72ff88');
+            bookingJson.bookingService[id_service] = dataServices[id_service]
+        } else {
             table_service.removeClass("table-bordered2").addClass("table-bordered");
-            icon_select.css('color','#000000');
+            icon_select.css('color', '#000000');
             try {
                 delete bookingJson.bookingService[id_service];
-            }
-            catch (e) {
+            } catch (e) {
 
             }
         }
@@ -235,16 +265,21 @@
     }
 
     function changeDateInfo() {
-        document.getElementById(service['id']).querySelector('.dates1').innerText=dataReserva['start'];
-        document.getElementById(service['id']).querySelector('.dates2').innerText=dataReserva['end'];
+        document.getElementById(service['id']).querySelector('.dates1').innerText = dataReserva['start'];
+        document.getElementById(service['id']).querySelector('.dates2').innerText = dataReserva['end'];
 
     }
 
-    function changeDateInfoByValue(id,start,end) {
-        document.getElementById(id).querySelector('.dates1').innerText=start;
-        document.getElementById(id).querySelector('.dates2').innerText=end;
+    function changeDateInfoByValue(id, start, end) {
+        /**
+         * EN la vista de booking de los servicios para q muestre las fechas en la segunda
+         * fila de la tabla debajo de la foto
+         */
+        document.getElementById(id).querySelector('.dates1').innerText = start;
+        document.getElementById(id).querySelector('.dates2').innerText = end;
 
     }
+
     function closeDateField(elem) {
 
         var popoverId = elem.parentElement.parentElement.parentElement.parentElement.getAttribute('id');
@@ -255,7 +290,7 @@
         iconPopover.removeClass(' icon-ok');
         iconPopover.addClass('icon-calendar-empty');
         iconPopover.removeClass(' isDisabled-service');
-        changeDateInfoByValue(service.id,'','');
+        changeDateInfoByValue(service.id, '', '');
         dataServices[service.id] = {}
 
 

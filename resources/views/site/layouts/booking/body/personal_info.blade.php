@@ -1,4 +1,3 @@
-
 <div role="tabpanel" class="tab-pane" id="personal_info">
     <div class="personal_info_area">
         <div class="hotel_booking4 margin-top-70 margin-bottom-125">
@@ -7,7 +6,8 @@
                 <div class="row">
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 icon_arrow">
                         <div class="input-group">
-                            <input type="text" id="fieldName" onchange="nombreChange(this)" class="form-control" placeholder={{$data['keyWorld']['persona_name']}}>
+                            <input type="text" id="fieldName" onchange="nombreChange(this)" class="form-control"
+                                   placeholder={{$data['keyWorld']['persona_name']}}>
                         </div>
                     </div>
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 icon_arrow">
@@ -21,34 +21,40 @@
                     </div>
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 icon_arrow">
                         <div class="input-group">
-                            <input type="text" id="fieldEmail" class="form-control" placeholder={{$data['keyWorld']['email']}}>
+                            <input type="text" id="fieldEmail" class="form-control"
+                                   placeholder={{$data['keyWorld']['email']}}>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-6 col-md-6 col-sm-6 icon_arrow">
                         <div class="input-group">
-                            <input type="text" id="fieldFlight" class="form-control" placeholder={{$data['keyWorld']['flight_number']}}>
+                            <input type="text" id="fieldFlight" class="form-control"
+                                   placeholder={{$data['keyWorld']['flight_number']}}>
                         </div>
                     </div>
                     <div class="form-group col-lg-6 col-md-6 col-sm-6 icon_arrow">
                         <div class="input-group">
-                            <input type="text" id="fieldHour" class="form-control" placeholder={{$data['keyWorld']['arrived_hour']}}>
+                            <input type="text" id="fieldHour" class="form-control"
+                                   placeholder={{$data['keyWorld']['arrived_hour']}}>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="container">
                         <div class="form-group">
-                            <textarea class="form-control" rows="5" id="comment" placeholder="Any Specific request"></textarea>
+                            <textarea class="form-control" rows="5" id="comment"
+                                      placeholder="Any Specific request"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="booking_next_btn padding-top-30 margin-top-50 clearfix border-top-whitesmoke">
-                            <a href="#" onclick="goToBack('service_info')" class="btn btn-warning btn-sm btn-info">{{$data['keyWorld']['back']}}</a>
-                            <a href="#" onclick="goToFinish()" class="btn btn-warning btn-sm floatright">{{$data['keyWorld']['next']}}</a>
+                            <a href="#" onclick="goToBack('service_info')"
+                               class="btn btn-warning btn-sm btn-info">{{$data['keyWorld']['back']}}</a>
+                            <a href="#" onclick="goToFinish()"
+                               class="btn btn-warning btn-sm floatright">{{$data['keyWorld']['next']}}</a>
                         </div>
                     </div>
                 </div>
@@ -58,12 +64,60 @@
     </div>
 </div>
 <script>
-    $(document).ready(function() {
-        $.each(country_list,function (index,country) {
-            $('#country').append('<option value="'+country[0]+'">'+country[0]+'</option>')
+    var totalGastado = 0;
+    $(document).ready(function () {
+        $.each(country_list, function (index, country) {
+            $('#country').append('<option value="' + country[0] + '">' + country[0] + '</option>')
         });
 
     });
+
+    function addRoomReservadors(responseElement) {
+
+        var table = document.querySelector('#booking_done').querySelector(".table");
+        for (var item in responseElement) {
+            $(table).append(createRoomRow(responseElement[item]));
+        }
+    }
+
+    function createRoomRow(data) {
+        totalGastado += parseInt(data['price'])*parseInt(data['diffInDays']);
+        return '<tr class="room_table">\n' +
+            '                                <td class=""><span class="imp_table_text">'+data['name']+'</span> <br>'+data['adults']+' '+keyWorld.adult+' & '+data['childrens'] +' '+ keyWorld.child+'</td>\n' +
+            '                                <td class=""><span class="imp_table_text">'+data['price']+'$</span> <br> por noche</td>\n' +
+            '                                <td class="">'+data['diffInDays']+' <br>'+keyWorld.night+'</td>\n' +
+            '                                <td class=""><span class="imp_table_text">'+parseInt(data['price'])*parseInt(data['diffInDays'])+'$</span></td>\n' +
+            '                            </tr>'
+    }
+
+    function addServicesReservados(responseElement) {
+        var table = document.querySelector('#booking_done').querySelector(".table");
+        var total = 0;
+        for (var item in responseElement) {
+            if(responseElement[item]!=null) total += parseInt(responseElement[item]['price']);
+        }
+        totalGastado += total;
+        $(table).append(createServicesRow(total))
+    }
+
+    function createServicesRow(total) {
+        return '<tr class="total_table">\n' +
+            '                                <td class=""><span class="imp_table_text">Servicios Agregados</span></td>\n' +
+            '                                <td class="" colspan="3"><span class="imp_table_text">'+total+'$</span> <br> <span class="total_pain_info">(En servicios)</span></td>\n' +
+            '                            </tr>'
+    }
+
+    function addTotalRow(){
+        var table = document.querySelector('#booking_done').querySelector(".table");
+        $(table).append(calculateTotal())
+    }
+
+    function calculateTotal(){
+        return '<tr class="total_table">\n' +
+            '                                <td class=""><span class="imp_table_text">Total</span></td>\n' +
+            '                                <td class="" colspan="3"><span class="imp_table_text">'+totalGastado+'$</span> <br> <span class="total_pain_info">(total)</span></td>\n' +
+            '                            </tr>'
+    }
     function goToFinish() {
         var tabDone = $('#myTab a[href="#booking_done"]');
         tabDone.removeClass('isDisabled');
@@ -71,45 +125,51 @@
         tabDone.tab('show');
         bookingJson.generalData = {
             'nombre': $('#fieldName')[0].value,
-            'nacionalidad':'nacion',
-            'mail':'correo',
-            'aerolinea':'avion',
-            'hora':'09:00',
-            'others':'muela'
+            'nacionalidad': 'nacion',
+            'mail': 'correo',
+            'aerolinea': 'avion',
+            'hora': '09:00',
+            'others': 'muela'
         };
-        $('#loader-wrapper').css('display','');
+        $('#loader-wrapper').css('display', '');
         $.ajax({
             type: "POST",
-            data: {"informacion":(JSON.stringify(bookingJson))},
-            'url' : 'reservar',
-            'success' : function(callback) {
+            data: {"informacion": (JSON.stringify(bookingJson))},
+            'url': 'reservar',
+            'success': function (callback) {
                 try {
                     $('#status').fadeOut(); // will first fade out the loading animation
                     $('#loader-wrapper').delay(300).fadeOut('slow'); // will fade out the white DIV that covers the website.
-                    $('body').delay(350).css({'overflow-x':'hidden'});
-                    response = JSON.parse(callback);
+                    $('body').delay(350).css({'overflow-x': 'hidden'});
+                    response = callback.data;
+
+                    addRoomReservadors(response.bookingRoom);
+                    addServicesReservados(response.bookingService);
+                    addTotalRow();
                     // alert(JSON.stringify(response));
                     if (response.error !== undefined)
                         throw Error(response.error);
                 } catch (e) {
                     $('#status').fadeOut(); // will first fade out the loading animation
                     $('#loader-wrapper').delay(300).fadeOut('slow'); // will fade out the white DIV that covers the website.
-                    $('body').delay(350).css({'overflow-x':'hidden'});
-                    console.log('Error en el servicio');
+                    $('body').delay(350).css({'overflow-x': 'hidden'});
+                    console.log(e);
                     return false;
                 }
             },
-            'error' : function(xhr, textStatus, errorThrown) {
+            'error': function (xhr, textStatus, errorThrown) {
                 $('#status').fadeOut(); // will first fade out the loading animation
                 $('#loader-wrapper').delay(300).fadeOut('slow'); // will fade out the white DIV that covers the website.
-                $('body').delay(350).css({'overflow-x':'hidden'});
+                $('body').delay(350).css({'overflow-x': 'hidden'});
                 console.log('error')
             }
         });
     }
+
     function nombreChange(elem) {
         console.log(elem)
     }
+
     var country_list = [
         [
             "Afghanistan"

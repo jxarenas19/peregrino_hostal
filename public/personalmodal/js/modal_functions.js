@@ -71,6 +71,8 @@ $(document).ready(function () {
                         'childrens': parseInt(room.childrens),
                         'diffInDays': room['diffInDays'],
                         'index_room':room['index_room'],
+                        'name':value.name,
+                        'price':room['priceActual'],
                         'id_room':room['id_room']
                     };
                 }
@@ -128,6 +130,8 @@ function modalCreate() {
                     dataSend['childrens'] = value.querySelector("select[name=room]").getAttribute('data-total-children');
                     dataSend['adults'] = value.querySelector("select[name=room]").getAttribute('data-total-adult');
                     dataSend['id_room'] = hostal.rooms[indexRoom].id;
+                    dataSend['name'] = hostal.rooms[indexRoom].name;
+                    dataSend['price'] = hostal.rooms[indexRoom].priceActual;
                     dataSend['index_room'] = indexRoom;
                     allRoom.push(dataSend);
                     try {
@@ -165,7 +169,9 @@ function modalCreate() {
                             'childrens': value['childrens'],
                             'diffInDays': diffInDays,
                             'index_room':value['index_room'],
-                            'id_room':value['id_room']
+                            'id_room':value['id_room'],
+                            'name':value['name'],
+                            'price':value['price'],
                         };
 
                         var roomBooking = createRoomBooking(hostal.rooms[value['index_room']],
