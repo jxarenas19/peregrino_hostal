@@ -142,7 +142,7 @@
             $(elem).popover('show');
             elem.setAttribute('data-id-popoper', elem.getAttribute('aria-describedby'));
             $('#' + elem.getAttribute('data-id-popoper')).css('left', '1px');
-            $($('#' + elem.getAttribute('data-id-popoper')).children()[0]).css('left', '80%');
+            $($('#' + elem.getAttribute('data-id-popoper')).children()[0]).css('left', '68%');
             $('#datepicker-service' + index_service)[0].value = (start !== undefined) ? start : keyWorld['llegada'];
             $('#datepicker1-service' + index_service)[0].value = (end !== undefined) ? end : keyWorld['salida'];
         }

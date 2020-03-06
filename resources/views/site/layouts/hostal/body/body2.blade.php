@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                    <a class="btn btn-warning btn-md floatright" id="bookingButton" href={{route('booking')}} >Book</a>
+                                    <a class="btn btn-warning btn-md floatright" id="bookingButton" href={{route('booking')}}>{{$data['keyWorld']['reserva']}}</a>
                                 </div>
                             </form>
                         </div>

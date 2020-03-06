@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Site\HomeController@index')->name('inicio');
 Route::get('hostal', 'Site\HostalController@index')->name('hostal');
 Route::get('service', 'Site\ServiceController@index')->name('service');
-Route::get('booking', 'Site\BookingController@index')->name('booking');
+Route::get('gallery', 'Site\GalleryController@index')->name('gallery');
+Route::any('booking', 'Site\BookingController@index')->name('booking');
 Route::post('reservar', 'Site\BookingController@reservar')->name('reservar');
 Route::get('bookingService', 'Site\BookingServiceController@index')->name('bookingService');
 

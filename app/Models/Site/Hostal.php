@@ -35,28 +35,30 @@ class Hostal extends Model implements TranslatableContract
     public function imagesToHostalArray()
     {
         return array(
-            'banner'=> $this->images->where('estado','banner')->toArray(),
-            'info'=> $this->images->where('estado','info')->toArray(),
-            'mini_banner'=> $this->images->where('estado','mini_banner')->toArray(),
+            'banner' => $this->images->where('estado', 'banner')->toArray(),
+            'info' => $this->images->where('estado', 'info')->toArray(),
+            'mini_banner' => $this->images->where('estado', 'mini_banner')->toArray(),
         );
 
     }
+
     /**
      * Devuelve las imagenes de de info del hostal
      */
     public function imagesInfo()
     {
         return array(
-            'info'=> $this->images->where('estado','info')->toArray()
+            'info' => $this->images->where('estado', 'info')->toArray()
         );
     }
-        /**
+
+    /**
      * Devuelve las imagenes del mini banner del hostal
      */
     public function imagesBanner()
     {
         return array(
-            'banner'=> $this->images->where('estado','banner')->toArray()
+            'banner' => $this->images->where('estado', 'banner')->toArray()
         );
     }
 
@@ -66,9 +68,15 @@ class Hostal extends Model implements TranslatableContract
     public function imagesMiniBanner()
     {
         return array(
-            'mini_banner'=> $this->images->where('estado','mini_banner')->toArray()
+            'mini_banner' => $this->images->where('estado', 'mini_banner')->toArray()
         );
     }
+
+    public function imagesRoomByHostalInfo()
+    {
+        return Imagen::all()->where('estado','=','info')->toArray();
+    }
+
     /** Collection de habitaciones relacionadas con el hostal
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -80,25 +88,27 @@ class Hostal extends Model implements TranslatableContract
     /**
      * Devuelve un listado de todas las facilidades de las habitaciones
      */
-    public function rooms_conforts(){
+    public function rooms_conforts()
+    {
         $rooms = $this->hasMany(Room::class, 'hostal_id')->get('id');
         $confortsTemp = array();
-        foreach ($rooms as $item){
+        foreach ($rooms as $item) {
             $confortsTemp = array_merge($confortsTemp,
                 $item->conforts()->get()->toArray());
         }
         $conforts = array();
         $exist_icon = array();
         $cont = 0;
-        foreach ($confortsTemp as $elem){
-            if (!in_array($elem['icon'],$exist_icon) and $cont<7){
+        foreach ($confortsTemp as $elem) {
+            if (!in_array($elem['icon'], $exist_icon) and $cont < 7) {
                 $conforts[] = $elem;
                 $exist_icon[] = $elem['icon'];
-                $cont =+ 1;
+                $cont = +1;
             }
         }
         return $conforts;
     }
+
     /**Metodo encargado de retornar un array con los datos en español
      * de las habitaciones del hostal
      * @return array|\Illuminate\Support\Collection
@@ -107,11 +117,11 @@ class Hostal extends Model implements TranslatableContract
     {
         $rooms = $this->rooms;
         $roomResponse = collect();
-        $today =  Carbon::today()->toDate()->format('Y-m-d');
+        $today = Carbon::today()->toDate()->format('Y-m-d');
         $season_id = DateSeason::all()->first()->season_id;
-        foreach ($rooms as $room){
+        foreach ($rooms as $room) {
             $priceActual = $room->prices()
-                ->where('season_id',$season_id)->first()->price;
+                ->where('season_id', $season_id)->first()->price;
             $typeRoom = $room->typeRoom->toArray();
             $data = array(
                 "id" => $room->getAttribute('id'),
@@ -121,9 +131,9 @@ class Hostal extends Model implements TranslatableContract
                 "precio" => $room->pricesToRoomArray()->toArray(),
                 "hostal" => $room->hostal->attributesToArray()['name'],
                 "images" => $room->imagesToHostalArray(),
-                "descripcion" => ($room->getAttribute('description')!=null)?
-                    $room->getAttribute('description'): $typeRoom['description'],
-                "priceActual" =>$priceActual,
+                "descripcion" => ($room->getAttribute('description') != null) ?
+                    $room->getAttribute('description') : $typeRoom['description'],
+                "priceActual" => $priceActual,
                 "conforts" => $room->conforts->toArray(),
             );
             $roomResponse[] = $data;
@@ -152,7 +162,9 @@ class Hostal extends Model implements TranslatableContract
         );
         return $data;
     }
-    public function hostalMainDataToArray(){
+
+    public function hostalMainDataToArray()
+    {
         $data = array(
             "id" => $this->getAttribute('id'),
             "name" => $this->getAttribute('name'),
@@ -168,26 +180,33 @@ class Hostal extends Model implements TranslatableContract
         );
         return $data;
     }
+
     public function hostalHeaderData()
     {
         return array(
             "id" => $this->getAttribute('id'),
             "name" => $this->getAttribute('name'),
+            "address" => $this->getAttribute('address'),
+            "images_info" => $this->imagesInfo(),
+            "images_banner" => $this->imagesBanner(),
+            "images_room" => $this->imagesRoomByHostalInfo(),
+
         );
     }
+
     /**Devuelve los servicios asociados al hostal
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function services()
     {
-        return $this->hasMany(Service::class,'hostal_id');
+        return $this->hasMany(Service::class, 'hostal_id');
     }
 
     public function servicesToHostalArray()
     {
         $services = $this->services;
         $serviceResponse = collect();
-        foreach ($services as $service){
+        foreach ($services as $service) {
             $data = array(
                 "titulo" => $service->getAttribute('titulo'),
                 "descripcion" => $service->getAttribute('descripcion'),
@@ -197,9 +216,10 @@ class Hostal extends Model implements TranslatableContract
         }
         return $serviceResponse->toArray();
     }
+
     public function politicas()
     {
         return $this->belongsToMany(Politicas::class,
-            'hp_politicas_hostales','hostal_id','politica_id');
+            'hp_politicas_hostales', 'hostal_id', 'politica_id');
     }
 }

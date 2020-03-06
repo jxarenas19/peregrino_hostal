@@ -10,6 +10,9 @@
   span.tooltip-item i {
     font-size: xx-large;
   }
+    .col-lg-6 {
+        width: 48%;
+    }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 .container{

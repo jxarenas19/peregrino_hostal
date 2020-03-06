@@ -12,14 +12,14 @@
     <div class="container">
         <div class="hotel_booking">
             <form id="form1" role="form" action="#" class="">
-                <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="col-lg-2 col-md-2 col-sm-2 home-title-register">
                     <div class="room_book border-right-dark-1">
                         <h6>{{$data['keyWorld']['select_your_room']}}</h6>
                         <h6>{{$data['keyWorld']['rooms']}}</h6>
                     </div>
                 </div>
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
-                    <div class="input-group border-bottom-dark-2">
+                    <div class="input-group border-bottom-dark-2 home-date-field">
                         <input placeholder={{$data['keyWorld']['llegada']}} type="text" id="datepicker" class="form-control form-control-sm"/>
                         <div class="input-group-addon"><i
                                     class="fa fa-calendar"></i></div>
@@ -27,15 +27,15 @@
                 </div>
 
                 <div class="form-group col-lg-2 col-md-2 col-sm-2">
-                    <div class="input-group border-bottom-dark-2">
+                    <div class="input-group border-bottom-dark-2  home-date-field">
                         <input placeholder={{$data['keyWorld']['salida']}} type="text" id="datepicker1" class="form-control form-control-sm"/>
                         <div class="input-group-addon"><i
                                     class="fa fa-calendar"></i></div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="col-lg-5 col-md-5 col-sm-5">
                     <div class="row">
-                        <div class="form-group col-lg-7 col-md-7 col-sm-7 icon_arrow">
+                        <div class="form-group col-lg-8 col-md-8 col-sm-8 icon_arrow">
                             <div class="input-group border-bottom-dark-2">
                                 <select onchange="selectHostal(this)"
                                         class="form-control" name="hostal"
@@ -58,9 +58,9 @@
 
                     </div>
                 </div>
-                <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                     <a type="button" class="btn btn-primary floatright">Reservar</a>
-                 </div>-->
+                 <div class="">
+                     <a type="button" data-send="" id="bookingButton" onclick="sendDataBooking(this)" class="btn btn-primary floatright4 is-disabled" >{{$data['keyWorld']['reserva']}} </a>
+                 </div>
             </form>
             <!-- end offer start -->
         </div>

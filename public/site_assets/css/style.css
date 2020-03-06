@@ -357,7 +357,7 @@ body#booking_page .personal_info_area .hotel_booking_area5 select#adult, body#bo
 }
 .room_book{
 	border-right: 1px solid #475362;
-	margin-right: 7%;
+	margin-right: 30%;
     margin-top: 4%;
 }
 .room_book h6{
@@ -1075,7 +1075,7 @@ body#error_page .error .section_title.nice_title > h3::after {
   float: left;
   line-height: 20px;
   margin-right: 10px;
-  min-height: 80px;
+  /*min-height: 80px;Cuando quite esto en el footer las direccion salieron al mismo nivel JULIOCOMENTA*/
 }
 .footer_widget ul li p{
 	margin: 28px 0px;
@@ -2181,7 +2181,7 @@ body#single_blog_page .recent_post_details > p {
 #social_footer{
 	text-align:center;
 	border-top:1px solid rgba(255,255,255,0.2);
-	margin-top:60px;
+	margin-top:30px;
 	padding-top:30px;
 }
 #social_footer p{
@@ -2366,6 +2366,9 @@ input.qtyminus {
 }
 .floatright2{
 	margin-right: 90px;
+}
+.floatright4{
+    margin-right: -1px;
 }
 .room_list_desc{
 	margin-left: -60px;
@@ -2580,4 +2583,10 @@ span.imp_table_text.dates {
 }
 body#booking_page {
     background: #f5f6fa;
+}
+.col-lg-2.col-md-2.col-sm-2.home-title-register {
+    margin-right: -4%;
+}
+.input-group.border-bottom-dark-2.home-date-field {
+    width: 70%;
 }

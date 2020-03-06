@@ -49,7 +49,7 @@
                                 </li>
                                 <li><a href={{ route('service') }}>{{$data['keyWorld']['servicios_agregados']}}</a></li>
                                 <li><a href={{ route('booking') }}>{{$data['keyWorld']['booking']}}</a></li>
-                                <li><a href="#">{{$data['keyWorld']['galeria']}}</a></li>
+                                <li><a href={{ route('gallery') }}>{{$data['keyWorld']['galeria']}}</a></li>
                                 <ul id="lang_top">
                                     @foreach ($data['languages'] as $item)
                                         @if ($item['code'] == $data['language_active'])

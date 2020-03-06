@@ -125,11 +125,11 @@
         tabDone.tab('show');
         bookingJson.generalData = {
             'nombre': $('#fieldName')[0].value,
-            'nacionalidad': 'nacion',
-            'mail': 'correo',
-            'aerolinea': 'avion',
-            'hora': '09:00',
-            'others': 'muela'
+            'nacionalidad': $('#country')[0].value,
+            'mail': $('#fieldEmail')[0].value,
+            'aerolinea': $('#fieldFlight')[0].value,
+            'hora':  $('#fieldHour')[0].value,
+            'others': $('#comment')[0].value
         };
         $('#loader-wrapper').css('display', '');
         $.ajax({

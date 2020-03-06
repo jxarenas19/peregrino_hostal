@@ -72,7 +72,7 @@ $(document).ready(function () {
                         'diffInDays': room['diffInDays'],
                         'index_room':room['index_room'],
                         'name':value.name,
-                        'price':room['priceActual'],
+                        'price':room['price'],
                         'id_room':room['id_room']
                     };
                 }
@@ -123,8 +123,8 @@ function modalCreate() {
                 var endObject = new Date(end.split('/')[1] + '-' + end.split('/')[0] + '-' + end.split('/')[2]);
                 var diffInDays = Math.ceil(Math.abs(endObject - beginObject) / (1000 * 60 * 60 * 24));
                 $.each($('.dinamic-field'), function (index, value) {
-                    var indexRoom = value.querySelector("select[name=room]").getAttribute('data-index-room-select');
 
+                    var indexRoom = value.querySelector("select[name=room]").getAttribute('data-index-room-select');
                     var info_photo = hostal.rooms[indexRoom].images.info[0].url;
                     var dataSend = {};
                     dataSend['childrens'] = value.querySelector("select[name=room]").getAttribute('data-total-children');
@@ -150,6 +150,7 @@ function modalCreate() {
                 });
                 var bookingButton = $('#bookingButton')[0];
                 if (bookingButton !== undefined) {
+                    $(bookingButton).removeClass('is-disabled');
                     bookingButton.href = "booking?data=" + (JSON.stringify({
                         'rooms': allRoom,
                         'hostal': hostal_value,

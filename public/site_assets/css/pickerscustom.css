@@ -10749,7 +10749,7 @@ body.uitk-more-info-trigger .uitk-icon svg,
  color:#465280;
  -webkit-flex:1;
  flex:1;
- padding:0.75rem 0.5rem 5.75rem
+ /*padding:0.75rem 0.5rem 5.75rem*/
 }
 .footer-container {
  -webkit-align-self:flex-end;
