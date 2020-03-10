@@ -57,7 +57,6 @@
         maxZoom: 18,
         id: 'mapbox/streets-v11'
     }).addTo(mymap);
-
     L.marker([23.113417, -82.413297]).addTo(mymap)
         .bindPopup("<b>"+hostal.name+"</b>").openPopup();
 

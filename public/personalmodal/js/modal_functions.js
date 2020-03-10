@@ -338,7 +338,7 @@ function createElementDinamic(room_index, total_children, total_adult) {
         '    </div>\n' +
         '        <div class="form-group row">\n' +
         '        <div class="col-lg-2 col-md-2 col-sm-2" style="padding-bottom: 10px;padding-top: 10px;"><label for="text">Adultos</label></div>\n' +
-        '        <div class="" style="padding-left: 60%;">' +
+        '        <div class="" style="padding-left: 50%;">' +
         '<div>\n' +
         '<button type="button" onclick="minusAdultButton(this)" class="uitk-button uitk-button-small uitk-step-input-button">\n' +
         '\t<span class="uitk-button-container">\n' +
@@ -368,7 +368,7 @@ function createElementDinamic(room_index, total_children, total_adult) {
         '    </div>\n' +
         '        <div class="form-group row">\n' +
         '        <div class="col-lg-2 col-md-2 col-sm-2" style="padding-bottom: 10px;padding-top: 10px;"><label for="text">Niños</label></div>\n' +
-        '        <div class="" style="padding-left: 60%;">' +
+        '        <div class="" style="padding-left: 50%;">' +
         '<div>\n' +
         '    <button type="button"  onclick="minusChildrenButton(this)" class="uitk-button uitk-button-small uitk-step-input-button">\n' +
         '\t<span class="uitk-button-container">\n' +

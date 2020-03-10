@@ -40,13 +40,13 @@
         this.element.innerHTML = '<div class="modal-dialog ' + this.props.modalDialogClass + '" role="document">' +
             '<div class="modal-content">' +
             '<div class="modal-header">' +
-            '<h5 class="modal-title"></h5>' +
+            '<h6 class="modal-title"></h6>' +
             '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
             '<span aria-hidden="true">&times;</span>' +
             '</button>' +
             '</div>' +
             '<div class="modal-body"></div>' +
-            '<div className="add-room" style="padding-left: 151px;padding-bottom: 2%;">'+
+            '<div className="add-room" style="padding-left: 155px;padding-bottom: 2%;">'+
             '<button type="button" id="buttonAdd" onClick="addRoom(this)" class="btn btn-secondary btn-sm">Adicionar Habitación'+
             ' </button>'+
 

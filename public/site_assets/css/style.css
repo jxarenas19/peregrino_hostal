@@ -99,7 +99,7 @@ a:hover{
 }
 .emergency_number a{
 	color: #fff;
-	font-size: 20px;
+	font-size: 24px;
 	line-height: 28px;
 }
 .emergency_number a > img{
@@ -227,8 +227,8 @@ body#home_one .hotel_booking_area {
 .hotel_booking_area {
 	margin-right: 80px;
 	padding-right: 10px;
-	right: 20%;
-	left: 15%;
+	right: 15%;
+	left: 5%;
 }
 .welcome_area{
 	background: #f5f6fa;
@@ -362,7 +362,7 @@ body#booking_page .personal_info_area .hotel_booking_area5 select#adult, body#bo
 }
 .room_book h6{
 	color: #fff;
-	font-size: 15px;
+	font-size: 24px;
 	font-weight: 600;
 	font-family: "Karla",sans-serif;
 }
@@ -433,7 +433,7 @@ form#form1 .form-group {
     opacity:  1;
 }
 .hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1,.hotel_booking_area input#button-form,.hotel_booking_area input#inputguest, .hotel_booking_area select#room, .hotel_booking_area select#adult, .hotel_booking_area select#child, .hotel_booking_area select#bed {
-	font-size: 16px;
+	font-size: 20px;
 	height: 37px;
 	padding: 0;
 	text-transform: uppercase;
@@ -2221,12 +2221,13 @@ body#single_blog_page .recent_post_details > p {
 ul#lang_top{
 	float:right;
 	list-style:none;
-	padding:2px 15px;
+	padding:10px 15px;
 	background-color: #dcf6f9;
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	font-size:12px;
+    margin-top: -1px;
 	font-weight:500;
 }
 ul#lang_top li{
@@ -2238,6 +2239,9 @@ ul#lang_top li:first-child{
 }
 ul#lang_top li a.active{
 	color:#999;
+}
+ul#lang_top li > a{
+    font-size: 24px;
 }
 a.btn_1_outline, .btn_1_outline{
 	border: none;
@@ -2317,7 +2321,7 @@ input.qtyminus {
 #mapid { height: 180px; }
 .navbar-right {
 	float: right !important;
-	margin-right: 70px;
+	margin-right: 1px;
 }
 .address-text{
 	margin-top: 5px;
@@ -2579,7 +2583,7 @@ i.icon-cancel-squared{
     margin-left: -10px;
 }
 span.imp_table_text.dates {
-    margin-right: 20%;
+    margin-right: 15%;
 }
 body#booking_page {
     background: #f5f6fa;
@@ -2588,5 +2592,8 @@ body#booking_page {
     margin-right: -4%;
 }
 .input-group.border-bottom-dark-2.home-date-field {
-    width: 70%;
+    width: 82%;
+}
+h6.modal-title {
+    font-size: 24px;
 }

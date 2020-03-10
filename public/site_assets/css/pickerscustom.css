@@ -5573,7 +5573,7 @@ body.uitk-link.icon-right .uitk-icon,
 .uitk-step-input-value {
  background:transparent;
  color:#465280;
- font-size:0.875rem;
+ font-size:1.275rem;
  line-height:1.125rem;
  text-align:center;
  width:1.5rem
@@ -12498,7 +12498,7 @@ body.has-dialog {
 }
 .uitk-step-input-value {
  background: transparent;
- font-size: 0.875rem;
+ font-size: 1.275rem;
  line-height: 1.125rem;
  text-align: center;
  width: 1.5rem;

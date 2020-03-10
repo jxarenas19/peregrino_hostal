@@ -11,7 +11,7 @@
 
 <!-- uikit -->
 <script src="{{asset("site_assets/js/uikit.min.js")}}"></script>
-<script src="{{asset("site_assets/js/uikit-lightbox.js")}}"></script>
+{{--<script src="{{asset("site_assets/js/uikit-lightbox.js")}}"></script>--}}
 <script src="{{asset("site_assets/js/uikit-modal.js")}}"></script>
 
 <!-- easing -->

@@ -118,7 +118,9 @@
                 "\n" +
                 "<td class=\"col-lg-2 col-md-2\"><span class=\"imp_table_text\">" + service.price + "</span></td>\n" +
                 "<td class=\"col-lg-2 col-md-1\"><span onclick=\"deleteCarrusel(this)\" data-index-service=" + elem.getAttribute('data-index-service') + "  style='cursor: pointer;' class=\"imp_table_text\"><i class=\"icon-trash-4\"></i></span></td>\n" +
-                "</tr>")
+                "</tr>");
+            var rowHeight = tableCarrusel[0].rows[tableCarrusel[0].rows.length-1].offsetHeight;
+            $('.hotel_booking3').css('height',$('.hotel_booking3')[0].offsetHeight+rowHeight);
             var bookingButton = $('#bookingServiceButton')[0];
             bookingButton.href = "bookingService?data=" + (JSON.stringify(dataServices));
         }
@@ -135,9 +137,12 @@
     }
 
     function deleteCarrusel(elem) {
+        $('.hotel_booking3').css('height',$('.hotel_booking3')[0].offsetHeight-elem.parentElement.parentElement.offsetHeight);
         elem.parentElement.parentElement.remove();
         var icon_select = $('#add' + elem.getAttribute('data-index-service'));
         icon_select.removeClass('isDisabled-service');
+
+
 
     }
 
