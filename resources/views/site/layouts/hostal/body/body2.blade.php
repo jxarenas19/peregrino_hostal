@@ -15,9 +15,9 @@
 
 
 <div class="section_title nice_title content-center">
-    <h3>{{$data['keyWorld']['rooms']}}</h3>
+    <h3>{{$data['hostales'][0]['name']}}</h3>
 </div>
-<div class="container margin_60">
+<div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-7">
             @include('site.layouts.hostal.body.room-component2')

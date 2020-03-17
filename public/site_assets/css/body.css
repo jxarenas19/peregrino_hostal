@@ -149,7 +149,7 @@
 }
 .room_list_desc2 ul, .room_desc_home ul,.room_desc_home2 ul{
     list-style:none;
-    margin:0 0 25px 0;
+    margin:0 0 20px 0;
     padding:5px 0;
     border-top: 1px solid #ededed;
 }
@@ -178,7 +178,7 @@
 
 .room_pic span {
     position: absolute;
-    top: 50%;
+    top: 60%;
     right: -20px;
     background-color: #ed5434;
     width: 85px;

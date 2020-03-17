@@ -3,7 +3,7 @@
 /* --------------------------------------------------------
                     Start Medium Layout: 992px
 -----------------------------------------------------------*/
-@media only screen and (min-width: 1200px) and (max-width: 2199px) {
+/*@media only screen and (min-width: 1200px) and (max-width: 2199px) {
   .container{
     width: 1470px;
   }
@@ -13,7 +13,7 @@
     .col-lg-6 {
         width: 48%;
     }
-}
+}*/
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 .container{
     width: 970px;

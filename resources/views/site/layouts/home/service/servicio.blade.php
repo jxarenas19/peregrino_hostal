@@ -39,9 +39,9 @@
                                             <div class="co-lg-7 col-md-7 col-sm-6">
                                                 <div class="single-tab-details">
 
-                                                    <h3>{{$item['name']}}</h3>
+                                                    <h3 class="title-hostal">{{$item['name']}}</h3>
                                                     <p>
-                                                        <span class="more">{{$item['description']}}</span>
+                                                        <span class="more hostal-description">{{$item['description']}}</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -60,9 +60,9 @@
                                             <div class="co-lg-7 col-md-7 col-sm-6">
                                                 <div class="single-tab-details">
 
-                                                    <h3>{{$item['name']}}</h3>
+                                                    <h3 class="title-hostal">{{$item['name']}}</h3>
                                                     <p>
-                                                        <span class="more">{{$item['description']}}</span>
+                                                        <span class="more hostal-description">{{$item['description']}}</span>
                                                     </p>
                                                 </div>
                                             </div>

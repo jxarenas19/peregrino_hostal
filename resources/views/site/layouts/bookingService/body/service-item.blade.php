@@ -70,7 +70,7 @@
             });
         }
 
-        var showChar = 200;
+        var showChar = 150;
         var moretext = keyWorld.read_more;
         var ellipsestext = "...";
         $('.more').each(function (index, value) {
@@ -141,8 +141,8 @@
             });
             $(elem).popover('show');
             elem.setAttribute('data-id-popoper', elem.getAttribute('aria-describedby'));
-            $('#' + elem.getAttribute('data-id-popoper')).css('left', '1px');
-            $($('#' + elem.getAttribute('data-id-popoper')).children()[0]).css('left', '68%');
+            $('#' + elem.getAttribute('data-id-popoper')).css('left', '12px');
+            $($('#' + elem.getAttribute('data-id-popoper')).children()[0]).css('left', '58%');
             $('#datepicker-service' + index_service)[0].value = (start !== undefined) ? start : keyWorld['llegada'];
             $('#datepicker1-service' + index_service)[0].value = (end !== undefined) ? end : keyWorld['salida'];
         }
@@ -153,7 +153,7 @@
 
             $(elem).popover('show');
             elem.setAttribute('data-id-popoper', elem.getAttribute('aria-describedby'));
-            $('#' + elem.getAttribute('data-id-popoper')).css('left', '1px');
+            $('#' + elem.getAttribute('data-id-popoper')).css('left', '12px');
             $($('#' + elem.getAttribute('data-id-popoper')).children()[0]).css('left', '80%');
             $('#datepicker-service' + index_service)[0].value = (start !== undefined) ? start : keyWorld['llegada'];
             $('#datepicker1-service' + index_service)[0].value = (end !== undefined) ? end : keyWorld['salida'];
@@ -203,13 +203,13 @@
 
     function bodyPopovers(index) {
         return '<div class="row dates-input">                 ' +
-            '<div class="form-group col-lg-5 col-md-5 col-sm-5 date-inicio">\n' +
+            '<div class="form-group col-lg-10 col-md-4 col-sm-4 date-inicio">\n' +
             '                    <div class="input-group border-bottom-dark-2">\n' +
             '                        <input placeholder="' + keyWorld.llegada + '" type="text" id="datepicker-service' + index + '" class="form-control form-control-sm"/>\n' +
             '                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>\n' +
             '                    </div>\n' +
             '                </div>\n' +
-            '                <div class="form-group col-lg-5 col-md-5 col-sm-5 date-fin">\n' +
+            '                <div class="form-group col-lg-10 col-md-4 col-sm-4 date-fin">\n' +
             '                    <div class="input-group border-bottom-dark-2">\n' +
             '                        <input placeholder="' + keyWorld.salida + '" type="text" id="datepicker1-service' + index + '" class="form-control form-control-sm"/>\n' +
             '                        <div class="input-group-addon"><i\n' +

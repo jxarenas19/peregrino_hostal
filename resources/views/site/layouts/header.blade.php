@@ -47,7 +47,7 @@
                                     </ul>
 
                                 </li>
-                                <li><a href={{ route('service') }}>{{$data['keyWorld']['servicios_agregados']}}</a></li>
+                                <li style="padding-left: 10px;"><a href={{ route('service') }}>{{$data['keyWorld']['servicios_agregados']}}</a></li>
                                 <li><a href={{ route('booking') }}>{{$data['keyWorld']['booking']}}</a></li>
                                 <li><a href={{ route('gallery') }}>{{$data['keyWorld']['galeria']}}</a></li>
                                 <ul id="lang_top">
@@ -62,7 +62,7 @@
 
                             </ul>
                             <div class="emergency_number">
-                                <a href="tel:1234567890"><img src="img/call-icon.png" alt="">+53 7 8601257 / +53 7 8618027</a>
+                                <a href="tel:1234567890"><img src="img/call-icon.png" alt="">+53 7 8601257</a>
                             </div>
                         </div><!-- /.navbar-collapse -->
                     </nav>

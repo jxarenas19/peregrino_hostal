@@ -50,7 +50,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
-                        <div class="booking_next_btn padding-top-30 margin-top-50 clearfix border-top-whitesmoke">
+                        <div class="booking_next_btn clearfix border-top-whitesmoke">
                             <a href="#" onclick="goToBack('service_info')"
                                class="btn btn-warning btn-sm btn-info">{{$data['keyWorld']['back']}}</a>
                             <a href="#" onclick="goToFinish()"

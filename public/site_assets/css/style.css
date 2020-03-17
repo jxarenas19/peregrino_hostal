@@ -53,6 +53,7 @@ ___________________________________________________________________________
 /* --------------------------------------------------------
 1. 					Start Header CSS
 -----------------------------------------------------------*/
+
 .container.header-barra {
 	margin-left: 2%;
 }
@@ -63,7 +64,7 @@ a:hover{
 	color: #16b4ef;
 }
 .mainmenu {
-  padding: 30px 0;
+  padding: 15px 0 5px;
 }
 .mainmenu ul#nav{
 	margin: 0;
@@ -72,7 +73,7 @@ a:hover{
 .mainmenu .navbar-default {
   background: none;
   border: none;
-	margin-right: -215px;
+	margin-right: -55px;
 }
 .mainmenu .navbar-brand {
   padding: 0 23px 0 0;
@@ -99,7 +100,7 @@ a:hover{
 }
 .emergency_number a{
 	color: #fff;
-	font-size: 24px;
+	font-size: 18px;
 	line-height: 28px;
 }
 .emergency_number a > img{
@@ -121,9 +122,9 @@ body#home_one .emergency_number, body#home_one .emergency_number::after{
 .mainmenu .nav.navbar-nav > li > a {
 	text-transform: uppercase;
 	color: #000;
-	font-size: 24px;
+	font-size: 18px;
 	font-weight: 400;
-	padding: 14px 21px 14px 30px;
+	padding: 14px 21px 14px 5px;
 	font-family: 'Lora', serif;
 }
 @media (min-width: 768px){
@@ -357,12 +358,12 @@ body#booking_page .personal_info_area .hotel_booking_area5 select#adult, body#bo
 }
 .room_book{
 	border-right: 1px solid #475362;
-	margin-right: 30%;
+	margin-right: 10%;
     margin-top: 4%;
 }
 .room_book h6{
 	color: #fff;
-	font-size: 24px;
+	font-size: 18px;
 	font-weight: 600;
 	font-family: "Karla",sans-serif;
 }
@@ -433,7 +434,7 @@ form#form1 .form-group {
     opacity:  1;
 }
 .hotel_booking_area input#datepicker, .hotel_booking_area input#datepicker1,.hotel_booking_area input#button-form,.hotel_booking_area input#inputguest, .hotel_booking_area select#room, .hotel_booking_area select#adult, .hotel_booking_area select#child, .hotel_booking_area select#bed {
-	font-size: 20px;
+	font-size: 14px;
 	height: 37px;
 	padding: 0;
 	text-transform: uppercase;
@@ -739,7 +740,7 @@ body#home_two .select_room .room_rent > p > span, body#accomodation_page .select
   border: medium none;
   margin: 0 auto;
   text-align: center;
-  width: 56.7%;
+  width: 60.7%;
 }
 .hotel_facilities_content .nav-tabs > li > a {
 	background: #eeefed none repeat scroll 0 0;
@@ -1048,7 +1049,7 @@ body#error_page .error .section_title.nice_title > h3::after {
 -----------------------------------------------------------*/
 
 .footer_area{
-	background: #313a45;
+	background: #414141;
 }
 .footer_widget > h5 {
   color: #fff;
@@ -1069,7 +1070,7 @@ body#error_page .error .section_title.nice_title > h3::after {
   margin-bottom: 19px;
 }
 .footer_widget ul li{
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 }
 .footer_widget ul li p i {
   float: left;
@@ -1511,8 +1512,8 @@ body#booking_page .booking ul.nav-tabs > li > a{
 }
 body#booking_page .booking ul.nav-tabs > li > a > span {
 	display: block;
-	margin-top: 15px;
-	margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 body#booking_page .booking ul.nav-tabs > li > a > i{
 	background: #fff none repeat scroll 0 0;
@@ -2181,7 +2182,7 @@ body#single_blog_page .recent_post_details > p {
 #social_footer{
 	text-align:center;
 	border-top:1px solid rgba(255,255,255,0.2);
-	margin-top:30px;
+	/*margin-top:30px;*/
 	padding-top:30px;
 }
 #social_footer p{
@@ -2227,7 +2228,7 @@ ul#lang_top{
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	font-size:12px;
-    margin-top: -1px;
+    margin-top: 2px;
 	font-weight:500;
 }
 ul#lang_top li{
@@ -2241,7 +2242,7 @@ ul#lang_top li a.active{
 	color:#999;
 }
 ul#lang_top li > a{
-    font-size: 24px;
+    font-size: 18px;
 }
 a.btn_1_outline, .btn_1_outline{
 	border: none;
@@ -2321,7 +2322,7 @@ input.qtyminus {
 #mapid { height: 180px; }
 .navbar-right {
 	float: right !important;
-	margin-right: 1px;
+	margin-right: 70px;
 }
 .address-text{
 	margin-top: 5px;
@@ -2365,7 +2366,7 @@ input.qtyminus {
 	#ddd;
 }
 .floatright{
-	margin-right: 90px;
+	/*margin-right: 90px;*/
 	margin-top: 30px;
 }
 .floatright2{
@@ -2378,7 +2379,7 @@ input.qtyminus {
 	margin-left: -60px;
 }
 .room_list_desc2{
-	margin-left: -60px;
+	margin-left: -70px;
 }
 .room_list_desc3{
 	margin-left: -5px;
@@ -2470,7 +2471,7 @@ select.select-field{
 	padding: 0 3% 0 5%;
 	border: 1px solid #b9c2c5;
 	font-family: "Karla",sans-serif;
-	font-size: 12px;
+	font-size: 16px;
 	font-weight: 700;
 	line-height: 15px;
 	color: #313a45;
@@ -2486,6 +2487,7 @@ select.select-field{
 }
 span.imp_table_text {
 	color: #fff;
+    font-size: 14px;
 }
 span.imp_table_text i {
 	font-size: 20px;
@@ -2499,9 +2501,9 @@ span.imp_table_text i {
 	margin-right: -10%;
 	margin-left: 1.5%;
 }
-.uk-overlay-background {
+/*.uk-overlay-background {
 	background: #f7c411 none repeat scroll 0 0;
-}
+}*/
 .icon-ok-squared:hover{
 	 color: #72ff88;
  }
@@ -2535,7 +2537,9 @@ span.imp_table_text i {
 }
 
 ul.nav.nav-tabs {
-	padding-left: 8%;
+	padding-left: 6%;
+    margin-bottom: -60px;
+    margin-top: -50px;
 }
 
 span.tooltip-item.service_icon {
@@ -2543,10 +2547,10 @@ span.tooltip-item.service_icon {
 }
 
 .table-striped td {
-	font-size: medium;
+	font-size: small;
 }
 .popover{
-    width: 335px;
+    width: 240px;
 	max-width: 460px;
 }
 .form-group.col-lg-5.col-md-5.col-sm-5.date-inicio {
@@ -2577,10 +2581,13 @@ span.tooltip-item.service_icon {
 
 }
 .popover.bottom.in{
-    width: 80%;
+    width: 100%;
 }
 i.icon-cancel-squared{
-    margin-left: -10px;
+    margin-left: -15px;
+}
+i.icon-cancel-squared.icon-service-view{
+    margin-left: -12px;
 }
 span.imp_table_text.dates {
     margin-right: 15%;
@@ -2589,11 +2596,45 @@ body#booking_page {
     background: #f5f6fa;
 }
 .col-lg-2.col-md-2.col-sm-2.home-title-register {
-    margin-right: -4%;
+    margin-right: -2%;
 }
-.input-group.border-bottom-dark-2.home-date-field {
-    width: 82%;
-}
+/*.input-group.border-bottom-dark-2.home-date-field {*/
+/*    width: 70%;*/
+/*}*/
 h6.modal-title {
     font-size: 24px;
+}
+h3.title-hostal{
+    text-transform: uppercase;
+    color: #000;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'Lora', serif;
+}
+p.hostal-description,span.more.hostal-description{
+    font-size: 16px;
+    font-family: "Karla",sans-serif;;
+}
+p.hostal-servicio,span.more.hostal-servicio{
+    font-size: 14px;
+    font-family: "Karla",sans-serif;;
+}
+.btn.btn-primary#bookingButton{
+    padding: 10px 20px;
+    font-size: 12px;
+}
+.col-sm-11.address-text h6{
+    font-size: 14px;
+}
+span.tooltip-item i {
+    font-size: xx-large;
+}
+span.tooltip-item.hostal i {
+    font-size: x-large;
+}
+.modal-dialog{
+    width: 250px;
+}
+.imp_table_text.dates{
+    font-size: small;
 }

@@ -20,8 +20,8 @@
 
                 </div>
                 <div class="col-md-5 room_list_desc2">
-                    <h2>{{$item['name']}}</h2>
-                    <span class="more">{{$item['description']}}</span>
+                    <h3>{{$item['name']}}</h3>
+                    <span class="more hostal-servicio">{{$item['description']}}</span>
 
                     <div class="row option-button sin-dates">
 
@@ -33,14 +33,14 @@
                                     data-id={{$item['id']}} data-toggle="popover" data-placement="bottom"
                                     id={{'date'.$loop->index}} data-index-service={{$loop->index}} data-id-popoper=''
                                     onclick="openPopover(this)"
-                                    style="font-size: 30px;"
+                                    style="font-size: 25px;"
                                     class="icon-calendar-empty only-icon"></i></span>
 
                         <span style='cursor: pointer;color:  #000000;'
                               class="imp_table_text"><i
                                     data-id={{$item['id']}} id={{'add'.$loop->index}} onclick="addCarrusel(this)"
                                     class=" icon-plus-squared"
-                                    style="font-size: 30px;"
+                                    style="font-size: 25px;"
                                     data-index-service={{$loop->index}} ></i></span>
 
                     </div>
@@ -59,7 +59,7 @@
 
     $(document).ready(function () {
 
-        var showChar = 180;  // How many characters are shown by default
+        var showChar = 135;  // How many characters are shown by default
         var ellipsestext = "...";
         var moretext = keyWorld.read_more;
         var lesstext = keyWorld.read_less;
@@ -160,7 +160,7 @@
             '                        <div class="input-group-addon"><i\n' +
             '                                    class="fa fa-calendar"></i></div>\n' +
             '                    </div>\n' +
-            '                </div><span  style=\'cursor: pointer;color:  #000000;\'  class="imp_table_text"><i onclick="closeDateField(this)" class="icon-cancel-squared" style="font-size: 30px;" ></i></span></div>';
+            '                </div><span  style=\'cursor: pointer;color:  #000000;\'  class="imp_table_text"><i onclick="closeDateField(this)" class="icon-cancel-squared icon-service-view" style="font-size: 30px;" ></i></span></div>';
     }
 
     function inicialDate(index_service,elem) {

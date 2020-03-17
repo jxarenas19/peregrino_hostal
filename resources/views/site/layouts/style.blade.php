@@ -11,9 +11,6 @@
 <link rel="stylesheet" href="{{asset("site_assets/css/bootstrap.min.css")}}">
 
 
-<link rel="stylesheet" href="{{asset("site_assets/css/uikit.min.css")}}">
-
-
 
 <!-- animate -->
 <link rel="stylesheet" href="{{asset("site_assets/css/animate.css")}}">
@@ -34,7 +31,6 @@
 <!-- custom css -->
 <link rel="stylesheet" href="{{asset("site_assets/css/style.css")}}">
 <link rel="stylesheet" href="{{asset("site_assets/css/menu.css")}}">
-<link rel="stylesheet" href="{{asset("site_assets/css/uikit.min.css")}}">
 
 <!-- responsive -->
 <link rel="stylesheet" href="{{asset("site_assets/css/responsive.css")}}">
@@ -47,4 +43,8 @@
 <link rel="stylesheet" href="{{asset("site_assets/css/fontello/css/icon_set_2.css")}}">
 <link rel="stylesheet" href="{{asset("site_assets/css/fontello/css/fontello.css")}}">
 
+
+
+
+<link rel="stylesheet" href="{{asset("site_assets/css/uikit.min.css")}}">
 @yield('styles')

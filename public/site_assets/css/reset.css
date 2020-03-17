@@ -35,9 +35,9 @@ p{
 .floatright {
     float: right;
 }
-.floatright4 {
-    float: right;
-}
+/*.floatright4 {*/
+/*    float: right;*/
+/*}*/
 .floatright3 {
     float: right;
 }
@@ -226,7 +226,7 @@ a.btn.btn-black:hover{
 }
 
 .uk-overlay-icon::before {
-  background: #fff none repeat scroll 0 0;
+  /*background: #fff none repeat scroll 0 0;*/
   border-radius: 50%;
   color: #313a45;
   font-size: 20px;

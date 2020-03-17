@@ -396,7 +396,7 @@ function createElementDinamic(room_index, total_children, total_adult) {
         '</div>' +
         '</div>\n' +
         '    </div >\n' +
-        '    <div class="delete-room" style="padding-left: 148px;">\n' +
+        '    <div class="delete-room" style="padding-left: 60px;">\n' +
         '<button type="button" id="buttonDel" onClick="deleteRoom(this)" class="btn btn-secondary btn-sm">Eliminar Habitación' +
         ' </button>' +
         '    </div >\n' +

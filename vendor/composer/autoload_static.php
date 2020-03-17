@@ -90,6 +90,7 @@ class ComposerStaticInit88034762001df4f21ed70f00aced3018
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
             'PhpConsole\\' => 11,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'O' => 
         array (
@@ -321,6 +322,10 @@ class ComposerStaticInit88034762001df4f21ed70f00aced3018
         array (
             0 => __DIR__ . '/..' . '/php-console/php-console/src/PhpConsole',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'Opis\\Closure\\' => 
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
@@ -483,6 +488,7 @@ class ComposerStaticInit88034762001df4f21ed70f00aced3018
         'App\\Http\\Controllers\\AdminPoliticasController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminPoliticasController.php',
         'App\\Http\\Controllers\\AdminPoliticasTraduccionesController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminPoliticasTraduccionesController.php',
         'App\\Http\\Controllers\\AdminPreciosController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminPreciosController.php',
+        'App\\Http\\Controllers\\AdminRedesSocialesController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminRedesSocialesController.php',
         'App\\Http\\Controllers\\AdminServiciosController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminServiciosController.php',
         'App\\Http\\Controllers\\AdminServiciosTraduccionesController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminServiciosTraduccionesController.php',
         'App\\Http\\Controllers\\AdminTemporadasController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminTemporadasController.php',
@@ -496,7 +502,11 @@ class ComposerStaticInit88034762001df4f21ed70f00aced3018
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Site\\BookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/BookingController.php',
+        'App\\Http\\Controllers\\Site\\BookingServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/BookingServiceController.php',
         'App\\Http\\Controllers\\Site\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/HomeController.php',
+        'App\\Http\\Controllers\\Site\\HostalController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/HostalController.php',
+        'App\\Http\\Controllers\\Site\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/ServiceController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -516,12 +526,12 @@ class ComposerStaticInit88034762001df4f21ed70f00aced3018
         'App\\Models\\Site\\GeneralText' => __DIR__ . '/../..' . '/app/Models/Site/GeneralText.php',
         'App\\Models\\Site\\Hostal' => __DIR__ . '/../..' . '/app/Models/Site/Hostal.php',
         'App\\Models\\Site\\HostalTranslation' => __DIR__ . '/../..' . '/app/Models/Site/HostalTranslation.php',
-        'App\\Models\\Site\\ImageServiceTranslation' => __DIR__ . '/../..' . '/app/Models/Site/ImageServiceTranslation.php',
-        'App\\Models\\Site\\ImageTranslation' => __DIR__ . '/../..' . '/app/Models/Site/ImageTranslation.php',
         'App\\Models\\Site\\Imagen' => __DIR__ . '/../..' . '/app/Models/Site/Imagen.php',
         'App\\Models\\Site\\ImagenHostal' => __DIR__ . '/../..' . '/app/Models/Site/ImagenHostal.php',
         'App\\Models\\Site\\ImagenHostalTranslation' => __DIR__ . '/../..' . '/app/Models/Site/ImagenHostalTranslation.php',
         'App\\Models\\Site\\ImagenService' => __DIR__ . '/../..' . '/app/Models/Site/ImagenService.php',
+        'App\\Models\\Site\\ImagenServiceTranslation' => __DIR__ . '/../..' . '/app/Models/Site/ImagenServiceTranslation.php',
+        'App\\Models\\Site\\ImagenTranslation' => __DIR__ . '/../..' . '/app/Models/Site/ImagenTranslation.php',
         'App\\Models\\Site\\Politicas' => __DIR__ . '/../..' . '/app/Models/Site/Politicas.php',
         'App\\Models\\Site\\PoliticasTranslation' => __DIR__ . '/../..' . '/app/Models/Site/PoliticasTranslation.php',
         'App\\Models\\Site\\Price' => __DIR__ . '/../..' . '/app/Models/Site/Price.php',
@@ -533,6 +543,7 @@ class ComposerStaticInit88034762001df4f21ed70f00aced3018
         'App\\Models\\Site\\SeasonTranslation' => __DIR__ . '/../..' . '/app/Models/Site/SeasonTranslation.php',
         'App\\Models\\Site\\Service' => __DIR__ . '/../..' . '/app/Models/Site/Service.php',
         'App\\Models\\Site\\ServiceTranslation' => __DIR__ . '/../..' . '/app/Models/Site/ServiceTranslation.php',
+        'App\\Models\\Site\\Social' => __DIR__ . '/../..' . '/app/Models/Site/Social.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -2778,6 +2789,11 @@ class ComposerStaticInit88034762001df4f21ed70f00aced3018
         'Opis\\Closure\\SecurityProvider' => __DIR__ . '/..' . '/opis/closure/src/SecurityProvider.php',
         'Opis\\Closure\\SelfReference' => __DIR__ . '/..' . '/opis/closure/src/SelfReference.php',
         'Opis\\Closure\\SerializableClosure' => __DIR__ . '/..' . '/opis/closure/src/SerializableClosure.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/AssertionFailedError.php',

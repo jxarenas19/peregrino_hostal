@@ -11,17 +11,17 @@
 
 <div>
 
-    <h3>{{$item['name']}} </h3>
-    <p>
+    <h3 class="title-hostal">{{$item['name']}} </h3>
+    <p class="hostal-description">
         {{$item['mini_description']}}
     </p>
     <div class="row">
 
         <div class="tooltip_styled tooltip-effect-4">
             <div class="col-sm-1 address-icon">
-                <span class="tooltip-item"><i class="icon_set_1_icon-41" style="font-size: 20px;" ></i></span>
-                <div class="tooltip-content2">
-                    <div class="map-tooltip" id={{$item['id']}} style='width: 300px; height: 300px;margin-left:2px;'></div>
+                <span class="tooltip-item" ><i class="icon_set_1_icon-41" style="font-size: 25px;" ></i></span>
+                <div class="tooltip-content2" style="margin: 0 20px 10px 20px;">
+                    <div style='width: 100%; height: 180px' class="map-tooltip" id={{$item['id']}} ></div>
             </div>
             </div>
                 <div class="col-sm-11 address-text">
@@ -58,7 +58,7 @@
         id: 'mapbox/streets-v11'
     }).addTo(mymap);
     L.marker([23.113417, -82.413297]).addTo(mymap)
-        .bindPopup("<b>"+hostal.name+"</b>").openPopup();
+        .bindPopup("<h3>"+hostal.name+"</h3>");
 
 
 </script>

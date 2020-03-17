@@ -1,4 +1,4 @@
-
+<script src="{{asset("site_assets/js/uikit.min.js")}}"></script>
 @foreach ($data['hostales'][0]['rooms'] as $item)
     <div class="row">
 
@@ -7,19 +7,19 @@
                 <a href={{$item['images']['info'][0]['url']}} data-uk-lightbox="{group:'group1'}" title={{$item['name']}}>
 
                     <figure class="room_pic uk-overlay-hover">
-                        <div><img src={{$item['images']['info'][0]['url']}}  alt="img" class="img-responsive styled"><div class="caption"></div></div>
+                        <div><img src={{$item['images']['info'][0]['url']}}  alt="" class="img-responsive styled"><div class="caption"></div></div>
                         <div class="uk-overlay-panel uk-overlay-background uk-overlay-icon"></div>
-                        <span class="wow zoomIn"><sup>$</sup>{{$item['priceActual']}}<small>Per night</small></span></figure>
+                        <span class="wow zoomIn"><sup>$</sup>{{$item['priceActual']}}<small>{{$data['keyWorld']['por_noche']}}</small></span></figure>
                 </a>
 
             </div>
             <div class="col-md-5 room_list_desc2">
-                <h3>{{$item['name']}}</h3>
+                <h3 style="margin-bottom: 5px;">{{$item['name']}}</h3>
                 <ul>
                     @foreach ($item['conforts'] as $elem)
                         <li>
                             <div class="tooltip_styled tooltip-effect-4">
-                                <span class="tooltip-item"><i class={{$elem['icon']}}></i></span>
+                                <span class="tooltip-item hostal"><i class={{$elem['icon']}}></i></span>
                                 <div class="tooltip-content">
                                     {{$elem['name']}}
                                 </div>
@@ -34,8 +34,8 @@
                         <tbody>
                         @foreach ($item['precio'] as $ok)
                             <tr>
-                                <td>{{$ok['temporada']}} (from {{$ok['inicio']}} to {{$ok['fin']}})</td>
-                                <td><strong>${{$ok['precio']}}</strong></td>
+                                <td>{{$ok['temporada']}} ({{$ok['inicio']}} to {{$ok['fin']}})</td>
+                                <td><h4>${{$ok['precio']}}</h4></td>
                             </tr>
                         @endforeach
                         </tbody>
