@@ -36,6 +36,10 @@
         var dataBase = JSON.parse($('#json')[0].value);
         var locale = item.getAttribute('data-locale');
         var key= item.getAttribute('data-key');
+        console.log(key)
+
+        console.log(locale)
+        console.log(item.textContent)
         if (dataBase.hasOwnProperty(locale)) {
             dataBase[locale][key] = item.textContent;
         }
@@ -43,7 +47,7 @@
             dataBase[locale] = {};
             dataBase[locale][key] = item.textContent;
         }
-
+        console.log(dataBase)
         $('#json')[0].value = (JSON.stringify(dataBase));
     }
     function updateKey(item) {

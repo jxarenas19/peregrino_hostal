@@ -44,13 +44,13 @@ class BookingController extends Controller
         }
         $dataHostalesBooking = collect();
         foreach ($hostalsBooking as $hostal) {
-            $dataHostalesBooking[] = $hostal->hostalMainDataToArray();
+            $dataHostalesBooking[] = $hostal->hostalDataToArray();
             $generalServices = (new Service())->generalService();
             #$debeSaber = (new About()) ->debeSaberToArray();
         }
         $dataHostales = collect();
         foreach ($hostals as $hostal) {
-            $dataHostales[] = $hostal->hostalMainDataToArray();
+            $dataHostales[] = $hostal->hostalDataToArray();
         }
 
 

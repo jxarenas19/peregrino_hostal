@@ -51,7 +51,15 @@ class Hostal extends Model implements TranslatableContract
             'info' => $this->images->where('estado', 'info')->toArray()
         );
     }
-
+    /**
+     * Devuelve las imagenes de de info del hostal
+     */
+    public function imagesInfoMain()
+    {
+        return array(
+            'info' => $this->images->where('estado', 'info')->where('main',true)->toArray()
+        );
+    }
     /**
      * Devuelve las imagenes del mini banner del hostal
      */
@@ -163,7 +171,7 @@ class Hostal extends Model implements TranslatableContract
         return $data;
     }
 
-    public function hostalMainDataToArray()
+    public function hostalDataToArray()
     {
         $data = array(
             "id" => $this->getAttribute('id'),
@@ -180,7 +188,23 @@ class Hostal extends Model implements TranslatableContract
         );
         return $data;
     }
+    public function hostalMainDataToArray()
+    {
+        $data = array(
+            "id" => $this->getAttribute('id'),
+            "name" => $this->getAttribute('name'),
+            "mini_description" => $this->getAttribute('mini_description'),
+            "address" => $this->getAttribute('address'),
+            "latitude" => $this->getAttribute('latitude'),
+            "length" => $this->getAttribute('length'),
+            "services" => $this->servicesToHostalArray(),
+            "rooms" => $this->roomsToHostalArray()->toArray(),
+            "images" => $this->imagesInfoMain(),
+            "conforts" => $this->rooms_conforts()
 
+        );
+        return $data;
+    }
     public function hostalHeaderData()
     {
         return array(

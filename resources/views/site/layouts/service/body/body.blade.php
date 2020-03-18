@@ -11,7 +11,7 @@
 <script src="{{asset("site_assets/js/moment.min.js")}}"></script>
 <script src="{{asset("site_assets/js/lightpick.js")}}"></script>
 
-<div class="container">
+<div class="container" style="padding-bottom: 35px;">
     <div class="row">
         <div class="col-lg-8 col-md-7">
             @include('site.layouts.service.body.service-component')

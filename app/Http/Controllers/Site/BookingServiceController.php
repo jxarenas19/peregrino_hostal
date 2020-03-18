@@ -22,7 +22,7 @@ class BookingServiceController extends Controller
         $generalServices = (new Service())->generalService();
         $dataHostales = collect();
         foreach ($hostals as $hostal) {
-            $dataHostales[] = $hostal->hostalMainDataToArray();
+            $dataHostales[] = $hostal->hostalDataToArray();
         }
 
         $dataResponse = array(

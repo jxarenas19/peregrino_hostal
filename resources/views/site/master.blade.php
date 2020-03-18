@@ -18,6 +18,7 @@
 
 @include('site.layouts.script')
     @include('site.layouts.footer')
+<div id="toTop"></div><!-- Back to top button -->
 </body>
 </html>
 <script>
@@ -25,5 +26,16 @@
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
+    });
+    $(window).scroll(function() {
+        if($(this).scrollTop() != 0) {
+            $('#toTop').fadeIn();
+        } else {
+            $('#toTop').fadeOut();
+        }
+    });
+    $('#toTop').on("click",function() {
+        console.log('entro')
+        $('body,html').animate({scrollTop:0},500);
     });
 </script>

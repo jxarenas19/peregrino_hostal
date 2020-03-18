@@ -1049,7 +1049,7 @@ body#error_page .error .section_title.nice_title > h3::after {
 -----------------------------------------------------------*/
 
 .footer_area{
-	background: #414141;
+	background: #313a45;
 }
 .footer_widget > h5 {
   color: #fff;
@@ -2161,7 +2161,7 @@ body#single_blog_page .recent_post_details > p {
 #toTop {
 	width:40px;
 	height:40px;
-	background-color:rgba(0, 0, 0, 0.6);
+	background-color:#313a45;
 	text-align:center;
 	padding:10px;
 	line-height:20px;
